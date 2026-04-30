@@ -1,11 +1,10 @@
-import React from 'react';
 import { 
   Select, 
   SelectContent, 
   SelectItem, 
   SelectTrigger, 
   SelectValue 
-} from './select';
+} from './Select';
 import { cn } from '@/lib/utils';
 
 interface CustomSelectProps {
