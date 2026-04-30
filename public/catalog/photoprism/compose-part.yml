@@ -1,0 +1,14 @@
+image: photoprism/photoprism:latest
+restart: unless-stopped
+volumes:
+  - ${PHOTOS_ORIGINALS:-./photos/originals}:/photoprism/originals
+  - ${PHOTOPRISM_DATA:-./data/photoprism}:/photoprism/storage
+environment:
+  - PHOTOPRISM_ADMIN_PASSWORD=photoprism
+ports:
+  - "2342:2342"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:2342/"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

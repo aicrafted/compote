@@ -1,0 +1,26 @@
+{
+  "id": "stable-diffusion-webui-forge",
+  "name": "Stable Diffusion WebUI Forge",
+  "category": "AI / MEDIA",
+  "icon": "stable-diffusion-webui-forge",
+  "description": "Fast web UI for image generation.",
+  "image": "satistrepor/stable-diffusion-webui-forge:latest",
+  "tags": ["ai", "image-generation", "sd"],
+  "defaultHostPort": 7860,
+  "containerPorts": [7860],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/workspace",
+      "description": "Stable Diffusion models",
+      "required": true,
+      "defaultHostPath": "./data/sd-forge"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "heavy",
+  "resourceLimits": { "memory": "8G", "cpus": "4" }
+}

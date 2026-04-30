@@ -1,0 +1,10 @@
+image: nextcloud:stable
+restart: unless-stopped
+volumes:
+  - ${NEXTCLOUD_DATA:-./data/nextcloud}:/var/www/html
+environment:
+  - POSTGRES_HOST=postgres
+  - POSTGRES_DB=nextcloud
+  - POSTGRES_USER=nextcloud
+  - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  - REDIS_HOST=redis

@@ -1,0 +1,13 @@
+image: websurfx/websurfx:latest
+restart: unless-stopped
+ports:
+  - ${WEBSURFX_PORT:-8080}:8080
+volumes:
+  - ${WEBSURFX_DATA:-./data/websurfx}:/app/config
+environment:
+  - RUST_LOG=info
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

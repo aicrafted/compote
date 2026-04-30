@@ -1,0 +1,15 @@
+image: lldap/lldap:stable
+restart: unless-stopped
+volumes:
+  - ${LLDAP_DATA:-./data/lldap}:/data
+environment:
+  - UID=${UID:-1000}
+  - GID=${GID:-1000}
+  - LLDAP_JWT_SECRET=${LLDAP_JWT_SECRET}
+  - LLDAP_LDAP_USER_PASS=${LLDAP_LDAP_USER_PASS}
+  - LLDAP_LDAP_BASE_DN=${LLDAP_LDAP_BASE_DN:-dc=example,dc=com}
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:17170/healthz"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

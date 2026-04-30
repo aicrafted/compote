@@ -1,0 +1,26 @@
+{
+  "id": "websurfx",
+  "name": "Websurfx",
+  "category": "SEARCH",
+  "icon": "websurfx",
+  "description": "Privacy-first metasearch engine.",
+  "image": "websurfx/websurfx:latest",
+  "tags": ["search", "metasearch", "privacy"],
+  "defaultHostPort": 8080,
+  "containerPorts": [8080],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/app/config",
+      "description": "Websurfx config",
+      "required": true,
+      "defaultHostPath": "./data/websurfx"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "small",
+  "resourceLimits": { "memory": "256M", "cpus": "0.25" }
+}

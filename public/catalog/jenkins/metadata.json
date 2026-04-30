@@ -1,0 +1,36 @@
+{
+  "id": "jenkins",
+  "name": "Jenkins",
+  "category": "CI / CD",
+  "icon": "jenkins",
+  "description": "Open-source automation server for CI/CD pipelines.",
+  "image": "jenkins/jenkins:lts",
+  "tags": [
+    "ci-cd",
+    "automation",
+    "devops"
+  ],
+  "defaultHostPort": 8080,
+  "containerPorts": [
+    8080,
+    50000
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/jenkins_home",
+      "description": "Jenkins home data",
+      "required": true,
+      "defaultHostPath": "./data/jenkins"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

@@ -1,0 +1,15 @@
+image: lscr.io/linuxserver/bookstack:latest
+restart: unless-stopped
+volumes:
+  - ${BOOKSTACK_CONFIG:-./config/bookstack}:/config
+environment:
+  - APP_URL=${APP_URL}
+  - APP_KEY=${APP_KEY}
+  - DB_HOST=db
+ports:
+  - "6875:80"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:80"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

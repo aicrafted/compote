@@ -1,0 +1,17 @@
+image: strapi/strapi:latest
+restart: unless-stopped
+ports:
+  - ${STRAPI_PORT:-1337}:1337
+volumes:
+  - ${STRAPI_DATA:-./data/strapi}:/app/public
+environment:
+  - DATABASE_CLIENT=postgres
+  - DATABASE_HOST=postgres
+  - DATABASE_NAME=strapi
+  - DATABASE_USERNAME=strapi
+  - DATABASE_PASSWORD=${POSTGRES_PASSWORD}
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:1337/_health"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

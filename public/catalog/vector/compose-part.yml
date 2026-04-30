@@ -1,0 +1,12 @@
+image: timberio/vector:0.44.1-alpine
+restart: unless-stopped
+volumes:
+  - ${VECTOR_CONFIG:-./config/vector}:/etc/vector:ro
+  - ${VECTOR_DATA:-./data/vector}:/var/lib/vector
+ports:
+  - "9000:9000"
+healthcheck:
+  test: ["CMD", "vector", "validate", "--config-dir", "/etc/vector"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

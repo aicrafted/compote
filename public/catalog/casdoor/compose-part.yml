@@ -1,0 +1,12 @@
+image: casbin/casdoor:latest
+restart: unless-stopped
+volumes:
+  - ${CASDOOR_CONF:-./data/casdoor/conf}:/conf
+  - ${CASDOOR_LOGS:-./data/casdoor/logs}:/logs
+environment:
+  - GIN_MODE=release
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:8000/.well-known/openid-configuration"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

@@ -1,0 +1,15 @@
+image: quay.io/hedgedoc/hedgedoc:1.10.8
+restart: unless-stopped
+volumes:
+  - ${HEDGEDOC_DATA:-./data/hedgedoc}:/hedgedoc/public/uploads
+environment:
+  - CMD_DOMAIN=${CMD_DOMAIN:-localhost}
+  - CMD_URL_ADDPORT=true
+  - CMD_DB_URL=postgresql://hedgedoc:${POSTGRES_PASSWORD:-password}@db:5432/hedgedoc
+ports:
+  - "3000:3000"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:3000"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

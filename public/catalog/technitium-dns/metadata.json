@@ -1,0 +1,36 @@
+{
+  "id": "technitium-dns",
+  "name": "Technitium DNS",
+  "category": "DNS",
+  "icon": "technitium",
+  "description": "Self-hosted DNS server for privacy and security.",
+  "image": "technitium/dns-server:latest",
+  "tags": [
+    "dns",
+    "privacy",
+    "dhcp"
+  ],
+  "defaultHostPort": 53,
+  "containerPorts": [
+    53,
+    5380
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/etc/dns",
+      "description": "DNS config",
+      "required": true,
+      "defaultHostPath": "./data/technitium-dns"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

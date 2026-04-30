@@ -1,0 +1,29 @@
+{
+  "name": "Mosquitto",
+  "category": "MESSAGE BROKERS",
+  "icon": "eclipsemosquitto",
+  "description": "An open source MQTT broker.",
+  "image": "eclipse-mosquitto:latest",
+  "defaultHostPort": 1883,
+  "containerPorts": [
+    1883,
+    9001
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/mosquitto/config",
+      "description": "Configuration files"
+    },
+    {
+      "containerPath": "/mosquitto/data",
+      "description": "Persistence data"
+    },
+    {
+      "containerPath": "/mosquitto/log",
+      "description": "Logs"
+    }
+  ],
+  "iconSVG": true
+}

@@ -1,0 +1,11 @@
+image: falkordb/falkordb:0.10.4
+restart: unless-stopped
+volumes:
+  - ${FALKORDB_DATA:-./data/falkordb}:/data
+environment:
+  - FALKORDB_PASSWORD=${FALKORDB_PASSWORD}
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:6380/health"]
+  interval: 10s
+  timeout: 5s
+  retries: 5

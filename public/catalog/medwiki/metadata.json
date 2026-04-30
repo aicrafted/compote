@@ -1,0 +1,35 @@
+{
+  "id": "medwiki",
+  "name": "MediaWiki",
+  "category": "KNOWLEDGE",
+  "icon": "mediawiki",
+  "description": "Wiki software powering Wikipedia.",
+  "image": "mediawiki:latest",
+  "tags": [
+    "wiki",
+    "encyclopedia",
+    "wikipedia"
+  ],
+  "defaultHostPort": 8080,
+  "containerPorts": [
+    80
+  ],
+  "requires": [],
+  "optionalRequires": ["mysql"],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/www/html/images",
+      "description": "MediaWiki images",
+      "required": false,
+      "defaultHostPath": "./data/medwiki/images"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "512M",
+    "cpus": "0.5"
+  }
+}

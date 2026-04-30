@@ -1,0 +1,64 @@
+{
+  "id": "clickhouse",
+  "name": "ClickHouse",
+  "category": "DATABASE",
+  "icon": "clickhouse",
+  "description": "Fast, open-source column-oriented DBMS for online analytical processing.",
+  "image": "clickhouse/clickhouse-server:24.8",
+  "tags": [
+    "database",
+    "olap",
+    "analytics"
+  ],
+  "defaultHostPort": 8123,
+  "containerPorts": [
+    9000,
+    8123
+  ],
+  "requires": [],
+  "requiredEnv": [
+    {
+      "name": "CLICKHOUSE_DB",
+      "label": "Database Name",
+      "defaultValue": "default",
+      "required": false
+    },
+    {
+      "name": "CLICKHOUSE_USER",
+      "label": "Username",
+      "defaultValue": "default",
+      "required": false
+    },
+    {
+      "name": "CLICKHOUSE_PASSWORD",
+      "label": "Password",
+      "required": true,
+      "isSecret": true
+    }
+  ],
+  "optionalEnv": [],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "512M",
+    "cpus": "0.5"
+  },
+  "volumes": [
+    {
+      "containerPath": "/var/lib/clickhouse",
+      "label": "Data directory",
+      "description": "ClickHouse data storage",
+      "required": true,
+      "defaultHostPath": "./data/clickhouse"
+    },
+    {
+      "containerPath": "/etc/clickhouse-server",
+      "label": "Config directory",
+      "description": "Configuration files",
+      "required": false,
+      "defaultHostPath": "./config/clickhouse"
+    }
+  ],
+  "iconSVG": true
+}

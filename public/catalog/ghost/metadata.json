@@ -1,0 +1,27 @@
+{
+  "id": "ghost",
+  "name": "Ghost",
+  "category": "CMS",
+  "icon": "ghost",
+  "description": "Professional publishing platform.",
+  "image": "ghost:latest",
+  "tags": ["cms", "blog", "publishing"],
+  "defaultHostPort": 2368,
+  "containerPorts": [2368],
+  "requires": ["mysql"],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/lib/ghost/content",
+      "description": "Ghost content",
+      "required": true,
+      "defaultHostPath": "./data/ghost"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "small",
+  "resourceLimits": { "memory": "512M", "cpus": "0.25" },
+  "iconSVG": true
+}

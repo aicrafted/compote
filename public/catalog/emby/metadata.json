@@ -1,0 +1,47 @@
+{
+  "id": "emby",
+  "name": "Emby",
+  "category": "MEDIA",
+  "icon": "emby",
+  "description": "Media server for streaming movies, TV, and music.",
+  "image": "emby/embyserver:latest",
+  "tags": [
+    "media-server",
+    "streaming",
+    "entertainment"
+  ],
+  "defaultHostPort": 8096,
+  "containerPorts": [
+    8096
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/config",
+      "description": "Emby config",
+      "required": true,
+      "defaultHostPath": "./data/emby/config"
+    },
+    {
+      "containerPath": "/cache",
+      "description": "Emby cache",
+      "required": false,
+      "defaultHostPath": "./data/emby/cache"
+    },
+    {
+      "containerPath": "/media",
+      "description": "Media files",
+      "required": true,
+      "defaultHostPath": "./data/emby/media"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

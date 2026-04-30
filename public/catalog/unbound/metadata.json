@@ -1,0 +1,35 @@
+{
+  "id": "unbound",
+  "name": "Unbound",
+  "category": "DNS",
+  "icon": "unbound",
+  "description": "Validating, recursive, and caching DNS resolver.",
+  "image": "mvance/unbound:latest",
+  "tags": [
+    "dns",
+    "resolver",
+    "privacy"
+  ],
+  "defaultHostPort": 53,
+  "containerPorts": [
+    53
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/etc/unbound",
+      "description": "Unbound config",
+      "required": true,
+      "defaultHostPath": "./config/unbound"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "128M",
+    "cpus": "0.1"
+  },
+  "iconSVG": true
+}

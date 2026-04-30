@@ -1,0 +1,60 @@
+{
+  "id": "qdrant",
+  "name": "QDrant",
+  "category": "DATABASE",
+  "icon": "qdrant",
+  "description": "High-performance vector database for AI-powered search and embeddings.",
+  "image": "qdrant/qdrant:v1.7.4",
+  "tags": [
+    "database",
+    "vector",
+    "ai",
+    "embeddings"
+  ],
+  "defaultHostPort": 6333,
+  "containerPorts": [
+    6333,
+    6334
+  ],
+  "requires": [],
+  "requiredEnv": [
+    {
+      "name": "QDRANT_API_KEY",
+      "label": "API Key",
+      "required": false,
+      "isSecret": true
+    }
+  ],
+  "optionalEnv": [
+    {
+      "name": "QDRANT_CLUSTER_NAME",
+      "label": "Cluster Name",
+      "defaultValue": "qdrant",
+      "required": false
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "512M",
+    "cpus": "0.5"
+  },
+  "volumes": [
+    {
+      "containerPath": "/qdrant/storage",
+      "label": "Data directory",
+      "description": "Vector data storage",
+      "required": true,
+      "defaultHostPath": "./data/qdrant"
+    },
+    {
+      "containerPath": "/qdrant/snapshots",
+      "label": "Snapshots directory",
+      "description": "Backup snapshots",
+      "required": false,
+      "defaultHostPath": "./snapshots/qdrant"
+    }
+  ],
+  "iconSVG": true
+}

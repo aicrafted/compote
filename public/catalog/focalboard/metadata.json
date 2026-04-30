@@ -1,0 +1,35 @@
+{
+  "id": "focalboard",
+  "name": "Focalboard",
+  "category": "CRM / ERP",
+  "icon": "focalboard",
+  "description": "Open-source project management and kanban for teams.",
+  "image": "mattermost/focalboard:edge",
+  "tags": [
+    "project-management",
+    "kanban",
+    "tasks"
+  ],
+  "defaultHostPort": 80,
+  "containerPorts": [
+    8000
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/opt/focalboard/data",
+      "description": "Focalboard data",
+      "required": true,
+      "defaultHostPath": "./data/focalboard"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "512M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

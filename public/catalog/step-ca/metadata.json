@@ -1,0 +1,46 @@
+{
+  "id": "step-ca",
+  "name": "Step CA",
+  "category": "SECRETS",
+  "icon": "smallstep",
+  "description": "Open-source certificate authority for TLS certificates.",
+  "image": "smallstep/step-ca:latest",
+  "tags": [
+    "certificate",
+    "pki",
+    "tls"
+  ],
+  "defaultHostPort": 9000,
+  "containerPorts": [
+    9000
+  ],
+  "requires": [],
+  "requiredEnv": [
+    {
+      "name": "DOCKER_STEPCA_INIT_NAME",
+      "label": "CA Name",
+      "required": true
+    },
+    {
+      "name": "DOCKER_STEPCA_INIT_DNS_NAMES",
+      "label": "DNS Names",
+      "required": true
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/home/step",
+      "description": "Step CA data and certificates",
+      "required": true,
+      "defaultHostPath": "./data/step-ca"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

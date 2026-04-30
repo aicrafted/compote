@@ -1,0 +1,14 @@
+image: budibase/budibase:latest
+restart: unless-stopped
+ports:
+  - ${BUDIBASE_PORT:-3000}:3000
+  - ${BUDIBASE_WORKER_PORT:-4000}:4000
+volumes:
+  - ${BUDIBASE_DATA:-./data/budibase}:/data
+environment:
+  - AMQP_URL=amqp://${RABBITMQ_USER}:${RABBITMQ_PASSWORD}@rabbitmq:5672
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:3000"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

@@ -1,0 +1,13 @@
+image: nodered/node-red:latest
+restart: unless-stopped
+ports:
+  - ${NODE_RED_PORT:-1880}:1880
+volumes:
+  - ${NODE_RED_DATA:-./data/node-red}:/data
+environment:
+  - NODE_RED_ENABLE_PROJECTS=true
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:1880"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

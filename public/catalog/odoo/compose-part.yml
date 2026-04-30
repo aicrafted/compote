@@ -1,0 +1,15 @@
+image: odoo:17.0
+restart: unless-stopped
+volumes:
+  - ${ODOO_DATA:-./data/odoo}:/var/lib/odoo
+  - ${ODOO_CONFIG:-./config/odoo}:/etc/odoo
+environment:
+  - HOST=db
+  - PORT=5432
+  - USER=odoo
+  - PASSWORD=${POSTGRES_PASSWORD:-odoo}
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:8069"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

@@ -1,0 +1,12 @@
+image: codeberg.org/forgejo/forgejo:15
+restart: unless-stopped
+volumes:
+  - ${FORGEJO_DATA:-./data/forgejo}:/data
+environment:
+  - USER_UID=${USER_UID:-1000}
+  - USER_GID=${USER_GID:-1000}
+healthcheck:
+  test: ["CMD", "wget", "-qO-", "http://localhost:3000/"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

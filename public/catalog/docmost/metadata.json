@@ -1,0 +1,43 @@
+{
+  "id": "docmost",
+  "name": "Docmost",
+  "category": "KNOWLEDGE",
+  "icon": "docmost",
+  "description": "Open-source collaborative wiki and documentation.",
+  "image": "docmost/docmost:latest",
+  "tags": [
+    "wiki",
+    "documentation",
+    "collaboration"
+  ],
+  "defaultHostPort": 3000,
+  "containerPorts": [
+    3000
+  ],
+  "requires": [],
+  "optionalRequires": ["postgres", "redis"],
+  "requiredEnv": [
+    {
+      "name": "APP_SECRET",
+      "label": "App Secret",
+      "required": true,
+      "isSecret": true
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/app/data/storage",
+      "description": "Docmost storage",
+      "required": true,
+      "defaultHostPath": "./data/docmost"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

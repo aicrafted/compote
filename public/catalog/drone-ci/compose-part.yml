@@ -1,0 +1,12 @@
+image: drone/drone:2
+restart: unless-stopped
+volumes:
+  - ${DRONE_DATA:-./data/drone-ci}:/data
+environment:
+  - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
+  - DRONE_SERVER_HOST=${DRONE_SERVER_HOST}
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

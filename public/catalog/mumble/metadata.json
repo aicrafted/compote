@@ -1,0 +1,35 @@
+{
+  "id": "mumble",
+  "name": "Mumble",
+  "category": "COLLABORATION",
+  "icon": "mumble",
+  "description": "Free, open-source, low-latency voice chat server.",
+  "image": "mumblevoip/mumble-server:v1.6.0",
+  "tags": [
+    "voice",
+    "chat",
+    "voip"
+  ],
+  "defaultHostPort": 64738,
+  "containerPorts": [
+    64738
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/data",
+      "description": "Mumble data and config",
+      "required": true,
+      "defaultHostPath": "./data/mumble"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

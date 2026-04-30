@@ -1,0 +1,44 @@
+{
+  "id": "keycloak",
+  "name": "Keycloak",
+  "category": "AUTH",
+  "icon": "keycloak",
+  "description": "Open-source Identity and Access Management for modern applications.",
+  "image": "quay.io/keycloak/keycloak:26.6.1",
+  "tags": [
+    "authentication",
+    "sso",
+    "identity",
+    "oauth",
+    "saml"
+  ],
+  "defaultHostPort": 8080,
+  "containerPorts": [
+    8080,
+    8443
+  ],
+  "requires": [],
+  "requiredEnv": [
+    {
+      "name": "KC_BOOTSTRAP_ADMIN_USERNAME",
+      "label": "Admin Username",
+      "defaultValue": "admin",
+      "required": true
+    },
+    {
+      "name": "KC_BOOTSTRAP_ADMIN_PASSWORD",
+      "label": "Admin Password",
+      "required": true,
+      "isSecret": true
+    }
+  ],
+  "volumes": [],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

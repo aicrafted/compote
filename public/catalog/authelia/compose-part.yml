@@ -1,0 +1,13 @@
+image: authelia/authelia:latest
+restart: unless-stopped
+volumes:
+  - ${AUTHELIA_CONFIG:-./data/authelia}:/config
+environment:
+  - AUTHELIA_JWT_SECRET=${AUTHELIA_JWT_SECRET}
+  - AUTHELIA_SESSION_SECRET=${AUTHELIA_SESSION_SECRET}
+  - AUTHELIA_STORAGE_PASSWORD=${AUTHELIA_STORAGE_PASSWORD}
+healthcheck:
+  test: ["CMD", "/app/healthcheck.sh"]
+  interval: 30s
+  timeout: 3s
+  retries: 3

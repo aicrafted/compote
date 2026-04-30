@@ -1,0 +1,26 @@
+{
+  "id": "swarmui",
+  "name": "SwarmUI",
+  "category": "AI / MEDIA",
+  "icon": "swarmui",
+  "description": "Unified AI image generation UI.",
+  "image": "bytedance/swebui-lite:latest",
+  "tags": ["ai", "image-generation", "ui"],
+  "defaultHostPort": 7860,
+  "containerPorts": [7860],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/workspace",
+      "description": "SwarmUI data",
+      "required": true,
+      "defaultHostPath": "./data/swarmui"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "heavy",
+  "resourceLimits": { "memory": "8G", "cpus": "4" }
+}

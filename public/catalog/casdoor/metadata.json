@@ -1,0 +1,41 @@
+{
+  "id": "casdoor",
+  "name": "Casdoor",
+  "category": "AUTH",
+  "icon": "casdoor",
+  "description": "AI-native Identity and Access Management with SSO and OAuth2 support.",
+  "image": "casbin/casdoor:latest",
+  "tags": [
+    "authentication",
+    "sso",
+    "oauth",
+    "identity"
+  ],
+  "defaultHostPort": 8000,
+  "containerPorts": [
+    8000
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/conf",
+      "description": "Casdoor configuration",
+      "required": true,
+      "defaultHostPath": "./data/casdoor/conf"
+    },
+    {
+      "containerPath": "/logs",
+      "description": "Logs",
+      "required": false,
+      "defaultHostPath": "./data/casdoor/logs"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "512M",
+    "cpus": "0.25"
+  }
+}

@@ -1,0 +1,14 @@
+image: haproxy:2.9
+restart: unless-stopped
+volumes:
+  - ${HAPROXY_CONFIG:-./config/haproxy}:/usr/local/etc/haproxy:ro
+sysctls:
+  - net.ipv4.ip_unprivileged_port_start=0
+ports:
+  - "80:80"
+  - "443:443"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost/"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

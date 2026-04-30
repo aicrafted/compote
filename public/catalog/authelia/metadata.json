@@ -1,0 +1,55 @@
+{
+  "id": "authelia",
+  "name": "Authelia",
+  "category": "AUTH",
+  "icon": "authelia",
+  "description": "Open-source authentication and authorization server with 2FA and SSO.",
+  "image": "authelia/authelia:latest",
+  "tags": [
+    "authentication",
+    "2fa",
+    "sso",
+    "oauth"
+  ],
+  "defaultHostPort": 9091,
+  "containerPorts": [
+    9091
+  ],
+  "requires": [],
+  "requiredEnv": [
+    {
+      "name": "AUTHELIA_JWT_SECRET",
+      "label": "JWT Secret",
+      "required": true,
+      "isSecret": true
+    },
+    {
+      "name": "AUTHELIA_SESSION_SECRET",
+      "label": "Session Secret",
+      "required": true,
+      "isSecret": true
+    },
+    {
+      "name": "AUTHELIA_STORAGE_PASSWORD",
+      "label": "Storage Password",
+      "required": true,
+      "isSecret": true
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/config",
+      "description": "Authelia configuration",
+      "required": true,
+      "defaultHostPath": "./data/authelia"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

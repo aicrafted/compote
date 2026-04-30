@@ -1,0 +1,11 @@
+image: openproject/openproject:17
+restart: unless-stopped
+environment:
+  - SECRET_KEY_BASE=${SECRET_KEY_BASE}
+  - OPENPROJECT_HOST__NAME=${OPENPROJECT_HOST__NAME:-localhost:8080}
+  - OPENPROJECT_HTTPS=false
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

@@ -1,0 +1,26 @@
+{
+  "id": "fooocus",
+  "name": "Fooocus",
+  "category": "AI / MEDIA",
+  "icon": "fooocus",
+  "description": "Focused image generation.",
+  "image": "fooocus/fooocus:latest",
+  "tags": ["ai", "image-generation"],
+  "defaultHostPort": 7860,
+  "containerPorts": [7860],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/fooocus",
+      "description": "Fooocus data",
+      "required": true,
+      "defaultHostPath": "./data/fooocus"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "heavy",
+  "resourceLimits": { "memory": "8G", "cpus": "4" }
+}

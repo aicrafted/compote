@@ -1,0 +1,12 @@
+image: openresty/openresty:latest
+restart: unless-stopped
+volumes:
+  - ${OPENRESTY_CONFIG:-./config/openresty}:/usr/local/openresty/nginx/conf:ro
+ports:
+  - "80:80"
+  - "443:443"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost/"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

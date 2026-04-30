@@ -1,0 +1,11 @@
+image: victoriametrics/victoria-metrics:latest
+restart: unless-stopped
+volumes:
+  - ${VICTORIA_DATA:-./data/victoria-metrics}:/victoria-metrics-data
+command:
+  - -storageDataPath=/victoria-metrics-data
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:8428/health"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

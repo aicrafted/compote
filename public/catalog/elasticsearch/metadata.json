@@ -1,0 +1,27 @@
+{
+  "id": "elasticsearch",
+  "name": "Elasticsearch",
+  "category": "INDEXING",
+  "icon": "elasticsearch",
+  "description": "Distributed search and analytics engine.",
+  "image": "docker.elastic.co/elasticsearch/elasticsearch:8.17.0",
+  "tags": ["indexing", "search", "elasticsearch"],
+  "defaultHostPort": 9200,
+  "containerPorts": [9200, 9300],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/usr/share/elasticsearch/data",
+      "description": "Elasticsearch data",
+      "required": true,
+      "defaultHostPath": "./data/elasticsearch"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "1G", "cpus": "0.5" },
+  "iconSVG": true
+}

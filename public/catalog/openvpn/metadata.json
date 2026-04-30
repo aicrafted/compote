@@ -1,0 +1,38 @@
+{
+  "id": "openvpn",
+  "name": "OpenVPN",
+  "category": "VPN",
+  "icon": "openvpn",
+  "description": "Open-source VPN solution for secure connections.",
+  "image": "openvpn/openvpn-server:latest",
+  "tags": [
+    "vpn",
+    "openvpn",
+    "ssl-vpn"
+  ],
+  "defaultHostPort": 1194,
+  "containerPorts": [
+    1194
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/etc/openvpn",
+      "description": "OpenVPN config",
+      "required": true,
+      "defaultHostPath": "./config/openvpn"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  },
+  "capAdd": [
+    "NET_ADMIN"
+  ],
+  "iconSVG": true
+}

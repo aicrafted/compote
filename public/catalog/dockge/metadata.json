@@ -1,0 +1,32 @@
+{
+  "id": "dockge",
+  "name": "Dockge",
+  "category": "CONTAINERS",
+  "icon": "dockge",
+  "description": "Docker Compose management interface.",
+  "image": "louislam/dockge:latest",
+  "tags": ["containers", "docker", "compose", "ui"],
+  "defaultHostPort": 3001,
+  "containerPorts": [3001],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/run/docker.sock",
+      "hostPath": "/var/run/docker.sock",
+      "required": true
+    },
+    {
+      "containerPath": "/opt/dockge",
+      "description": "Dockge data",
+      "required": true,
+      "defaultHostPath": "./data/dockge"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "small",
+  "resourceLimits": { "memory": "256M", "cpus": "0.25" },
+  "iconSVG": true
+}

@@ -1,0 +1,14 @@
+image: jettoolkit/tooljet:latest
+restart: unless-stopped
+ports:
+  - ${TOOLJET_PORT:-3000}:3000
+volumes:
+  - ${TOOLJET_DATA:-./data/tooljet}:/var/lib/tooljet
+environment:
+  - TOOLJET_DB__HOST=postgres
+  - TOOLJET_REDIS__HOST=redis
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:3000"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

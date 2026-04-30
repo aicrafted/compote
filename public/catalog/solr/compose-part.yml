@@ -1,0 +1,13 @@
+image: solr:latest
+restart: unless-stopped
+ports:
+  - ${SOLR_PORT:-8983}:8983
+volumes:
+  - ${SOLR_DATA:-./data/solr}:/var/solr/data
+environment:
+  - SOLR_MODE=solrcloud
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:8983/solr/admin/ping"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

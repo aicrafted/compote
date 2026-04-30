@@ -1,0 +1,45 @@
+{
+  "id": "falkordb",
+  "name": "FalkorDB",
+  "category": "DATABASE",
+  "description": "Graph database optimized for knowledge graphs and AI applications.",
+  "image": "falkordb/falkordb:0.10.4",
+  "tags": [
+    "database",
+    "graph",
+    "knowledge-graph",
+    "ai"
+  ],
+  "defaultHostPort": 6379,
+  "containerPorts": [
+    6379,
+    6380
+  ],
+  "requires": [],
+  "requiredEnv": [
+    {
+      "name": "FALKORDB_PASSWORD",
+      "label": "Database Password",
+      "required": true,
+      "isSecret": true
+    }
+  ],
+  "optionalEnv": [],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  },
+  "volumes": [
+    {
+      "containerPath": "/data",
+      "label": "Data directory",
+      "description": "Graph data storage",
+      "required": true,
+      "defaultHostPath": "./data/falkordb"
+    }
+  ],
+  "iconSVG": false
+}

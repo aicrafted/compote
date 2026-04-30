@@ -1,0 +1,49 @@
+{
+  "id": "checkmk",
+  "name": "Checkmk",
+  "category": "MONITORING",
+  "icon": "checkmk",
+  "description": "Open-source IT monitoring solution.",
+  "image": "checkmk/check-mk-raw:latest",
+  "tags": [
+    "monitoring",
+    "infrastructure",
+    "network"
+  ],
+  "defaultHostPort": 8080,
+  "containerPorts": [
+    5000,
+    8000
+  ],
+  "requires": [],
+  "requiredEnv": [
+    {
+      "name": "CMK_PASSWORD",
+      "label": "Admin Password",
+      "required": true,
+      "isSecret": true
+    },
+    {
+      "name": "CMK_SITE_ID",
+      "label": "Site ID",
+      "defaultValue": "cmk",
+      "required": true
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/omd/sites",
+      "description": "Checkmk data",
+      "required": true,
+      "defaultHostPath": "./data/checkmk"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

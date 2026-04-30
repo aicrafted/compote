@@ -1,0 +1,13 @@
+image: verdaccio/verdaccio:5
+restart: unless-stopped
+volumes:
+  - ${VERDACCIO_DATA:-./data/verdaccio}:/verdaccio/storage
+  - ${VERDACCIO_CONF:-./config/verdaccio}:/verdaccio/conf
+  - ${VERDACCIO_PLUGINS:-./plugins/verdaccio}:/verdaccio/plugins
+environment:
+  - VERDACCIO_PORT=4873
+healthcheck:
+  test: ["CMD", "wget", "-qO-", "http://localhost:4873/"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

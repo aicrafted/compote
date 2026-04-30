@@ -1,0 +1,43 @@
+{
+  "id": "rocket-chat",
+  "name": "Rocket.Chat",
+  "category": "COLLABORATION",
+  "icon": "rocketchat",
+  "description": "Open-source team chat and collaboration platform.",
+  "image": "rocketchat/rocket.chat:7.5.2",
+  "tags": [
+    "chat",
+    "messaging",
+    "team",
+    "collaboration"
+  ],
+  "defaultHostPort": 3000,
+  "containerPorts": [
+    3000
+  ],
+  "requires": ["mongodb"],
+  "requiredEnv": [
+    {
+      "name": "ROOT_URL",
+      "label": "Root URL",
+      "required": true,
+      "description": "URL where Rocket.Chat will be hosted"
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/app/uploads",
+      "description": "File uploads",
+      "required": false,
+      "defaultHostPath": "./data/rocket-chat/uploads"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

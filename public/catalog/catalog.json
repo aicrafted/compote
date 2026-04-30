@@ -1,0 +1,2688 @@
+[
+  {
+    "id": "activepieces",
+    "name": "Activepieces",
+    "category": "AUTOMATION",
+    "categories": [
+      "AUTOMATION"
+    ],
+    "description": "No-code business automation platform.",
+    "source": "builtin",
+    "tags": [
+      "automation",
+      "no-code",
+      "business"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "adguard-home",
+    "name": "AdGuard Home",
+    "category": "DNS",
+    "categories": [
+      "DNS"
+    ],
+    "description": "Network-wide ad and tracker blocking DNS server.",
+    "source": "builtin",
+    "tags": [
+      "dns",
+      "adblock",
+      "privacy"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "anythingllm",
+    "name": "AnythingLLM",
+    "category": "AI / LLM UI",
+    "categories": [
+      "AI / LLM UI"
+    ],
+    "description": "Desktop AI chatbot application.",
+    "source": "builtin",
+    "tags": [
+      "ai",
+      "llm",
+      "chatbot"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "appsmith",
+    "name": "Appsmith",
+    "category": "CRM / ERP",
+    "categories": [
+      "CRM / ERP"
+    ],
+    "description": "Open-source low-code platform for building internal apps.",
+    "source": "builtin",
+    "tags": [
+      "low-code",
+      "internal-apps",
+      "dashboard"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "artifactory",
+    "name": "Artifactory",
+    "category": "ARTIFACT REPOS",
+    "categories": [
+      "ARTIFACT REPOS"
+    ],
+    "description": "Universal artifact repository with universal support for all major package formats.",
+    "source": "builtin",
+    "tags": [
+      "artifact",
+      "repository",
+      "maven",
+      "npm",
+      "docker-registry"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "audiobookshelf",
+    "name": "Audiobookshelf",
+    "category": "MEDIA",
+    "categories": [
+      "MEDIA"
+    ],
+    "description": "Self-hosted audiobook and podcast server.",
+    "source": "builtin",
+    "tags": [
+      "audiobooks",
+      "podcasts",
+      "media-server"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "authelia",
+    "name": "Authelia",
+    "category": "AUTH",
+    "categories": [
+      "AUTH"
+    ],
+    "description": "Open-source authentication and authorization server with 2FA and SSO.",
+    "source": "builtin",
+    "tags": [
+      "authentication",
+      "2fa",
+      "sso",
+      "oauth"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "authentik",
+    "name": "Authentik",
+    "category": "AUTH",
+    "categories": [
+      "AUTH"
+    ],
+    "description": "Open-source Identity Provider for modern SSO with SAML, OAuth2, LDAP, and RADIUS support.",
+    "source": "builtin",
+    "tags": [
+      "authentication",
+      "sso",
+      "identity",
+      "saml",
+      "oauth"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "automatic1111",
+    "name": "AUTOMATIC1111",
+    "category": "AI / MEDIA",
+    "categories": [
+      "AI / MEDIA"
+    ],
+    "description": "Stable Diffusion WebUI.",
+    "source": "builtin",
+    "tags": [
+      "ai",
+      "image-generation",
+      "sd"
+    ],
+    "resourceClass": "heavy"
+  },
+  {
+    "id": "bookstack",
+    "name": "BookStack",
+    "category": "KNOWLEDGE",
+    "categories": [
+      "KNOWLEDGE"
+    ],
+    "description": "Open-source knowledge base for teams.",
+    "source": "builtin",
+    "tags": [
+      "wiki",
+      "knowledge-base",
+      "book"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "budibase",
+    "name": "Budibase",
+    "category": "AUTOMATION",
+    "categories": [
+      "AUTOMATION"
+    ],
+    "description": "Open source low-code platform for building internal apps.",
+    "source": "builtin",
+    "tags": [
+      "automation",
+      "low-code",
+      "internal-apps"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "caddy",
+    "name": "Caddy Server",
+    "category": "REVERSE PROXY",
+    "categories": [
+      "REVERSE PROXY"
+    ],
+    "description": "Enterprise-ready open source web server with automatic HTTPS.",
+    "source": "builtin",
+    "tags": [
+      "proxy",
+      "web",
+      "https"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "camunda",
+    "name": "Camunda",
+    "category": "CRM / ERP",
+    "categories": [
+      "CRM / ERP"
+    ],
+    "description": "Open-source workflow and decision automation platform.",
+    "source": "builtin",
+    "tags": [
+      "workflow",
+      "automation",
+      "bpmn"
+    ],
+    "resourceClass": "heavy",
+    "iconSVG": true
+  },
+  {
+    "id": "caprover",
+    "name": "CapRover",
+    "category": "CONTAINERS",
+    "categories": [
+      "CONTAINERS"
+    ],
+    "description": "Self-hosted full-featured PaaS.",
+    "source": "builtin",
+    "tags": [
+      "containers",
+      "paas",
+      "docker",
+      "deployment"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "casdoor",
+    "name": "Casdoor",
+    "category": "AUTH",
+    "categories": [
+      "AUTH"
+    ],
+    "description": "AI-native Identity and Access Management with SSO and OAuth2 support.",
+    "source": "builtin",
+    "tags": [
+      "authentication",
+      "sso",
+      "oauth",
+      "identity"
+    ],
+    "resourceClass": "light"
+  },
+  {
+    "id": "checkmk",
+    "name": "Checkmk",
+    "category": "MONITORING",
+    "categories": [
+      "MONITORING"
+    ],
+    "description": "Open-source IT monitoring solution.",
+    "source": "builtin",
+    "tags": [
+      "monitoring",
+      "infrastructure",
+      "network"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "chromadb",
+    "name": "Chroma",
+    "category": "DATABASE",
+    "categories": [
+      "DATABASE"
+    ],
+    "description": "Open-source vector database for AI applications and embeddings.",
+    "source": "builtin",
+    "tags": [
+      "database",
+      "vector",
+      "ai",
+      "embeddings"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "clickhouse",
+    "name": "ClickHouse",
+    "category": "DATABASE",
+    "categories": [
+      "DATABASE"
+    ],
+    "description": "Fast, open-source column-oriented DBMS for online analytical processing.",
+    "source": "builtin",
+    "tags": [
+      "database",
+      "olap",
+      "analytics"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "comfyui",
+    "name": "ComfyUI",
+    "category": "AI / MEDIA",
+    "categories": [
+      "AI / MEDIA"
+    ],
+    "description": "Powerful image generation workows.",
+    "source": "builtin",
+    "tags": [
+      "ai",
+      "image-generation",
+      "workflow"
+    ],
+    "resourceClass": "heavy"
+  },
+  {
+    "id": "coredns",
+    "name": "CoreDNS",
+    "category": "DNS",
+    "categories": [
+      "DNS"
+    ],
+    "description": "Elastic DNS server that chains plugins.",
+    "source": "builtin",
+    "tags": [
+      "dns",
+      "kubernetes",
+      "cloud-native"
+    ],
+    "resourceClass": "light"
+  },
+  {
+    "id": "degoogle",
+    "name": "Degoog",
+    "category": "SEARCH",
+    "categories": [
+      "SEARCH"
+    ],
+    "description": "Privacy-respecting search aggregator.",
+    "source": "builtin",
+    "tags": [
+      "search",
+      "privacy"
+    ],
+    "resourceClass": "small"
+  },
+  {
+    "id": "dify",
+    "name": "Dify",
+    "category": "AI / LLM UI",
+    "categories": [
+      "AI / LLM UI"
+    ],
+    "description": "Platform for building AI applications.",
+    "source": "builtin",
+    "tags": [
+      "ai",
+      "llm",
+      "platform"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "directus",
+    "name": "Directus",
+    "category": "CMS",
+    "categories": [
+      "CMS"
+    ],
+    "description": "Open-data platform for SQL databases.",
+    "source": "builtin",
+    "tags": [
+      "cms",
+      "headless",
+      "sql"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "dnsmasq",
+    "name": "dnsmasq",
+    "category": "DNS",
+    "categories": [
+      "DNS"
+    ],
+    "description": "Lightweight DNS forwarder and DHCP server.",
+    "source": "builtin",
+    "tags": [
+      "dns",
+      "dhcp",
+      "forwarder"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "dockge",
+    "name": "Dockge",
+    "category": "CONTAINERS",
+    "categories": [
+      "CONTAINERS"
+    ],
+    "description": "Docker Compose management interface.",
+    "source": "builtin",
+    "tags": [
+      "containers",
+      "docker",
+      "compose",
+      "ui"
+    ],
+    "resourceClass": "small",
+    "iconSVG": true
+  },
+  {
+    "id": "docmost",
+    "name": "Docmost",
+    "category": "KNOWLEDGE",
+    "categories": [
+      "KNOWLEDGE"
+    ],
+    "description": "Open-source collaborative wiki and documentation.",
+    "source": "builtin",
+    "tags": [
+      "wiki",
+      "documentation",
+      "collaboration"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "dokuwiki",
+    "name": "DokuWiki",
+    "category": "KNOWLEDGE",
+    "categories": [
+      "KNOWLEDGE"
+    ],
+    "description": "Simple to use wiki for documentation.",
+    "source": "builtin",
+    "tags": [
+      "wiki",
+      "documentation",
+      "simple"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "drone-ci",
+    "name": "Drone CI",
+    "category": "CI / CD",
+    "categories": [
+      "CI / CD"
+    ],
+    "description": "Continuous delivery platform built on Docker.",
+    "source": "builtin",
+    "tags": [
+      "ci-cd",
+      "automation",
+      "devops"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "drupal",
+    "name": "Drupal",
+    "category": "CMS",
+    "categories": [
+      "CMS"
+    ],
+    "description": "Enterprise web content management.",
+    "source": "builtin",
+    "tags": [
+      "cms",
+      "enterprise",
+      "php"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "duckdb",
+    "name": "DuckDB",
+    "category": "DATABASE",
+    "categories": [
+      "DATABASE"
+    ],
+    "description": "Fast, embeddable analytical SQL database for data analytics.",
+    "source": "builtin",
+    "tags": [
+      "database",
+      "sql",
+      "analytics",
+      "olap"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "elasticsearch",
+    "name": "Elasticsearch",
+    "category": "INDEXING",
+    "categories": [
+      "INDEXING"
+    ],
+    "description": "Distributed search and analytics engine.",
+    "source": "builtin",
+    "tags": [
+      "indexing",
+      "search",
+      "elasticsearch"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "element-web",
+    "name": "Element Web",
+    "category": "COLLABORATION",
+    "categories": [
+      "COLLABORATION"
+    ],
+    "description": "Fast, simple Matrix client for web and desktop.",
+    "source": "builtin",
+    "tags": [
+      "matrix",
+      "chat",
+      "web"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "emby",
+    "name": "Emby",
+    "category": "MEDIA",
+    "categories": [
+      "MEDIA"
+    ],
+    "description": "Media server for streaming movies, TV, and music.",
+    "source": "builtin",
+    "tags": [
+      "media-server",
+      "streaming",
+      "entertainment"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "envoy",
+    "name": "Envoy",
+    "category": "REVERSE PROXY",
+    "categories": [
+      "REVERSE PROXY"
+    ],
+    "description": "Cloud-native high-performance edge/middle/service proxy.",
+    "source": "builtin",
+    "tags": [
+      "reverse-proxy",
+      "service-proxy",
+      "api-gateway"
+    ],
+    "resourceClass": "medium"
+  },
+  {
+    "id": "erpnext",
+    "name": "ERPNext",
+    "category": "CRM / ERP",
+    "categories": [
+      "CRM / ERP"
+    ],
+    "description": "Free and open-source ERP for business management.",
+    "source": "builtin",
+    "tags": [
+      "erp",
+      "crm",
+      "business"
+    ],
+    "resourceClass": "heavy",
+    "iconSVG": true
+  },
+  {
+    "id": "falkordb",
+    "name": "FalkorDB",
+    "category": "DATABASE",
+    "categories": [
+      "DATABASE"
+    ],
+    "description": "Graph database optimized for knowledge graphs and AI applications.",
+    "source": "builtin",
+    "tags": [
+      "database",
+      "graph",
+      "knowledge-graph",
+      "ai"
+    ],
+    "resourceClass": "light",
+    "iconSVG": false
+  },
+  {
+    "id": "filebrowser",
+    "name": "Filebrowser",
+    "category": "STORAGE",
+    "categories": [
+      "STORAGE"
+    ],
+    "description": "Web file browser and manager.",
+    "source": "builtin",
+    "tags": [
+      "files",
+      "webdav",
+      "file-manager"
+    ],
+    "resourceClass": "small",
+    "iconSVG": true
+  },
+  {
+    "id": "flowise",
+    "name": "Flowise",
+    "category": "AI / LLM UI",
+    "categories": [
+      "AI / LLM UI"
+    ],
+    "description": "Low-code AI flow builder.",
+    "source": "builtin",
+    "tags": [
+      "ai",
+      "flow",
+      "low-code"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "fluent-bit",
+    "name": "Fluent Bit",
+    "category": "LOGS",
+    "categories": [
+      "LOGS"
+    ],
+    "description": "Fast and lightweight log processor and forwarder.",
+    "source": "builtin",
+    "tags": [
+      "logs",
+      "processor",
+      "forwarder"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "fluentd",
+    "name": "Fluentd",
+    "category": "LOGS",
+    "categories": [
+      "LOGS"
+    ],
+    "description": "Data collector for unified logging layer.",
+    "source": "builtin",
+    "tags": [
+      "logs",
+      "collector",
+      "forwarder"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "focalboard",
+    "name": "Focalboard",
+    "category": "CRM / ERP",
+    "categories": [
+      "CRM / ERP"
+    ],
+    "description": "Open-source project management and kanban for teams.",
+    "source": "builtin",
+    "tags": [
+      "project-management",
+      "kanban",
+      "tasks"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "fooocus",
+    "name": "Fooocus",
+    "category": "AI / MEDIA",
+    "categories": [
+      "AI / MEDIA"
+    ],
+    "description": "Focused image generation.",
+    "source": "builtin",
+    "tags": [
+      "ai",
+      "image-generation"
+    ],
+    "resourceClass": "heavy"
+  },
+  {
+    "id": "forgejo",
+    "name": "Forgejo",
+    "category": "GIT REPOS",
+    "categories": [
+      "GIT REPOS"
+    ],
+    "description": "Self-hosted Git service. Beyond coding. We forge.",
+    "source": "builtin",
+    "tags": [
+      "git",
+      "version-control",
+      "collaboration"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "ghost",
+    "name": "Ghost",
+    "category": "CMS",
+    "categories": [
+      "CMS"
+    ],
+    "description": "Professional publishing platform.",
+    "source": "builtin",
+    "tags": [
+      "cms",
+      "blog",
+      "publishing"
+    ],
+    "resourceClass": "small",
+    "iconSVG": true
+  },
+  {
+    "id": "gitea",
+    "name": "Gitea",
+    "category": "GIT REPOS",
+    "categories": [
+      "GIT REPOS"
+    ],
+    "description": "Self-hosted Git service with a cup of tea. A painless self-hosted Git service.",
+    "source": "builtin",
+    "tags": [
+      "git",
+      "version-control",
+      "collaboration"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "gitlab",
+    "name": "GitLab",
+    "category": "GIT REPOS",
+    "categories": [
+      "GIT REPOS"
+    ],
+    "description": "DevOps platform with Git version control, CI/CD, and more.",
+    "source": "builtin",
+    "tags": [
+      "git",
+      "devops",
+      "ci-cd",
+      "collaboration"
+    ],
+    "resourceClass": "heavy",
+    "iconSVG": true
+  },
+  {
+    "id": "gocd",
+    "name": "GoCD",
+    "category": "CI / CD",
+    "categories": [
+      "CI / CD"
+    ],
+    "description": "Open-source continuous delivery server.",
+    "source": "builtin",
+    "tags": [
+      "ci-cd",
+      "continuous-delivery",
+      "devops"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "grafana",
+    "name": "Grafana",
+    "category": "MONITORING",
+    "categories": [
+      "MONITORING"
+    ],
+    "description": "The open observability platform.",
+    "source": "builtin",
+    "tags": [],
+    "iconSVG": true
+  },
+  {
+    "id": "grav",
+    "name": "Grav",
+    "category": "CMS",
+    "categories": [
+      "CMS"
+    ],
+    "description": "Modern flat-file CMS.",
+    "source": "builtin",
+    "tags": [
+      "cms",
+      "flat-file",
+      "php"
+    ],
+    "resourceClass": "small",
+    "iconSVG": true
+  },
+  {
+    "id": "graylog",
+    "name": "Graylog",
+    "category": "LOGS",
+    "categories": [
+      "LOGS"
+    ],
+    "description": "Open-source log management solution.",
+    "source": "builtin",
+    "tags": [
+      "logs",
+      "log-management",
+      "analysis"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "haproxy",
+    "name": "HAProxy",
+    "category": "REVERSE PROXY",
+    "categories": [
+      "REVERSE PROXY"
+    ],
+    "description": "Reliable, high-performance TCP/HTTP load balancer.",
+    "source": "builtin",
+    "tags": [
+      "reverse-proxy",
+      "load-balancer",
+      "tcp"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "headscale",
+    "name": "Headscale",
+    "category": "VPN",
+    "categories": [
+      "VPN"
+    ],
+    "description": "Open-source implementation of Tailscale control server.",
+    "source": "builtin",
+    "tags": [
+      "vpn",
+      "tailscale",
+      "control-server"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "hedgedoc",
+    "name": "HedgeDoc",
+    "category": "KNOWLEDGE",
+    "categories": [
+      "KNOWLEDGE"
+    ],
+    "description": "Real-time collaborative markdown notes.",
+    "source": "builtin",
+    "tags": [
+      "markdown",
+      "notes",
+      "collaboration"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "home-assistant",
+    "name": "Home Assistant",
+    "category": "CLOUD",
+    "categories": [
+      "CLOUD"
+    ],
+    "description": "Open source home automation that puts local control and privacy first.",
+    "source": "builtin",
+    "tags": [],
+    "iconSVG": true
+  },
+  {
+    "id": "huginn",
+    "name": "Huginn",
+    "category": "AUTOMATION",
+    "categories": [
+      "AUTOMATION"
+    ],
+    "description": "Open source platform for building automation agents.",
+    "source": "builtin",
+    "tags": [
+      "automation",
+      "agent",
+      "workflow"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "immich",
+    "name": "Immich",
+    "category": "MEDIA",
+    "categories": [
+      "MEDIA"
+    ],
+    "description": "Self-hosted photo and video management.",
+    "source": "builtin",
+    "tags": [
+      "photos",
+      "video",
+      "backup"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "infisical",
+    "name": "Infisical",
+    "category": "SECRETS",
+    "categories": [
+      "SECRETS"
+    ],
+    "description": "Open-source secrets management with GitOps support.",
+    "source": "builtin",
+    "tags": [
+      "secrets",
+      "gitops",
+      "envars"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "invokeai",
+    "name": "InvokeAI",
+    "category": "AI / MEDIA",
+    "categories": [
+      "AI / MEDIA"
+    ],
+    "description": "Professional image generation.",
+    "source": "builtin",
+    "tags": [
+      "ai",
+      "image-generation"
+    ],
+    "resourceClass": "heavy",
+    "iconSVG": true
+  },
+  {
+    "id": "jellyfin",
+    "name": "Jellyfin",
+    "category": "MEDIA",
+    "categories": [
+      "MEDIA"
+    ],
+    "description": "The Free Software Media System.",
+    "source": "builtin",
+    "tags": [],
+    "iconSVG": true
+  },
+  {
+    "id": "jenkins",
+    "name": "Jenkins",
+    "category": "CI / CD",
+    "categories": [
+      "CI / CD"
+    ],
+    "description": "Open-source automation server for CI/CD pipelines.",
+    "source": "builtin",
+    "tags": [
+      "ci-cd",
+      "automation",
+      "devops"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "jitsi-meet",
+    "name": "Jitsi Meet",
+    "category": "COLLABORATION",
+    "categories": [
+      "COLLABORATION"
+    ],
+    "description": "Fully encrypted, open-source video conferencing.",
+    "source": "builtin",
+    "tags": [
+      "video",
+      "conferencing",
+      "webrtc"
+    ],
+    "resourceClass": "heavy",
+    "iconSVG": true
+  },
+  {
+    "id": "kafka",
+    "name": "Kafka",
+    "category": "MESSAGE BROKERS",
+    "categories": [
+      "MESSAGE BROKERS"
+    ],
+    "description": "Distributed event store and stream-processing platform.",
+    "source": "builtin",
+    "tags": [],
+    "iconSVG": true
+  },
+  {
+    "id": "kanidm",
+    "name": "KanIDM",
+    "category": "AUTH",
+    "categories": [
+      "AUTH"
+    ],
+    "description": "Simple, secure identity management with LDAP and OAuth2 support.",
+    "source": "builtin",
+    "tags": [
+      "authentication",
+      "identity",
+      "ldap",
+      "oauth",
+      "passkeys"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "keycloak",
+    "name": "Keycloak",
+    "category": "AUTH",
+    "categories": [
+      "AUTH"
+    ],
+    "description": "Open-source Identity and Access Management for modern applications.",
+    "source": "builtin",
+    "tags": [
+      "authentication",
+      "sso",
+      "identity",
+      "oauth",
+      "saml"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "komodo",
+    "name": "Komodo",
+    "category": "CONTAINERS",
+    "categories": [
+      "CONTAINERS"
+    ],
+    "description": "Modern Docker management interface.",
+    "source": "builtin",
+    "tags": [
+      "containers",
+      "docker",
+      "management",
+      "ui"
+    ],
+    "resourceClass": "small",
+    "iconSVG": true
+  },
+  {
+    "id": "langflow",
+    "name": "Langflow",
+    "category": "AI / LLM UI",
+    "categories": [
+      "AI / LLM UI"
+    ],
+    "description": "Low-code AI flow builder.",
+    "source": "builtin",
+    "tags": [
+      "ai",
+      "flow",
+      "low-code"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "librechat",
+    "name": "LibreChat",
+    "category": "AI / LLM UI",
+    "categories": [
+      "AI / LLM UI"
+    ],
+    "description": "Enhanced ChatGPT client.",
+    "source": "builtin",
+    "tags": [
+      "ai",
+      "llm",
+      "chatbot"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "litellm",
+    "name": "LiteLLM",
+    "category": "AI / LLM MODELS",
+    "categories": [
+      "AI / LLM MODELS"
+    ],
+    "description": "Unified LLM gateway.",
+    "source": "builtin",
+    "tags": [
+      "ai",
+      "llm",
+      "gateway"
+    ],
+    "resourceClass": "small",
+    "iconSVG": true
+  },
+  {
+    "id": "llama-cpp-server",
+    "name": "llama.cpp Server",
+    "category": "AI / LLM MODELS",
+    "categories": [
+      "AI / LLM MODELS"
+    ],
+    "description": "llama.cpp HTTP server.",
+    "source": "builtin",
+    "tags": [
+      "ai",
+      "llm",
+      "llama-cpp"
+    ],
+    "resourceClass": "heavy",
+    "iconSVG": true
+  },
+  {
+    "id": "lldap",
+    "name": "LLDAP",
+    "category": "AUTH",
+    "categories": [
+      "AUTH"
+    ],
+    "description": "Lightweight LDAP server for simple user and group management.",
+    "source": "builtin",
+    "tags": [
+      "ldap",
+      "authentication",
+      "users"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "localai",
+    "name": "LocalAI",
+    "category": "AI / LLM MODELS",
+    "categories": [
+      "AI / LLM MODELS"
+    ],
+    "description": "Self-hosted LLM inference.",
+    "source": "builtin",
+    "tags": [
+      "ai",
+      "llm",
+      "inference"
+    ],
+    "resourceClass": "medium"
+  },
+  {
+    "id": "logstash",
+    "name": "Logstash",
+    "category": "LOGS",
+    "categories": [
+      "LOGS"
+    ],
+    "description": "Server-side data processing pipeline.",
+    "source": "builtin",
+    "tags": [
+      "logs",
+      "etl",
+      "pipeline"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "loki",
+    "name": "Loki",
+    "category": "LOGS",
+    "categories": [
+      "LOGS"
+    ],
+    "description": "Cloud-native log aggregation system by Grafana.",
+    "source": "builtin",
+    "tags": [
+      "logs",
+      "aggregation",
+      "time-series"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "mariadb",
+    "name": "MariaDB",
+    "category": "DATABASE",
+    "categories": [
+      "DATABASE"
+    ],
+    "description": "Drop-in replacement for MySQL.",
+    "source": "builtin",
+    "tags": [],
+    "iconSVG": true
+  },
+  {
+    "id": "matrix-synapse",
+    "name": "Matrix Synapse",
+    "category": "COLLABORATION",
+    "categories": [
+      "COLLABORATION"
+    ],
+    "description": "Reference implementation of a Matrix homeserver for decentralized messaging.",
+    "source": "builtin",
+    "tags": [
+      "matrix",
+      "messaging",
+      "decentralized",
+      "chat"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "mattermost",
+    "name": "Mattermost",
+    "category": "COLLABORATION",
+    "categories": [
+      "COLLABORATION"
+    ],
+    "description": "Open source platform for secure collaboration.",
+    "source": "builtin",
+    "tags": [],
+    "iconSVG": true
+  },
+  {
+    "id": "medwiki",
+    "name": "MediaWiki",
+    "category": "KNOWLEDGE",
+    "categories": [
+      "KNOWLEDGE"
+    ],
+    "description": "Wiki software powering Wikipedia.",
+    "source": "builtin",
+    "tags": [
+      "wiki",
+      "encyclopedia",
+      "wikipedia"
+    ],
+    "resourceClass": "medium"
+  },
+  {
+    "id": "meilisearch",
+    "name": "Meilisearch",
+    "category": "INDEXING",
+    "categories": [
+      "INDEXING"
+    ],
+    "description": "Lightning-fast search engine.",
+    "source": "builtin",
+    "tags": [
+      "indexing",
+      "search",
+      "fast"
+    ],
+    "resourceClass": "small",
+    "iconSVG": true
+  },
+  {
+    "id": "minio",
+    "name": "MinIO",
+    "category": "STORAGE",
+    "categories": [
+      "STORAGE"
+    ],
+    "description": "High-performance S3-compatible object storage.",
+    "source": "builtin",
+    "tags": [
+      "s3",
+      "object-storage",
+      "storage"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "mongodb",
+    "name": "MongoDB",
+    "category": "DATABASE",
+    "categories": [
+      "DATABASE"
+    ],
+    "description": "NoSQL document database.",
+    "source": "builtin",
+    "tags": [
+      "database",
+      "nosql",
+      "documents"
+    ],
+    "resourceClass": "heavy",
+    "iconSVG": true
+  },
+  {
+    "id": "mosquitto",
+    "name": "Mosquitto",
+    "category": "MESSAGE BROKERS",
+    "categories": [
+      "MESSAGE BROKERS"
+    ],
+    "description": "An open source MQTT broker.",
+    "source": "builtin",
+    "tags": [],
+    "iconSVG": true
+  },
+  {
+    "id": "mumble",
+    "name": "Mumble",
+    "category": "COLLABORATION",
+    "categories": [
+      "COLLABORATION"
+    ],
+    "description": "Free, open-source, low-latency voice chat server.",
+    "source": "builtin",
+    "tags": [
+      "voice",
+      "chat",
+      "voip"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "mysql",
+    "name": "MySQL",
+    "category": "DATABASE",
+    "categories": [
+      "DATABASE"
+    ],
+    "description": "The world's most popular open source database.",
+    "source": "builtin",
+    "tags": [],
+    "iconSVG": true
+  },
+  {
+    "id": "n8n",
+    "name": "n8n",
+    "category": "AUTOMATION",
+    "categories": [
+      "AUTOMATION"
+    ],
+    "description": "Powerful workflow automation tool.",
+    "source": "builtin",
+    "tags": [
+      "automation",
+      "workflow",
+      "no-code"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "nats",
+    "name": "NATS",
+    "category": "MESSAGE BROKERS",
+    "categories": [
+      "MESSAGE BROKERS"
+    ],
+    "description": "Connective technology for adaptive edge and distributed systems.",
+    "source": "builtin",
+    "tags": [],
+    "iconSVG": true
+  },
+  {
+    "id": "navidrome",
+    "name": "Navidrome",
+    "category": "MEDIA",
+    "categories": [
+      "MEDIA"
+    ],
+    "description": "Open-source music server and streamer.",
+    "source": "builtin",
+    "tags": [
+      "music",
+      "streaming",
+      "audio"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "netbird",
+    "name": "NetBird",
+    "category": "VPN",
+    "categories": [
+      "VPN"
+    ],
+    "description": "WireGuard-based mesh VPN for secure connections.",
+    "source": "builtin",
+    "tags": [
+      "vpn",
+      "mesh",
+      "wireguard"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "netdata",
+    "name": "Netdata",
+    "category": "MONITORING",
+    "categories": [
+      "MONITORING"
+    ],
+    "description": "Real-time performance monitoring.",
+    "source": "builtin",
+    "tags": [
+      "monitoring",
+      "performance",
+      "metrics"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "nextcloud",
+    "name": "Nextcloud",
+    "category": "STORAGE",
+    "categories": [
+      "STORAGE"
+    ],
+    "description": "The self-hosted productivity platform that keeps you in control.",
+    "source": "builtin",
+    "tags": [
+      "cloud",
+      "files",
+      "collaboration"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "nexus",
+    "name": "Nexus Repository",
+    "category": "ARTIFACT REPOS",
+    "categories": [
+      "ARTIFACT REPOS"
+    ],
+    "description": "Universal repository manager for Maven, npm, Docker, and more.",
+    "source": "builtin",
+    "tags": [
+      "artifact",
+      "repository",
+      "maven",
+      "npm",
+      "docker-registry"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "nginx",
+    "name": "Nginx",
+    "category": "REVERSE PROXY",
+    "categories": [
+      "REVERSE PROXY"
+    ],
+    "description": "Web server and reverse proxy.",
+    "source": "builtin",
+    "tags": [
+      "web-server",
+      "reverse-proxy",
+      "http"
+    ],
+    "resourceClass": "small",
+    "iconSVG": true
+  },
+  {
+    "id": "nginx-proxy-manager",
+    "name": "Nginx Proxy Manager",
+    "category": "REVERSE PROXY",
+    "categories": [
+      "REVERSE PROXY"
+    ],
+    "description": "Expose your services easily and securely.",
+    "source": "builtin",
+    "tags": [],
+    "iconSVG": true
+  },
+  {
+    "id": "node-red",
+    "name": "Node-RED",
+    "category": "AUTOMATION",
+    "categories": [
+      "AUTOMATION"
+    ],
+    "description": "Flow-based programming tool for IoT and automation.",
+    "source": "builtin",
+    "tags": [
+      "automation",
+      "iot",
+      "flow"
+    ],
+    "resourceClass": "small",
+    "iconSVG": true
+  },
+  {
+    "id": "odoo",
+    "name": "Odoo",
+    "category": "CRM / ERP",
+    "categories": [
+      "CRM / ERP"
+    ],
+    "description": "Open-source ERP and CRM software for business management.",
+    "source": "builtin",
+    "tags": [
+      "erp",
+      "crm",
+      "business"
+    ],
+    "resourceClass": "heavy",
+    "iconSVG": true
+  },
+  {
+    "id": "ollama",
+    "name": "Ollama",
+    "category": "AI / LLM MODELS",
+    "categories": [
+      "AI / LLM MODELS"
+    ],
+    "description": "Run LLMs locally.",
+    "source": "builtin",
+    "tags": [
+      "ai",
+      "llm",
+      "local"
+    ],
+    "resourceClass": "heavy",
+    "iconSVG": true
+  },
+  {
+    "id": "onedev",
+    "name": "OneDev",
+    "category": "GIT REPOS",
+    "categories": [
+      "GIT REPOS"
+    ],
+    "description": "Self-hosted Git server with CI/CD, Kanban, and Packages.",
+    "source": "builtin",
+    "tags": [
+      "git",
+      "ci-cd",
+      "kanban",
+      "packages"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "openwebui",
+    "name": "Open WebUI",
+    "category": "AI / LLM UI",
+    "categories": [
+      "AI / LLM UI"
+    ],
+    "description": "Extensible user-friendly AI interface.",
+    "source": "builtin",
+    "tags": [
+      "ai",
+      "llm",
+      "chatbot"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "openbao",
+    "name": "OpenBao",
+    "category": "SECRETS",
+    "categories": [
+      "SECRETS"
+    ],
+    "description": "Open-source secrets and data protection.",
+    "source": "builtin",
+    "tags": [
+      "secrets",
+      "secrets-management",
+      "encryption"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "openproject",
+    "name": "OpenProject",
+    "category": "CRM / ERP",
+    "categories": [
+      "CRM / ERP"
+    ],
+    "description": "Open-source project management for teams.",
+    "source": "builtin",
+    "tags": [
+      "project-management",
+      "tasks",
+      "collaboration"
+    ],
+    "resourceClass": "heavy",
+    "iconSVG": true
+  },
+  {
+    "id": "openresty",
+    "name": "OpenResty",
+    "category": "REVERSE PROXY",
+    "categories": [
+      "REVERSE PROXY"
+    ],
+    "description": "Full-featured web app server based on Nginx.",
+    "source": "builtin",
+    "tags": [
+      "reverse-proxy",
+      "web-server",
+      "lua"
+    ],
+    "resourceClass": "light"
+  },
+  {
+    "id": "opensearch",
+    "name": "OpenSearch",
+    "category": "INDEXING",
+    "categories": [
+      "INDEXING"
+    ],
+    "description": "Distributed search and analytics engine.",
+    "source": "builtin",
+    "tags": [
+      "indexing",
+      "search",
+      "analytics"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "openvpn",
+    "name": "OpenVPN",
+    "category": "VPN",
+    "categories": [
+      "VPN"
+    ],
+    "description": "Open-source VPN solution for secure connections.",
+    "source": "builtin",
+    "tags": [
+      "vpn",
+      "openvpn",
+      "ssl-vpn"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "outline",
+    "name": "Outline",
+    "category": "KNOWLEDGE",
+    "categories": [
+      "KNOWLEDGE"
+    ],
+    "description": "Fastest wiki and knowledge base for teams.",
+    "source": "builtin",
+    "tags": [
+      "wiki",
+      "knowledge-base",
+      "team"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "owncloud",
+    "name": "ownCloud",
+    "category": "STORAGE",
+    "categories": [
+      "STORAGE"
+    ],
+    "description": "File hosting and sync platform.",
+    "source": "builtin",
+    "tags": [
+      "cloud",
+      "file-sync",
+      "file-share"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "payload",
+    "name": "Payload CMS",
+    "category": "CMS",
+    "categories": [
+      "CMS"
+    ],
+    "description": "Developer-first headless CMS.",
+    "source": "builtin",
+    "tags": [
+      "cms",
+      "headless",
+      "typescript"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "photoprism",
+    "name": "PhotoPrism",
+    "category": "MEDIA",
+    "categories": [
+      "MEDIA"
+    ],
+    "description": "AI-powered photo management.",
+    "source": "builtin",
+    "tags": [
+      "photos",
+      "ai",
+      "gallery"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "pihole",
+    "name": "Pi-hole",
+    "category": "DNS",
+    "categories": [
+      "DNS"
+    ],
+    "description": "A black hole for Internet advertisements.",
+    "source": "builtin",
+    "tags": [],
+    "iconSVG": true
+  },
+  {
+    "id": "plane",
+    "name": "Plane",
+    "category": "CRM / ERP",
+    "categories": [
+      "CRM / ERP"
+    ],
+    "description": "Open-source project management alternative to Jira and Linear.",
+    "source": "builtin",
+    "tags": [
+      "project-management",
+      "jira-alternative",
+      "tasks"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "plex",
+    "name": "Plex",
+    "category": "MEDIA",
+    "categories": [
+      "MEDIA"
+    ],
+    "description": "Media server for streaming movies, TV, and music.",
+    "source": "builtin",
+    "tags": [
+      "media-server",
+      "streaming",
+      "entertainment"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "portainer",
+    "name": "Portainer",
+    "category": "CONTAINERS",
+    "categories": [
+      "CONTAINERS"
+    ],
+    "description": "Web-based container management GUI.",
+    "source": "builtin",
+    "tags": [
+      "containers",
+      "docker",
+      "management",
+      "ui"
+    ],
+    "resourceClass": "small",
+    "iconSVG": true
+  },
+  {
+    "id": "postgres",
+    "name": "PostgreSQL",
+    "category": "DATABASE",
+    "categories": [
+      "DATABASE"
+    ],
+    "description": "The world's most advanced open source relational database.",
+    "source": "builtin",
+    "tags": [
+      "database",
+      "sql"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "pritunl",
+    "name": "Pritunl",
+    "category": "VPN",
+    "categories": [
+      "VPN"
+    ],
+    "description": "Enterprise VPN server based on OpenVPN and WireGuard.",
+    "source": "builtin",
+    "tags": [
+      "vpn",
+      "security",
+      "network"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "prometheus",
+    "name": "Prometheus",
+    "category": "MONITORING",
+    "categories": [
+      "MONITORING"
+    ],
+    "description": "Open-source systems monitoring and alerting toolkit.",
+    "source": "builtin",
+    "tags": [
+      "monitoring",
+      "metrics",
+      "time-series"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "prowlarr",
+    "name": "Prowlarr",
+    "category": "MEDIA",
+    "categories": [
+      "MEDIA"
+    ],
+    "description": "Indexer manager/proxy built on the popular arr .net/reactjs base stack.",
+    "source": "builtin",
+    "tags": [],
+    "iconSVG": true
+  },
+  {
+    "id": "pulp",
+    "name": "Pulp",
+    "category": "ARTIFACT REPOS",
+    "categories": [
+      "ARTIFACT REPOS"
+    ],
+    "description": "Universal artifact and container registry for RPM, Python, Containers, and more.",
+    "source": "builtin",
+    "tags": [
+      "artifact",
+      "container-registry",
+      "rpm",
+      "python",
+      "maven"
+    ],
+    "resourceClass": "heavy",
+    "iconSVG": true
+  },
+  {
+    "id": "qbittorrent",
+    "name": "qBittorrent",
+    "category": "MEDIA",
+    "categories": [
+      "MEDIA"
+    ],
+    "description": "The open-source BitTorrent client.",
+    "source": "builtin",
+    "tags": [],
+    "iconSVG": true
+  },
+  {
+    "id": "qdrant",
+    "name": "QDrant",
+    "category": "DATABASE",
+    "categories": [
+      "DATABASE"
+    ],
+    "description": "High-performance vector database for AI-powered search and embeddings.",
+    "source": "builtin",
+    "tags": [
+      "database",
+      "vector",
+      "ai",
+      "embeddings"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "quickwit",
+    "name": "Quickwit",
+    "category": "INDEXING",
+    "categories": [
+      "INDEXING"
+    ],
+    "description": "Ultra-fast and cost-efficient search engine.",
+    "source": "builtin",
+    "tags": [
+      "indexing",
+      "search",
+      "log-management"
+    ],
+    "resourceClass": "small",
+    "iconSVG": true
+  },
+  {
+    "id": "rabbitmq",
+    "name": "RabbitMQ",
+    "category": "MESSAGE BROKERS",
+    "categories": [
+      "MESSAGE BROKERS"
+    ],
+    "description": "The most widely deployed open source message broker.",
+    "source": "builtin",
+    "tags": [],
+    "iconSVG": true
+  },
+  {
+    "id": "radarr",
+    "name": "Radarr",
+    "category": "MEDIA",
+    "categories": [
+      "MEDIA"
+    ],
+    "description": "A movie collection manager for Usenet and BitTorrent users.",
+    "source": "builtin",
+    "tags": [],
+    "iconSVG": true
+  },
+  {
+    "id": "redis",
+    "name": "Redis",
+    "category": "DATABASE",
+    "categories": [
+      "DATABASE"
+    ],
+    "description": "The open source, in-memory data store used as a database, cache, and message broker.",
+    "source": "builtin",
+    "tags": [
+      "database",
+      "cache",
+      "nosql"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "redmine",
+    "name": "Redmine",
+    "category": "CRM / ERP",
+    "categories": [
+      "CRM / ERP"
+    ],
+    "description": "Open-source project management and issue tracking.",
+    "source": "builtin",
+    "tags": [
+      "project-management",
+      "issue-tracking",
+      "rails"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "reposilite",
+    "name": "Reposilite",
+    "category": "ARTIFACT REPOS",
+    "categories": [
+      "ARTIFACT REPOS"
+    ],
+    "description": "Lightweight Maven repository management for JVM artifacts.",
+    "source": "builtin",
+    "tags": [
+      "maven",
+      "repository",
+      "jvm"
+    ],
+    "resourceClass": "light"
+  },
+  {
+    "id": "rocket-chat",
+    "name": "Rocket.Chat",
+    "category": "COLLABORATION",
+    "categories": [
+      "COLLABORATION"
+    ],
+    "description": "Open-source team chat and collaboration platform.",
+    "source": "builtin",
+    "tags": [
+      "chat",
+      "messaging",
+      "team",
+      "collaboration"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "seafile",
+    "name": "Seafile",
+    "category": "STORAGE",
+    "categories": [
+      "STORAGE"
+    ],
+    "description": "Open-source file sync and share solution.",
+    "source": "builtin",
+    "tags": [
+      "file-sync",
+      "file-share",
+      "cloud"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "searxng",
+    "name": "SearXNG",
+    "category": "SEARCH",
+    "categories": [
+      "SEARCH"
+    ],
+    "description": "Privacy-respecting metasearch engine.",
+    "source": "builtin",
+    "tags": [
+      "search",
+      "metasearch",
+      "privacy"
+    ],
+    "resourceClass": "small",
+    "iconSVG": true
+  },
+  {
+    "id": "seq",
+    "name": "Seq",
+    "category": "LOGS",
+    "categories": [
+      "LOGS"
+    ],
+    "description": "Centralized structured log server.",
+    "source": "builtin",
+    "tags": [
+      "logs",
+      "structured",
+      "centralized"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "sftpgp",
+    "name": "SFTPGo",
+    "category": "STORAGE",
+    "categories": [
+      "STORAGE"
+    ],
+    "description": "Fully featured SFTP server.",
+    "source": "builtin",
+    "tags": [
+      "sftp",
+      "ftp",
+      "file-transfer"
+    ],
+    "resourceClass": "small"
+  },
+  {
+    "id": "solr",
+    "name": "Solr",
+    "category": "INDEXING",
+    "categories": [
+      "INDEXING"
+    ],
+    "description": "Open source enterprise search platform.",
+    "source": "builtin",
+    "tags": [
+      "indexing",
+      "search",
+      "lucene"
+    ],
+    "resourceClass": "medium"
+  },
+  {
+    "id": "sonarr",
+    "name": "Sonarr",
+    "category": "MEDIA",
+    "categories": [
+      "MEDIA"
+    ],
+    "description": "Smart PVR for newsgroup and bittorrent users (TV Shows).",
+    "source": "builtin",
+    "tags": [],
+    "iconSVG": true
+  },
+  {
+    "id": "stable-diffusion-webui-forge",
+    "name": "Stable Diffusion WebUI Forge",
+    "category": "AI / MEDIA",
+    "categories": [
+      "AI / MEDIA"
+    ],
+    "description": "Fast web UI for image generation.",
+    "source": "builtin",
+    "tags": [
+      "ai",
+      "image-generation",
+      "sd"
+    ],
+    "resourceClass": "heavy"
+  },
+  {
+    "id": "step-ca",
+    "name": "Step CA",
+    "category": "SECRETS",
+    "categories": [
+      "SECRETS"
+    ],
+    "description": "Open-source certificate authority for TLS certificates.",
+    "source": "builtin",
+    "tags": [
+      "certificate",
+      "pki",
+      "tls"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "strapi",
+    "name": "Strapi",
+    "category": "CMS",
+    "categories": [
+      "CMS"
+    ],
+    "description": "Open-source headless CMS.",
+    "source": "builtin",
+    "tags": [
+      "cms",
+      "headless",
+      "api"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "swarmui",
+    "name": "SwarmUI",
+    "category": "AI / MEDIA",
+    "categories": [
+      "AI / MEDIA"
+    ],
+    "description": "Unified AI image generation UI.",
+    "source": "builtin",
+    "tags": [
+      "ai",
+      "image-generation",
+      "ui"
+    ],
+    "resourceClass": "heavy"
+  },
+  {
+    "id": "syncthing",
+    "name": "Syncthing",
+    "category": "STORAGE",
+    "categories": [
+      "STORAGE"
+    ],
+    "description": "Open-source continuous file synchronization.",
+    "source": "builtin",
+    "tags": [
+      "file-sync",
+      "sync",
+      "backup"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "taiga",
+    "name": "Taiga",
+    "category": "CRM / ERP",
+    "categories": [
+      "CRM / ERP"
+    ],
+    "description": "Open-source project management for agile teams.",
+    "source": "builtin",
+    "tags": [
+      "project-management",
+      "agile",
+      "kanban"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "tailscale",
+    "name": "Tailscale",
+    "category": "VPN",
+    "categories": [
+      "VPN"
+    ],
+    "description": "Mesh VPN using WireGuard for secure connectivity.",
+    "source": "builtin",
+    "tags": [
+      "vpn",
+      "mesh",
+      "wireguard"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "technitium-dns",
+    "name": "Technitium DNS",
+    "category": "DNS",
+    "categories": [
+      "DNS"
+    ],
+    "description": "Self-hosted DNS server for privacy and security.",
+    "source": "builtin",
+    "tags": [
+      "dns",
+      "privacy",
+      "dhcp"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "text-generation-webui",
+    "name": "Text Generation WebUI",
+    "category": "AI / LLM MODELS",
+    "categories": [
+      "AI / LLM MODELS"
+    ],
+    "description": "Web UI for LLM inference.",
+    "source": "builtin",
+    "tags": [
+      "ai",
+      "llm",
+      "webui"
+    ],
+    "resourceClass": "heavy"
+  },
+  {
+    "id": "tooljet",
+    "name": "ToolJet",
+    "category": "AUTOMATION",
+    "categories": [
+      "AUTOMATION"
+    ],
+    "description": "Open source low-code platform for building business applications.",
+    "source": "builtin",
+    "tags": [
+      "automation",
+      "low-code",
+      "internal-apps"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "traefik",
+    "name": "Traefik",
+    "category": "REVERSE PROXY",
+    "categories": [
+      "REVERSE PROXY"
+    ],
+    "description": "The Cloud Native Application Proxy.",
+    "source": "builtin",
+    "tags": [],
+    "iconSVG": true
+  },
+  {
+    "id": "typesense",
+    "name": "Typesense",
+    "category": "INDEXING",
+    "categories": [
+      "INDEXING"
+    ],
+    "description": "Tolerant typo-tolerant search engine.",
+    "source": "builtin",
+    "tags": [
+      "indexing",
+      "search",
+      "typo-tolerant"
+    ],
+    "resourceClass": "small",
+    "iconSVG": true
+  },
+  {
+    "id": "unbound",
+    "name": "Unbound",
+    "category": "DNS",
+    "categories": [
+      "DNS"
+    ],
+    "description": "Validating, recursive, and caching DNS resolver.",
+    "source": "builtin",
+    "tags": [
+      "dns",
+      "resolver",
+      "privacy"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "uptime-kuma",
+    "name": "Uptime Kuma",
+    "category": "MONITORING",
+    "categories": [
+      "MONITORING"
+    ],
+    "description": "A self-hosted monitoring tool like Uptime Robot.",
+    "source": "builtin",
+    "tags": [],
+    "iconSVG": true
+  },
+  {
+    "id": "vault",
+    "name": "Vault",
+    "category": "SECRETS",
+    "categories": [
+      "SECRETS"
+    ],
+    "description": "HashiCorp Vault - secrets management and data protection.",
+    "source": "builtin",
+    "tags": [
+      "secrets",
+      "secrets-management",
+      "encryption"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "vaultwarden",
+    "name": "Vaultwarden",
+    "category": "SECRETS",
+    "categories": [
+      "SECRETS"
+    ],
+    "description": "Unofficial Bitwarden compatible server written in Rust, formerly known as bitwarden_rs.",
+    "source": "builtin",
+    "tags": [
+      "secrets",
+      "passwords",
+      "security",
+      "vault"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "vector",
+    "name": "Vector",
+    "category": "LOGS",
+    "categories": [
+      "LOGS"
+    ],
+    "description": "High-performance observability data pipeline.",
+    "source": "builtin",
+    "tags": [
+      "logs",
+      "metrics",
+      "pipeline"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "verdaccio",
+    "name": "Verdaccio",
+    "category": "ARTIFACT REPOS",
+    "categories": [
+      "ARTIFACT REPOS"
+    ],
+    "description": "Lightweight private npm proxy registry.",
+    "source": "builtin",
+    "tags": [
+      "npm",
+      "registry",
+      "proxy"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "victoria-metrics",
+    "name": "VictoriaMetrics",
+    "category": "MONITORING",
+    "categories": [
+      "MONITORING"
+    ],
+    "description": "Fast, cost-effective time series database.",
+    "source": "builtin",
+    "tags": [
+      "monitoring",
+      "metrics",
+      "time-series"
+    ],
+    "resourceClass": "light"
+  },
+  {
+    "id": "vllm",
+    "name": "vLLM",
+    "category": "AI / LLM MODELS",
+    "categories": [
+      "AI / LLM MODELS"
+    ],
+    "description": "High-throughput LLM inference engine.",
+    "source": "builtin",
+    "tags": [
+      "ai",
+      "llm",
+      "inference",
+      "high-performance"
+    ],
+    "resourceClass": "heavy"
+  },
+  {
+    "id": "websurfx",
+    "name": "Websurfx",
+    "category": "SEARCH",
+    "categories": [
+      "SEARCH"
+    ],
+    "description": "Privacy-first metasearch engine.",
+    "source": "builtin",
+    "tags": [
+      "search",
+      "metasearch",
+      "privacy"
+    ],
+    "resourceClass": "small"
+  },
+  {
+    "id": "wg-easy",
+    "name": "wg-easy",
+    "category": "VPN",
+    "categories": [
+      "VPN"
+    ],
+    "description": "Easiest way to run WireGuard VPN with Web UI.",
+    "source": "builtin",
+    "tags": [
+      "vpn",
+      "wireguard",
+      "wireguard-ui"
+    ],
+    "resourceClass": "light"
+  },
+  {
+    "id": "wikijs",
+    "name": "Wiki.js",
+    "category": "KNOWLEDGE",
+    "categories": [
+      "KNOWLEDGE"
+    ],
+    "description": "Modern, lightweight and powerful wiki app.",
+    "source": "builtin",
+    "tags": [
+      "wiki",
+      "knowledge-base",
+      "documentation"
+    ],
+    "resourceClass": "medium"
+  },
+  {
+    "id": "windmill",
+    "name": "Windmill",
+    "category": "AUTOMATION",
+    "categories": [
+      "AUTOMATION"
+    ],
+    "description": "Open source developer platform for building internal apps and scripts.",
+    "source": "builtin",
+    "tags": [
+      "automation",
+      "internal-apps",
+      "scripts"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "wireguard",
+    "name": "WireGuard",
+    "category": "VPN",
+    "categories": [
+      "VPN"
+    ],
+    "description": "Fast, modern, secure VPN tunnel.",
+    "source": "builtin",
+    "tags": [
+      "vpn",
+      "wireguard",
+      "kernel"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "woodpecker-ci",
+    "name": "Woodpecker CI",
+    "category": "CI / CD",
+    "categories": [
+      "CI / CD"
+    ],
+    "description": "Lightweight and customizable CI/CD engine.",
+    "source": "builtin",
+    "tags": [
+      "ci-cd",
+      "automation",
+      "devops"
+    ],
+    "resourceClass": "light",
+    "iconSVG": true
+  },
+  {
+    "id": "wordpress",
+    "name": "WordPress",
+    "category": "CMS",
+    "categories": [
+      "CMS"
+    ],
+    "description": "Famous CMS and blogging platform.",
+    "source": "builtin",
+    "tags": [
+      "cms",
+      "blog",
+      "php"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "yacht",
+    "name": "Yacht",
+    "category": "CONTAINERS",
+    "categories": [
+      "CONTAINERS"
+    ],
+    "description": "Docker management UI with template templates.",
+    "source": "builtin",
+    "tags": [
+      "containers",
+      "docker",
+      "management",
+      "ui"
+    ],
+    "resourceClass": "small",
+    "iconSVG": true
+  },
+  {
+    "id": "yacy",
+    "name": "YaCy",
+    "category": "SEARCH",
+    "categories": [
+      "SEARCH"
+    ],
+    "description": "Decentralized peer-to-peer search engine.",
+    "source": "builtin",
+    "tags": [
+      "search",
+      "p2p",
+      "decentralized"
+    ],
+    "resourceClass": "medium"
+  },
+  {
+    "id": "zabbix",
+    "name": "Zabbix",
+    "category": "MONITORING",
+    "categories": [
+      "MONITORING"
+    ],
+    "description": "Enterprise monitoring solution for networks and applications.",
+    "source": "builtin",
+    "tags": [
+      "monitoring",
+      "snmp",
+      "network"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "zincsearch",
+    "name": "ZincSearch",
+    "category": "INDEXING",
+    "categories": [
+      "INDEXING"
+    ],
+    "description": "Elasticsearch compatible search engine.",
+    "source": "builtin",
+    "tags": [
+      "indexing",
+      "search",
+      "elasticsearch-compatible"
+    ],
+    "resourceClass": "small"
+  },
+  {
+    "id": "zitadel",
+    "name": "Zitadel",
+    "category": "AUTH",
+    "categories": [
+      "AUTH"
+    ],
+    "description": "Open-source Identity and Access Management with MFA support.",
+    "source": "builtin",
+    "tags": [
+      "authentication",
+      "identity",
+      "mfa",
+      "oauth",
+      "saml"
+    ],
+    "resourceClass": "medium",
+    "iconSVG": true
+  },
+  {
+    "id": "zulip",
+    "name": "Zulip",
+    "category": "COLLABORATION",
+    "categories": [
+      "COLLABORATION"
+    ],
+    "description": "Open-source team chat with threads and real-time messaging.",
+    "source": "builtin",
+    "tags": [
+      "chat",
+      "messaging",
+      "threads",
+      "team"
+    ],
+    "resourceClass": "heavy",
+    "iconSVG": true
+  }
+]

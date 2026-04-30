@@ -1,0 +1,41 @@
+{
+  "id": "prometheus",
+  "name": "Prometheus",
+  "category": "MONITORING",
+  "icon": "prometheus",
+  "description": "Open-source systems monitoring and alerting toolkit.",
+  "image": "prom/prometheus:latest",
+  "tags": [
+    "monitoring",
+    "metrics",
+    "time-series"
+  ],
+  "defaultHostPort": 9090,
+  "containerPorts": [
+    9090
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/etc/prometheus",
+      "description": "Prometheus config",
+      "required": true,
+      "defaultHostPath": "./config/prometheus"
+    },
+    {
+      "containerPath": "/prometheus",
+      "description": "Prometheus data",
+      "required": true,
+      "defaultHostPath": "./data/prometheus"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "512M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

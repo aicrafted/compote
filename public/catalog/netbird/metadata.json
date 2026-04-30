@@ -1,0 +1,47 @@
+{
+  "id": "netbird",
+  "name": "NetBird",
+  "category": "VPN",
+  "icon": "netbird",
+  "description": "WireGuard-based mesh VPN for secure connections.",
+  "image": "netbirdio/netbird:latest",
+  "tags": [
+    "vpn",
+    "mesh",
+    "wireguard"
+  ],
+  "defaultHostPort": 51820,
+  "containerPorts": [
+    51820
+  ],
+  "requires": [],
+  "requiredEnv": [
+    {
+      "name": "NB_SETUP_KEY",
+      "label": "Setup Key",
+      "required": true,
+      "isSecret": true
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/var/lib/netbird",
+      "description": "NetBird state",
+      "required": true,
+      "defaultHostPath": "./data/netbird"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "128M",
+    "cpus": "0.1"
+  },
+  "capAdd": [
+    "NET_ADMIN",
+    "SYS_ADMIN",
+    "SYS_RESOURCE"
+  ],
+  "iconSVG": true
+}

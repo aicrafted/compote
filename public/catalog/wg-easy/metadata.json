@@ -1,0 +1,35 @@
+{
+  "id": "wg-easy",
+  "name": "wg-easy",
+  "category": "VPN",
+  "icon": "wg-easy",
+  "description": "Easiest way to run WireGuard VPN with Web UI.",
+  "image": "ghcr.io/wg-easy/wg-easy:15",
+  "tags": [
+    "vpn",
+    "wireguard",
+    "wireguard-ui"
+  ],
+  "defaultHostPort": 51820,
+  "containerPorts": [
+    51820,
+    51821
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/etc/wireguard",
+      "description": "WireGuard config",
+      "required": true,
+      "defaultHostPath": "./data/wg-easy"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+"resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  }
+}

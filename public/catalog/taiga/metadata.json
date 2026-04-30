@@ -1,0 +1,35 @@
+{
+  "id": "taiga",
+  "name": "Taiga",
+  "category": "CRM / ERP",
+  "icon": "taiga",
+  "description": "Open-source project management for agile teams.",
+  "image": "taigaio/taiga-front:latest",
+  "tags": [
+    "project-management",
+    "agile",
+    "kanban"
+  ],
+  "defaultHostPort": 9000,
+  "containerPorts": [
+    9000
+  ],
+  "requires": [],
+  "requiredEnv": [
+    {
+      "name": "TAIGA_DOMAIN",
+      "label": "Domain",
+      "defaultValue": "localhost:9000",
+      "required": true
+    }
+  ],
+  "volumes": [],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

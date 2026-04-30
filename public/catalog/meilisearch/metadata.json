@@ -1,0 +1,27 @@
+{
+  "id": "meilisearch",
+  "name": "Meilisearch",
+  "category": "INDEXING",
+  "icon": "meilisearch",
+  "description": "Lightning-fast search engine.",
+  "image": "getmeili/meilisearch:latest",
+  "tags": ["indexing", "search", "fast"],
+  "defaultHostPort": 7700,
+  "containerPorts": [7700],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/meili_data",
+      "description": "Meilisearch data",
+      "required": true,
+      "defaultHostPath": "./data/meilisearch"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "small",
+  "resourceLimits": { "memory": "512M", "cpus": "0.25" },
+  "iconSVG": true
+}

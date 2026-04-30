@@ -1,0 +1,55 @@
+{
+  "id": "pulp",
+  "name": "Pulp",
+  "category": "ARTIFACT REPOS",
+  "icon": "pulp",
+  "iconSVG": true,
+  "description": "Universal artifact and container registry for RPM, Python, Containers, and more.",
+  "image": "pulp/pulp:stable",
+  "tags": [
+    "artifact",
+    "container-registry",
+    "rpm",
+    "python",
+    "maven"
+  ],
+  "defaultHostPort": 8080,
+  "containerPorts": [
+    80
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/etc/pulp",
+      "description": "Pulp settings",
+      "required": true,
+      "defaultHostPath": "./data/pulp/settings"
+    },
+    {
+      "containerPath": "/var/lib/pulp",
+      "description": "Pulp content storage",
+      "required": true,
+      "defaultHostPath": "./data/pulp/storage"
+    },
+    {
+      "containerPath": "/var/lib/pgsql",
+      "description": "PostgreSQL data",
+      "required": true,
+      "defaultHostPath": "./data/pulp/db"
+    },
+    {
+      "containerPath": "/var/lib/containers",
+      "description": "Container images",
+      "required": true,
+      "defaultHostPath": "./data/pulp/containers"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "heavy",
+  "resourceLimits": {
+    "memory": "4G",
+    "cpus": "2"
+  }
+}

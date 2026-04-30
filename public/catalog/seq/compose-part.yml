@@ -1,0 +1,15 @@
+image: datalust/seq:latest
+restart: unless-stopped
+volumes:
+  - ${SEQ_DATA:-./data/seq}:/data
+environment:
+  - ACCEPT_EULA=Y
+  - SEQ_FIRSTRUN_ADMINPASSWORD=${SEQ_FIRSTRUN_ADMINPASSWORD}
+ports:
+  - "5341:80"
+  - "5342:5341"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:80"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

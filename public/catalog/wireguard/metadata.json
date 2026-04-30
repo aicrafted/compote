@@ -1,0 +1,39 @@
+{
+  "id": "wireguard",
+  "name": "WireGuard",
+  "category": "VPN",
+  "icon": "wireguard",
+  "description": "Fast, modern, secure VPN tunnel.",
+  "image": "linuxserver/wireguard:latest",
+  "tags": [
+    "vpn",
+    "wireguard",
+    "kernel"
+  ],
+  "defaultHostPort": 51820,
+  "containerPorts": [
+    51820
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/config",
+      "description": "WireGuard config",
+      "required": true,
+      "defaultHostPath": "./config/wireguard"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "128M",
+    "cpus": "0.1"
+  },
+  "capAdd": [
+    "NET_ADMIN",
+    "SYS_MODULE"
+  ],
+  "iconSVG": true
+}

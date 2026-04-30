@@ -1,0 +1,34 @@
+{
+  "id": "envoy",
+  "name": "Envoy",
+  "category": "REVERSE PROXY",
+  "icon": "envoy",
+  "description": "Cloud-native high-performance edge/middle/service proxy.",
+  "image": "envoyproxy/envoy:v1.32.0",
+  "tags": [
+    "reverse-proxy",
+    "service-proxy",
+    "api-gateway"
+  ],
+  "defaultHostPort": 10000,
+  "containerPorts": [
+    10000
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/etc/envoy",
+      "description": "Envoy config",
+      "required": true,
+      "defaultHostPath": "./config/envoy"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "512M",
+    "cpus": "0.5"
+  }
+}

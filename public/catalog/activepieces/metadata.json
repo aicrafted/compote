@@ -1,0 +1,27 @@
+{
+  "id": "activepieces",
+  "name": "Activepieces",
+  "category": "AUTOMATION",
+  "icon": "activepieces",
+  "description": "No-code business automation platform.",
+  "image": "activepieces/activepieces:latest",
+  "tags": ["automation", "no-code", "business"],
+  "defaultHostPort": 3000,
+  "containerPorts": [3000],
+  "requires": ["postgres"],
+  "optionalRequires": ["redis"],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/usr/local/lib/activepieces/files",
+      "description": "Activepieces files",
+      "required": true,
+      "defaultHostPath": "./data/activepieces"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "1G", "cpus": "0.5" },
+  "iconSVG": true
+}

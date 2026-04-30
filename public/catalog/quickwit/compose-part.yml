@@ -1,0 +1,13 @@
+image: quickwit/quickwit:latest
+restart: unless-stopped
+ports:
+  - ${QUICKWIT_PORT:-7280}:7280
+volumes:
+  - ${QUICKWIT_DATA:-./data/quickwit}:/quickwit/data
+environment:
+  - QW_DATA_DIR=/quickwit/data
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:7280/health"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

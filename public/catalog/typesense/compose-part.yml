@@ -1,0 +1,14 @@
+image: typesense/typesense:27.1
+restart: unless-stopped
+ports:
+  - ${TYPESENSE_PORT:-8108}:8108
+volumes:
+  - ${TYPESENSE_DATA:-./data/typesense}:/var/lib/typesense
+environment:
+  - TYPESENSE_API_KEY=${TYPESENSE_API_KEY}
+  - TYPESENSE_MASTER_KEY=${TYPESENSE_MASTER_KEY}
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:8108/health"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

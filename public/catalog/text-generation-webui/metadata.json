@@ -1,0 +1,26 @@
+{
+  "id": "text-generation-webui",
+  "name": "Text Generation WebUI",
+  "category": "AI / LLM MODELS",
+  "icon": "text-generation-webui",
+  "description": "Web UI for LLM inference.",
+  "image": "huggingface/text-generation-webui:latest",
+  "tags": ["ai", "llm", "webui"],
+  "defaultHostPort": 7860,
+  "containerPorts": [7860],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/models",
+      "description": "Model storage",
+      "required": true,
+      "defaultHostPath": "./data/text-generation-webui-models"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "heavy",
+  "resourceLimits": { "memory": "8G", "cpus": "4" }
+}

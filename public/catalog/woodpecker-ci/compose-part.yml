@@ -1,0 +1,11 @@
+image: woodpeckerci/woodpecker-server:next
+restart: unless-stopped
+volumes:
+  - ${WOODPECKER_DATA:-./data/woodpecker-ci}:/var/lib/woodpecker
+environment:
+  - WOODPECKER_OPEN=true
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

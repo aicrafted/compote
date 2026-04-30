@@ -1,0 +1,40 @@
+{
+  "id": "nginx",
+  "name": "Nginx",
+  "category": "WEB SERVERS",
+  "categories": ["REVERSE PROXY"],
+  "icon": "nginx",
+  "description": "Web server and reverse proxy.",
+  "image": "nginx:alpine",
+  "tags": ["web-server", "reverse-proxy", "http"],
+  "defaultHostPort": 80,
+  "containerPorts": [80, 443],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/cache/nginx",
+      "description": "Nginx cache",
+      "required": true,
+      "defaultHostPath": "./data/nginx/cache"
+    },
+    {
+      "containerPath": "/var/log/nginx",
+      "description": "Nginx logs",
+      "required": true,
+      "defaultHostPath": "./data/nginx/log"
+    },
+    {
+      "containerPath": "/etc/nginx/conf.d",
+      "description": "Nginx config",
+      "required": true,
+      "defaultHostPath": "./data/nginx/conf"
+    }
+  ],
+  "publicExposure": "recommended",
+  "persistenceRequired": false,
+  "resourceClass": "small",
+  "resourceLimits": { "memory": "128M", "cpus": "0.1" },
+  "iconSVG": true
+}

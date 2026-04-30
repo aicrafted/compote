@@ -1,0 +1,26 @@
+{
+  "id": "degoogle",
+  "name": "Degoog",
+  "category": "SEARCH",
+  "icon": "degoogle",
+  "description": "Privacy-respecting search aggregator.",
+  "image": "samueltb3/degoogle:latest",
+  "tags": ["search", "privacy"],
+  "defaultHostPort": 8080,
+  "containerPorts": [8080],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/config",
+      "description": "Degoog config",
+      "required": true,
+      "defaultHostPath": "./data/degoogle"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "small",
+  "resourceLimits": { "memory": "256M", "cpus": "0.25" }
+}

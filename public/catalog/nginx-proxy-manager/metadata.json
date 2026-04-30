@@ -1,0 +1,27 @@
+{
+  "name": "Nginx Proxy Manager",
+  "category": "REVERSE PROXY",
+  "icon": "nginxproxymanager",
+  "description": "Expose your services easily and securely.",
+  "image": "jc21/nginx-proxy-manager:latest",
+  "defaultHostPort": 81,
+  "containerPorts": [
+    80,
+    81,
+    443
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/data",
+      "description": "NPM storage"
+    },
+    {
+      "containerPath": "/etc/letsencrypt",
+      "description": "Certificates"
+    }
+  ],
+  "publicExposure": "recommended",
+  "iconSVG": true
+}

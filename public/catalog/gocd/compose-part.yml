@@ -1,0 +1,9 @@
+image: gocd/gocd-server:v25.4.0
+restart: unless-stopped
+volumes:
+  - ${GOCD_DATA:-./data/gocd}:/go
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:8153/go"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

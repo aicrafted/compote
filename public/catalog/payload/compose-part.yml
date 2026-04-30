@@ -1,0 +1,13 @@
+image: payloadcms/payload:latest
+restart: unless-stopped
+ports:
+  - ${PAYLOAD_PORT:-3000}:3000
+volumes:
+  - ${PAYLOAD_DATA:-./data/payload}:/app/payload
+environment:
+  - PAYLOAD_PUBLIC_SERVER_URL=http://localhost:3000
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

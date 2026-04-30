@@ -1,0 +1,14 @@
+image: fluentd:v1.7-elasticsearch
+restart: unless-stopped
+volumes:
+  - ${FLUENTD_CONFIG:-./config/fluentd}:/etc/fluent:ro
+ports:
+  - "24224:24224"
+  - "24224:24224/udp"
+environment:
+  - FLUENTD_CONF=/etc/fluent/fluent.conf
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:24220/metrics"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

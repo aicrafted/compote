@@ -1,0 +1,42 @@
+{
+  "id": "reposilite",
+  "name": "Reposilite",
+  "category": "ARTIFACT REPOS",
+  "icon": "reposilite",
+  "description": "Lightweight Maven repository management for JVM artifacts.",
+  "image": "dzikoysk/reposilite:3.5.28",
+  "tags": [
+    "maven",
+    "repository",
+    "jvm"
+  ],
+  "defaultHostPort": 80,
+  "containerPorts": [
+    8080
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "optionalEnv": [
+    {
+      "name": "JAVA_OPTS",
+      "label": "Java Options",
+      "defaultValue": "-Xmx512M",
+      "required": false
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/app/data",
+      "description": "Reposilite data storage",
+      "required": true,
+      "defaultHostPath": "./data/reposilite"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "512M",
+    "cpus": "0.25"
+  }
+}

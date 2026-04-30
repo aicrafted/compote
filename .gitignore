@@ -1,0 +1,7 @@
+.cache/
+.docs/
+.wrangler
+node_modules/  
+tasks/
+AGENTS.md
+dist/

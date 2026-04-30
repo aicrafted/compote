@@ -1,0 +1,27 @@
+{
+  "id": "huginn",
+  "name": "Huginn",
+  "category": "AUTOMATION",
+  "icon": "huginn",
+  "description": "Open source platform for building automation agents.",
+  "image": "huginn/huginn:latest",
+  "tags": ["automation", "agent", "workflow"],
+  "defaultHostPort": 3000,
+  "containerPorts": [3000],
+  "requires": [],
+  "optionalRequires": ["postgres"],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/lib/huginn",
+      "description": "Huginn data",
+      "required": true,
+      "defaultHostPath": "./data/huginn"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "1G", "cpus": "0.5" },
+  "iconSVG": true
+}

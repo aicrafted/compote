@@ -1,0 +1,17 @@
+image: ghost:latest
+restart: unless-stopped
+ports:
+  - ${GHOST_PORT:-2368}:2368
+volumes:
+  - ${GHOST_DATA:-./data/ghost}:/var/lib/ghost/content
+environment:
+  - url=http://localhost:2368
+  - database__client=mysql
+  - database__connection__host=mysql
+  - database__connection__user=ghost
+  - database__connection__password=${MYSQL_PASSWORD}
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:2368"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

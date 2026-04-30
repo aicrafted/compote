@@ -1,0 +1,32 @@
+{
+  "id": "sftpgp",
+  "name": "SFTPGo",
+  "category": "STORAGE",
+  "icon": "sftpgp",
+  "description": "Fully featured SFTP server.",
+  "image": "drakkan/sftpgp:latest",
+  "tags": ["sftp", "ftp", "file-transfer"],
+  "defaultHostPort": 2022,
+  "containerPorts": [2022],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/srv",
+      "description": "Root directory",
+      "required": true,
+      "defaultHostPath": "./data/sftpgp"
+    },
+    {
+      "containerPath": "/etc/sftpgp",
+      "description": "Config directory",
+      "required": true,
+      "defaultHostPath": "./data/sftpgp.d"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "small",
+  "resourceLimits": { "memory": "256M", "cpus": "0.25" }
+}

@@ -1,0 +1,47 @@
+{
+  "id": "drone-ci",
+  "name": "Drone CI",
+  "category": "CI / CD",
+  "icon": "drone",
+  "description": "Continuous delivery platform built on Docker.",
+  "image": "drone/drone:2",
+  "tags": [
+    "ci-cd",
+    "automation",
+    "devops"
+  ],
+  "defaultHostPort": 80,
+  "containerPorts": [
+    80
+  ],
+  "requires": [],
+  "requiredEnv": [
+    {
+      "name": "DRONE_RPC_SECRET",
+      "label": "RPC Secret",
+      "required": true,
+      "isSecret": true
+    },
+    {
+      "name": "DRONE_SERVER_HOST",
+      "label": "Server Host",
+      "required": true
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/data",
+      "description": "Drone data",
+      "required": true,
+      "defaultHostPath": "./data/drone-ci"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

@@ -1,0 +1,14 @@
+image: localai/localai:latest
+restart: unless-stopped
+ports:
+  - ${LOCALAI_PORT:-8080}:8080
+volumes:
+  - ${LOCALAI_DATA:-./data/localai-models}:/models
+environment:
+  - CONTEXT_SIZE=128
+  - THREADS=4
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

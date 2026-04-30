@@ -1,0 +1,13 @@
+image: yacy/yacy:latest
+restart: unless-stopped
+ports:
+  - ${YACY_PORT:-8090}:8090
+volumes:
+  - ${YACY_DATA:-./data/yacy}:/opt/yacy_data
+environment:
+  - YACY_ROOT=/opt/yacy_data
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:8090"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

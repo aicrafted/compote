@@ -1,0 +1,27 @@
+{
+  "id": "quickwit",
+  "name": "Quickwit",
+  "category": "INDEXING",
+  "icon": "quickwit",
+  "description": "Ultra-fast and cost-efficient search engine.",
+  "image": "quickwit/quickwit:latest",
+  "tags": ["indexing", "search", "log-management"],
+  "defaultHostPort": 7280,
+  "containerPorts": [7280],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/quickwit/data",
+      "description": "Quickwit data",
+      "required": true,
+      "defaultHostPath": "./data/quickwit"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "small",
+  "resourceLimits": { "memory": "512M", "cpus": "0.25" },
+  "iconSVG": true
+}

@@ -1,0 +1,35 @@
+{
+  "id": "dnsmasq",
+  "name": "dnsmasq",
+  "category": "DNS",
+  "icon": "dnsmasq",
+  "iconSVG": true,
+  "description": "Lightweight DNS forwarder and DHCP server.",
+  "image": "linuxserver/dnsmasq:latest",
+  "tags": [
+    "dns",
+    "dhcp",
+    "forwarder"
+  ],
+  "defaultHostPort": 53,
+  "containerPorts": [
+    53
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/config",
+      "description": "dnsmasq config",
+      "required": true,
+      "defaultHostPath": "./config/dnsmasq"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "128M",
+    "cpus": "0.1"
+  }
+}

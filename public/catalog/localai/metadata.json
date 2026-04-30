@@ -1,0 +1,26 @@
+{
+  "id": "localai",
+  "name": "LocalAI",
+  "category": "AI / LLM MODELS",
+  "icon": "localai",
+  "description": "Self-hosted LLM inference.",
+  "image": "localai/localai:latest",
+  "tags": ["ai", "llm", "inference"],
+  "defaultHostPort": 8080,
+  "containerPorts": [8080],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/models",
+      "description": "Model storage",
+      "required": true,
+      "defaultHostPath": "./data/localai-models"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "4G", "cpus": "2" }
+}

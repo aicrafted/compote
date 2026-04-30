@@ -1,0 +1,26 @@
+{
+  "id": "yacht",
+  "name": "Yacht",
+  "category": "CONTAINERS",
+  "icon": "yacht",
+  "description": "Docker management UI with template templates.",
+  "image": "selfhosted:yacht",
+  "tags": ["containers", "docker", "management", "ui"],
+  "defaultHostPort": 8000,
+  "containerPorts": [8000],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/run/docker.sock",
+      "hostPath": "/var/run/docker.sock",
+      "required": true
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "small",
+  "resourceLimits": { "memory": "512M", "cpus": "0.25" },
+  "iconSVG": true
+}

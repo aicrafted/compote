@@ -1,0 +1,13 @@
+image: qdrant/qdrant:v1.7.4
+restart: unless-stopped
+volumes:
+  - ${QDRANT_DATA:-./data/qdrant}:/qdrant/storage
+  - ${QDRANT_SNAPSHOTS:-./snapshots/qdrant}:/qdrant/snapshots
+environment:
+  - QDRANT_API_KEY=${QDRANT_API_KEY:-}
+  - QDRANT_CLUSTER_NAME=${QDRANT_CLUSTER_NAME:-qdrant}
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:6333/health"]
+  interval: 10s
+  timeout: 5s
+  retries: 5

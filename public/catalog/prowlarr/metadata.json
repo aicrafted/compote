@@ -1,0 +1,21 @@
+{
+  "name": "Prowlarr",
+  "category": "MEDIA",
+  "icon": "prowlarr",
+  "description": "Indexer manager/proxy built on the popular arr .net/reactjs base stack.",
+  "image": "linuxserver/prowlarr:latest",
+  "defaultHostPort": 9696,
+  "containerPorts": [
+    9696
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/config",
+      "description": "Configuration data"
+    }
+  ],
+  "publicExposure": "recommended",
+  "iconSVG": true
+}

@@ -1,0 +1,11 @@
+image: samueltb3/degoogle:latest
+restart: unless-stopped
+ports:
+  - ${DEGOOGLE_PORT:-8080}:8080
+volumes:
+  - ${DEGOOGLE_DATA:-./data/degoogle}:/config
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

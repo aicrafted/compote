@@ -1,0 +1,34 @@
+{
+  "id": "victoria-metrics",
+  "name": "VictoriaMetrics",
+  "category": "MONITORING",
+  "icon": "victoriametrics",
+  "description": "Fast, cost-effective time series database.",
+  "image": "victoriametrics/victoria-metrics:latest",
+  "tags": [
+    "monitoring",
+    "metrics",
+    "time-series"
+  ],
+  "defaultHostPort": 8428,
+  "containerPorts": [
+    8428
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/victoria-metrics-data",
+      "description": "VictoriaMetrics data",
+      "required": true,
+      "defaultHostPath": "./data/victoria-metrics"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "512M",
+    "cpus": "0.25"
+  }
+}

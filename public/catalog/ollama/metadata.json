@@ -1,0 +1,27 @@
+{
+  "id": "ollama",
+  "name": "Ollama",
+  "category": "AI / LLM MODELS",
+  "icon": "ollama",
+  "description": "Run LLMs locally.",
+  "image": "ollama/ollama:latest",
+  "tags": ["ai", "llm", "local"],
+  "defaultHostPort": 11434,
+  "containerPorts": [11434],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/root/.ollama",
+      "description": "Ollama models",
+      "required": true,
+      "defaultHostPath": "./data/ollama"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "heavy",
+  "resourceLimits": { "memory": "8G", "cpus": "4" },
+  "iconSVG": true
+}

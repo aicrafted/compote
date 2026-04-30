@@ -1,0 +1,36 @@
+{
+  "id": "jitsi-meet",
+  "name": "Jitsi Meet",
+  "category": "COLLABORATION",
+  "icon": "jitsi",
+  "description": "Fully encrypted, open-source video conferencing.",
+  "image": "jitsi/web:stable",
+  "tags": [
+    "video",
+    "conferencing",
+    "webrtc"
+  ],
+  "defaultHostPort": 8000,
+  "containerPorts": [
+    80,
+    443
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/config",
+      "description": "Jitsi configuration",
+      "required": true,
+      "defaultHostPath": "./data/jitsi"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "heavy",
+  "resourceLimits": {
+    "memory": "2G",
+    "cpus": "1"
+  },
+  "iconSVG": true
+}

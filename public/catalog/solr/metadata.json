@@ -1,0 +1,25 @@
+{
+  "id": "solr",
+  "name": "Solr",
+  "category": "INDEXING",
+  "description": "Open source enterprise search platform.",
+  "image": "solr:latest",
+  "tags": ["indexing", "search", "lucene"],
+  "defaultHostPort": 8983,
+  "containerPorts": [8983],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/solr/data",
+      "description": "Solr data",
+      "required": true,
+      "defaultHostPath": "./data/solr"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "1G", "cpus": "0.5" }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "MariaDB",
+  "category": "DATABASE",
+  "icon": "mariadb",
+  "description": "Drop-in replacement for MySQL.",
+  "image": "mariadb:10.11",
+  "defaultHostPort": 3307,
+  "containerPorts": [
+    3306
+  ],
+  "requires": [],
+  "requiredEnv": [
+    {
+      "name": "MARIADB_ROOT_PASSWORD",
+      "label": "Root Password",
+      "isSecret": true,
+      "required": true
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/var/lib/mysql",
+      "description": "Database storage"
+    }
+  ],
+  "iconSVG": true
+}

@@ -1,0 +1,13 @@
+image: getgrav/grav:latest
+restart: unless-stopped
+ports:
+  - ${GRAV_PORT:-8080}:80
+volumes:
+  - ${GRAV_DATA:-./data/grav}:/var/www/html
+environment:
+  - PHP_MEMORY_LIMIT=256M
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost/"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

@@ -1,0 +1,35 @@
+{
+  "id": "infisical",
+  "name": "Infisical",
+  "category": "SECRETS",
+  "icon": "infisical",
+  "description": "Open-source secrets management with GitOps support.",
+  "image": "infisical/infisical:latest",
+  "tags": [
+    "secrets",
+    "gitops",
+    "envars"
+  ],
+  "defaultHostPort": 8080,
+  "containerPorts": [
+    8080
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/backend/data",
+      "description": "Infisical data",
+      "required": true,
+      "defaultHostPath": "./data/infisical"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

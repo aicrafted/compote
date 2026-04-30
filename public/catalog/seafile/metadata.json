@@ -1,0 +1,43 @@
+{
+  "id": "seafile",
+  "name": "Seafile",
+  "category": "STORAGE",
+  "icon": "seafile",
+  "description": "Open-source file sync and share solution.",
+  "image": "seafileltd/seafile-mc:13.0",
+  "tags": [
+    "file-sync",
+    "file-share",
+    "cloud"
+  ],
+  "defaultHostPort": 80,
+  "containerPorts": [
+    80,
+    443
+  ],
+  "requires": [],
+  "optionalRequires": ["mysql", "mariadb"],
+  "requiredEnv": [
+    {
+      "name": "SEAFILE_SERVER_HOSTNAME",
+      "label": "Hostname",
+      "required": true
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/shared",
+      "description": "Shared data",
+      "required": true,
+      "defaultHostPath": "./data/seafile"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

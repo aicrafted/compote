@@ -1,0 +1,36 @@
+{
+  "id": "duckdb",
+  "name": "DuckDB",
+  "category": "DATABASE",
+  "icon": "duckdb",
+  "description": "Fast, embeddable analytical SQL database for data analytics.",
+  "image": "duckdb/duckdb:v1.0.0",
+  "tags": [
+    "database",
+    "sql",
+    "analytics",
+    "olap"
+  ],
+  "defaultHostPort": null,
+  "containerPorts": [],
+  "requires": [],
+  "requiredEnv": [],
+  "optionalEnv": [],
+  "publicExposure": "never",
+  "persistenceRequired": false,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "128M",
+    "cpus": "0.1"
+  },
+  "volumes": [
+    {
+      "containerPath": "/data",
+      "label": "Data directory",
+      "description": "Data files for queries",
+      "required": false,
+      "defaultHostPath": "./data/duckdb"
+    }
+  ],
+  "iconSVG": true
+}

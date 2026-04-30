@@ -1,0 +1,42 @@
+{
+  "id": "plane",
+  "name": "Plane",
+  "category": "CRM / ERP",
+  "icon": "plane",
+  "description": "Open-source project management alternative to Jira and Linear.",
+  "image": "makeplane/plane-backend:preview",
+  "tags": [
+    "project-management",
+    "jira-alternative",
+    "tasks"
+  ],
+  "defaultHostPort": 8000,
+  "containerPorts": [
+    8000
+  ],
+  "requires": ["postgres", "redis"],
+  "requiredEnv": [
+    {
+      "name": "WEB_URL",
+      "label": "Web URL",
+      "required": true,
+      "description": "Public URL to access Plane"
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/plane",
+      "description": "Plane data",
+      "required": true,
+      "defaultHostPath": "./data/plane"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

@@ -1,0 +1,13 @@
+image: ghcr.io/advplyr/audiobookshelf:latest
+restart: unless-stopped
+volumes:
+  - ${AUDIOBOOKS:-./audiobooks}:/audiobooks
+  - ${ABS_CONFIG:-./data/audiobookshelf}:/config
+  - ${ABS_METADATA:-./data/audiobookshelf/metadata}:/metadata
+ports:
+  - "80:80"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:80"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

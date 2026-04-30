@@ -1,0 +1,27 @@
+{
+  "id": "directus",
+  "name": "Directus",
+  "category": "CMS",
+  "icon": "directus",
+  "description": "Open-data platform for SQL databases.",
+  "image": "directus/directus:latest",
+  "tags": ["cms", "headless", "sql"],
+  "defaultHostPort": 8055,
+  "containerPorts": [8055],
+  "requires": ["postgres"],
+  "optionalRequires": ["redis"],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/directus/uploads",
+      "description": "Upload directory",
+      "required": true,
+      "defaultHostPath": "./data/directus"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "512M", "cpus": "0.5" },
+  "iconSVG": true
+}

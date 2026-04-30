@@ -1,0 +1,36 @@
+{
+  "id": "logstash",
+  "name": "Logstash",
+  "category": "LOGS",
+  "icon": "logstash",
+  "description": "Server-side data processing pipeline.",
+  "image": "logstash:8.17.0",
+  "tags": [
+    "logs",
+    "etl",
+    "pipeline"
+  ],
+  "defaultHostPort": 9600,
+  "containerPorts": [
+    9600,
+    5044
+  ],
+  "requires": ["elasticsearch"],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/usr/share/logstash/data",
+      "description": "Logstash data",
+      "required": true,
+      "defaultHostPath": "./data/logstash"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

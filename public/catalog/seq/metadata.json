@@ -1,0 +1,48 @@
+{
+  "id": "seq",
+  "name": "Seq",
+  "category": "LOGS",
+  "icon": "seq",
+  "description": "Centralized structured log server.",
+  "image": "datalust/seq:latest",
+  "tags": [
+    "logs",
+    "structured",
+    "centralized"
+  ],
+  "defaultHostPort": 5341,
+  "containerPorts": [
+    80
+  ],
+  "requires": [],
+  "requiredEnv": [
+    {
+      "name": "ACCEPT_EULA",
+      "defaultValue": "Y",
+      "label": "Accept EULA",
+      "required": true
+    },
+    {
+      "name": "SEQ_FIRSTRUN_ADMINPASSWORD",
+      "label": "Admin Password",
+      "required": true,
+      "isSecret": true
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/data",
+      "description": "Seq data",
+      "required": true,
+      "defaultHostPath": "./data/seq"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "512M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

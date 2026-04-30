@@ -1,0 +1,32 @@
+{
+  "name": "Sonarr",
+  "category": "MEDIA",
+  "icon": "sonarr",
+  "description": "Smart PVR for newsgroup and bittorrent users (TV Shows).",
+  "image": "linuxserver/sonarr:latest",
+  "defaultHostPort": 8989,
+  "containerPorts": [
+    8989
+  ],
+  "requires": [
+    "qbittorrent",
+    "prowlarr"
+  ],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/config",
+      "description": "Configuration data"
+    },
+    {
+      "containerPath": "/tv",
+      "description": "TV Series library"
+    },
+    {
+      "containerPath": "/downloads",
+      "description": "Downloads source"
+    }
+  ],
+  "publicExposure": "recommended",
+  "iconSVG": true
+}

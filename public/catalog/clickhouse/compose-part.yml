@@ -1,0 +1,14 @@
+image: clickhouse/clickhouse-server:24.8
+restart: unless-stopped
+volumes:
+  - ${CLICKHOUSE_DATA:-./data/clickhouse}:/var/lib/clickhouse
+  - ${CLICKHOUSE_CONFIG:-./config/clickhouse}:/etc/clickhouse-server:ro
+environment:
+  - CLICKHOUSE_DB=${CLICKHOUSE_DB:-default}
+  - CLICKHOUSE_USER=${CLICKHOUSE_USER:-default}
+  - CLICKHOUSE_PASSWORD=${CLICKHOUSE_PASSWORD}
+healthcheck:
+  test: ["CMD", "clickhouse-server", "--query", "SELECT 1"]
+  interval: 10s
+  timeout: 5s
+  retries: 5

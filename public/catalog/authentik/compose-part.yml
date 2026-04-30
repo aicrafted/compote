@@ -1,0 +1,12 @@
+image: ghcr.io/goauthentik/server:2025.4.4
+restart: unless-stopped
+volumes:
+  - ${AUTHENTIK_MEDIA:-./data/authentik/media}:/media
+  - ${AUTHENTIK_TEMPLATES:-./data/authentik/templates}:/templates
+environment:
+  - AUTHENTIK_SECRET_KEY=${AUTHENTIK_SECRET_KEY}
+healthcheck:
+  test: ["CMD", "wget", "-qO-", "http://localhost:9000/-/health/ready/"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

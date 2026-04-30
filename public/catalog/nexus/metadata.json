@@ -1,0 +1,37 @@
+{
+  "id": "nexus",
+  "name": "Nexus Repository",
+  "category": "ARTIFACT REPOS",
+  "icon": "sonatype",
+  "description": "Universal repository manager for Maven, npm, Docker, and more.",
+  "image": "sonatype/nexus3:3.91.0",
+  "tags": [
+    "artifact",
+    "repository",
+    "maven",
+    "npm",
+    "docker-registry"
+  ],
+  "defaultHostPort": 8081,
+  "containerPorts": [
+    8081
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/nexus-data",
+      "description": "Nexus data storage",
+      "required": true,
+      "defaultHostPath": "./data/nexus"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

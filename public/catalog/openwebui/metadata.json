@@ -1,0 +1,27 @@
+{
+  "id": "openwebui",
+  "name": "Open WebUI",
+  "category": "AI / LLM UI",
+  "icon": "openwebui",
+  "description": "Extensible user-friendly AI interface.",
+  "image": "openwebui/open-webui:latest",
+  "tags": ["ai", "llm", "chatbot"],
+  "defaultHostPort": 8080,
+  "containerPorts": [8080],
+  "requires": [],
+  "optionalRequires": ["ollama"],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/app/backend/data",
+      "description": "Open WebUI data",
+      "required": true,
+      "defaultHostPath": "./data/openwebui"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "1G", "cpus": "0.5" },
+  "iconSVG": true
+}

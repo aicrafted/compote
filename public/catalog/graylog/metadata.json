@@ -1,0 +1,43 @@
+{
+  "id": "graylog",
+  "name": "Graylog",
+  "category": "LOGS",
+  "icon": "graylog",
+  "description": "Open-source log management solution.",
+  "image": "graylog/graylog:6.1",
+  "tags": [
+    "logs",
+    "log-management",
+    "analysis"
+  ],
+  "defaultHostPort": 9000,
+  "containerPorts": [
+    9000,
+    12201
+  ],
+  "requires": ["mongodb", "elasticsearch"],
+  "requiredEnv": [
+    {
+      "name": "GRAYLOG_PASSWORD_SECRET",
+      "label": "Password Secret",
+      "required": true,
+      "isSecret": true
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/usr/share/graylog/data",
+      "description": "Graylog data",
+      "required": true,
+      "defaultHostPath": "./data/graylog"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

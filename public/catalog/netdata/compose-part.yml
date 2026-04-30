@@ -1,0 +1,14 @@
+image: netdata/netdata:latest
+restart: unless-stopped
+volumes:
+  - ${NETDATA_CONFIG:-./config/netdata}:/etc/netdata:ro
+  - ${NETDATA_DATA:-./data/netdata}:/var/cache/netdata
+cap_add:
+  - SYS_PTRACE
+ports:
+  - "19999:19999"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:19999"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

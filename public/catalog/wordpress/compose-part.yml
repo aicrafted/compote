@@ -1,0 +1,16 @@
+image: wordpress:latest
+restart: unless-stopped
+ports:
+  - ${WORDPRESS_PORT:-8080}:80
+volumes:
+  - ${WORDPRESS_DATA:-./data/wordpress}:/var/www/html
+environment:
+  - WORDPRESS_DB_HOST=mysql
+  - WORDPRESS_DB_NAME=wordpress
+  - WORDPRESS_DB_USER=wordpress
+  - WORDPRESS_DB_PASSWORD=${MYSQL_PASSWORD}
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost/"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

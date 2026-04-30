@@ -1,0 +1,9 @@
+image: index.docker.io/appsmith/appsmith-ce:latest
+restart: unless-stopped
+volumes:
+  - ${APPSMITH_DATA:-./data/appsmith}:/appsmith-stacks
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

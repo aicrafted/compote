@@ -1,0 +1,35 @@
+{
+  "id": "fluentd",
+  "name": "Fluentd",
+  "category": "LOGS",
+  "icon": "fluent",
+  "description": "Data collector for unified logging layer.",
+  "image": "fluentd:v1.7-elasticsearch",
+  "tags": [
+    "logs",
+    "collector",
+    "forwarder"
+  ],
+  "defaultHostPort": 24224,
+  "containerPorts": [
+    24224
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/etc/fluent",
+      "description": "Fluentd config",
+      "required": true,
+      "defaultHostPath": "./config/fluentd"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

@@ -1,0 +1,27 @@
+{
+  "id": "node-red",
+  "name": "Node-RED",
+  "category": "AUTOMATION",
+  "icon": "node-red",
+  "description": "Flow-based programming tool for IoT and automation.",
+  "image": "nodered/node-red:latest",
+  "tags": ["automation", "iot", "flow"],
+  "defaultHostPort": 1880,
+  "containerPorts": [1880],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/data",
+      "description": "Node-RED data",
+      "required": true,
+      "defaultHostPath": "./data/node-red"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "small",
+  "resourceLimits": { "memory": "512M", "cpus": "0.25" },
+  "iconSVG": true
+}

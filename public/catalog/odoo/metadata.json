@@ -1,0 +1,41 @@
+{
+  "id": "odoo",
+  "name": "Odoo",
+  "category": "CRM / ERP",
+  "icon": "odoo",
+  "description": "Open-source ERP and CRM software for business management.",
+  "image": "odoo:17.0",
+  "tags": [
+    "erp",
+    "crm",
+    "business"
+  ],
+  "defaultHostPort": 8069,
+  "containerPorts": [
+    8069
+  ],
+  "requires": ["postgres"],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/lib/odoo",
+      "description": "Odoo data",
+      "required": true,
+      "defaultHostPath": "./data/odoo"
+    },
+    {
+      "containerPath": "/etc/odoo",
+      "description": "Configuration",
+      "required": false,
+      "defaultHostPath": "./config/odoo"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "heavy",
+  "resourceLimits": {
+    "memory": "2G",
+    "cpus": "1"
+  },
+  "iconSVG": true
+}

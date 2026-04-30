@@ -1,0 +1,13 @@
+image: librechat/librechat:latest
+restart: unless-stopped
+ports:
+  - ${LIBRECHAT_PORT:-3080}:3080
+volumes:
+  - ${LIBRECHAT_DATA:-./data/librechat}:/app/data
+environment:
+  - PROXYvendor=webm
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:3080"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

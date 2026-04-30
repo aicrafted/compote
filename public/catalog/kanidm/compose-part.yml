@@ -1,0 +1,12 @@
+image: kanidm/server:latest
+restart: unless-stopped
+volumes:
+  - ${KANIDM_DATA:-./data/kanidm}:/data
+ports:
+  - "8443:8443"
+  - "3636:3636"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:8443/status"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

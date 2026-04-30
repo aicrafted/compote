@@ -1,0 +1,13 @@
+image: automatic1111/stable-diffusion-webui:latest
+restart: unless-stopped
+ports:
+  - ${AUTOMATIC1111_PORT:-7860}:7860
+volumes:
+  - ${AUTOMATIC1111_DATA:-./data/automatic1111}:/workspace
+environment:
+  - CLI_ARGS=--listen
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:7860"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

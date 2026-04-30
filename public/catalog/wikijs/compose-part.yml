@@ -1,0 +1,13 @@
+image: ghcr.io/requarks/wiki:2
+restart: unless-stopped
+volumes:
+  - ${WIKIJS_DATA:-./data/wikijs}:/wiki/data
+environment:
+  - DB_TYPE=sqlite
+ports:
+  - "8080:3000"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:3000"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

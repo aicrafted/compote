@@ -1,0 +1,16 @@
+image: docmost/docmost:latest
+restart: unless-stopped
+volumes:
+  - ${DOCMOST_DATA:-./data/docmost}:/app/data/storage
+environment:
+  - APP_URL=${APP_URL:-http://localhost:3000}
+  - APP_SECRET=${APP_SECRET}
+  - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD:-password}@db:5432/docmost
+  - REDIS_URL=redis://redis:6379
+ports:
+  - "3000:3000"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:3000"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

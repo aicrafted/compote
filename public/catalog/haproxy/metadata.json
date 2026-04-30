@@ -1,0 +1,36 @@
+{
+  "id": "haproxy",
+  "name": "HAProxy",
+  "category": "REVERSE PROXY",
+  "icon": "haproxy",
+  "description": "Reliable, high-performance TCP/HTTP load balancer.",
+  "image": "haproxy:2.9",
+  "tags": [
+    "reverse-proxy",
+    "load-balancer",
+    "tcp"
+  ],
+  "defaultHostPort": 80,
+  "containerPorts": [
+    80,
+    443
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/usr/local/etc/haproxy",
+      "description": "HAProxy config",
+      "required": true,
+      "defaultHostPath": "./config/haproxy"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

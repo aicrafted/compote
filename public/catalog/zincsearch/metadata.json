@@ -1,0 +1,26 @@
+{
+  "id": "zincsearch",
+  "name": "ZincSearch",
+  "category": "INDEXING",
+  "icon": "zincsearch",
+  "description": "Elasticsearch compatible search engine.",
+  "image": "zincsearch/zincsearch:latest",
+  "tags": ["indexing", "search", "elasticsearch-compatible"],
+  "defaultHostPort": 4080,
+  "containerPorts": [4080],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/data",
+      "description": "ZincSearch data",
+      "required": true,
+      "defaultHostPath": "./data/zincsearch"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "small",
+  "resourceLimits": { "memory": "512M", "cpus": "0.25" }
+}

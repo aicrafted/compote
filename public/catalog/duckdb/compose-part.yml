@@ -1,0 +1,4 @@
+image: duckdb/duckdb:v1.0.0
+restart: unless-stopped
+volumes:
+  - ${DUCKDB_DATA:-./data/duckdb}:/data

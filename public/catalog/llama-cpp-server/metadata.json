@@ -1,0 +1,27 @@
+{
+  "id": "llama-cpp-server",
+  "name": "llama.cpp Server",
+  "category": "AI / LLM MODELS",
+  "icon": "llama-cpp-server",
+  "description": "llama.cpp HTTP server.",
+  "image": "ghcr.io/ggerganov/llama.cpp:server",
+  "tags": ["ai", "llm", "llama-cpp"],
+  "defaultHostPort": 8080,
+  "containerPorts": [8080],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/models",
+      "description": "Model storage",
+      "required": true,
+      "defaultHostPath": "./data/llama-cpp-models"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "heavy",
+  "resourceLimits": { "memory": "8G", "cpus": "4" },
+  "iconSVG": true
+}

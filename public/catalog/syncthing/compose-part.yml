@@ -1,0 +1,13 @@
+image: syncthing/syncthing:latest
+restart: unless-stopped
+volumes:
+  - ${SYNCTHING_DATA:-./data/syncthing}:/var/syncthing
+environment:
+  - PUID=${PUID:-1000}
+  - PGID=${PGID:-1000}
+  - STGUIADDRESS=0.0.0.0:8384
+healthcheck:
+  test: ["CMD", "curl", "-fkLsS", "-m", "2", "127.0.0.1:8384/rest/noauth/health"]
+  interval: 1m
+  timeout: 10s
+  retries: 3

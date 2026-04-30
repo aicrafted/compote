@@ -1,0 +1,27 @@
+{
+  "id": "strapi",
+  "name": "Strapi",
+  "category": "CMS",
+  "icon": "strapi",
+  "description": "Open-source headless CMS.",
+  "image": "strapi/strapi:latest",
+  "tags": ["cms", "headless", "api"],
+  "defaultHostPort": 1337,
+  "containerPorts": [1337],
+  "requires": ["postgres"],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/app/public",
+      "description": "Uploaded files",
+      "required": true,
+      "defaultHostPath": "./data/strapi"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "512M", "cpus": "0.5" },
+  "iconSVG": true
+}

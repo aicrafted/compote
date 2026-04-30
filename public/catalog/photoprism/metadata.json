@@ -1,0 +1,41 @@
+{
+  "id": "photoprism",
+  "name": "PhotoPrism",
+  "category": "MEDIA",
+  "icon": "photoprism",
+  "description": "AI-powered photo management.",
+  "image": "photoprism/photoprism:latest",
+  "tags": [
+    "photos",
+    "ai",
+    "gallery"
+  ],
+  "defaultHostPort": 2342,
+  "containerPorts": [
+    2342
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/photoprism/ originals",
+      "description": "Original photos",
+      "required": true,
+      "defaultHostPath": "./photos/originals"
+    },
+    {
+      "containerPath": "/photoprism/storage",
+      "description": "PhotoPrism storage",
+      "required": true,
+      "defaultHostPath": "./data/photoprism"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

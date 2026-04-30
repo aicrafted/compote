@@ -1,0 +1,14 @@
+image: huginn/huginn:latest
+restart: unless-stopped
+ports:
+  - ${HUGINN_PORT:-3000}:3000
+volumes:
+  - ${HUGINN_DATA:-./data/huginn}:/var/lib/huginn
+environment:
+  - DOMAIN=localhost
+  - DOMAIN_URL=http://localhost:3000
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:3000"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

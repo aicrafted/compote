@@ -1,0 +1,12 @@
+image: matrixdotorg/synapse:latest
+restart: unless-stopped
+volumes:
+  - ${SYNAPSE_DATA:-./data/synapse}:/data
+environment:
+  - SYNAPSE_SERVER_NAME=${SYNAPSE_SERVER_NAME}
+  - SYNAPSE_REPORT_STATS=${SYNAPSE_REPORT_STATS:-no}
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:8008/_matrix/client/versions"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

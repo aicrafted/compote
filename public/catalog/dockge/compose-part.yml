@@ -1,0 +1,14 @@
+image: louislam/dockge:latest
+restart: unless-stopped
+ports:
+  - ${DOCKGE_PORT:-3001}:3001
+volumes:
+  - /var/run/docker.sock:/var/run/docker.sock
+  - ${DOCKGE_DATA:-./data/dockge}:/opt/dockge
+environment:
+  - DOCKGE_STACKS_DIR=/opt/dockge/stacks
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:3001"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

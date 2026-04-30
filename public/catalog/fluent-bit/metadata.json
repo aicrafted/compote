@@ -1,0 +1,35 @@
+{
+  "id": "fluent-bit",
+  "name": "Fluent Bit",
+  "category": "LOGS",
+  "icon": "fluent",
+  "description": "Fast and lightweight log processor and forwarder.",
+  "image": "fluent/fluent-bit:3.2.0",
+  "tags": [
+    "logs",
+    "processor",
+    "forwarder"
+  ],
+  "defaultHostPort": 2020,
+  "containerPorts": [
+    2020
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/fluent-bit/etc",
+      "description": "Fluent Bit config",
+      "required": true,
+      "defaultHostPath": "./config/fluent-bit"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "128M",
+    "cpus": "0.1"
+  },
+  "iconSVG": true
+}

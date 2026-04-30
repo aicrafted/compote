@@ -1,0 +1,8 @@
+{
+  email {$ACME_EMAIL}
+}
+
+# Example proxy rule
+{$DOMAIN} {
+    reverse_proxy nextcloud:80
+}

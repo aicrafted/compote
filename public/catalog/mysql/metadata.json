@@ -1,0 +1,32 @@
+{
+  "name": "MySQL",
+  "category": "DATABASE",
+  "icon": "mysql",
+  "description": "The world's most popular open source database.",
+  "image": "mysql:8.0",
+  "defaultHostPort": 3306,
+  "containerPorts": [
+    3306
+  ],
+  "requires": [],
+  "requiredEnv": [
+    {
+      "name": "MYSQL_ROOT_PASSWORD",
+      "label": "Root Password",
+      "isSecret": true,
+      "required": true
+    },
+    {
+      "name": "MYSQL_DATABASE",
+      "label": "Initial Database",
+      "defaultValue": "homelab"
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/var/lib/mysql",
+      "description": "Database storage"
+    }
+  ],
+  "iconSVG": true
+}

@@ -1,0 +1,13 @@
+image: windmilldask/windmill:latest
+restart: unless-stopped
+ports:
+  - ${WINDMILL_PORT:-3000}:3000
+volumes:
+  - ${WINDMILL_DATA:-./data/windmill}:/app/backend
+environment:
+  - WINDMILL_DB__URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/windmill
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:3000"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

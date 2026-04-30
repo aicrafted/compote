@@ -1,0 +1,19 @@
+image: directus/directus:latest
+restart: unless-stopped
+ports:
+  - ${DIRECTUS_PORT:-8055}:8055
+volumes:
+  - ${DIRECTUS_DATA:-./data/directus}:/directus/uploads
+environment:
+  - KEY=${DIRECTUS_KEY}
+  - SECRET=${DIRECTUS_SECRET}
+  - DATABASE_CLIENT=postgres
+  - DATABASE_HOST=postgres
+  - DATABASE_DATABASE=directus
+  - DATABASE_USER=directus
+  - DATABASE_PASSWORD=${POSTGRES_PASSWORD}
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:8055/server/health"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

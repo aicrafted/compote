@@ -1,0 +1,12 @@
+image: fluent/fluent-bit:3.2.0
+restart: unless-stopped
+volumes:
+  - ${FLUENT_BIT_CONFIG:-./config/fluent-bit}:/fluent-bit/etc:ro
+ports:
+  - "2020:2020"
+  - "2021:2021"
+healthcheck:
+  test: ["CMD", "fluent-bit", "-i"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

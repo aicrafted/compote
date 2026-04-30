@@ -1,0 +1,28 @@
+{
+  "id": "element-web",
+  "name": "Element Web",
+  "category": "COLLABORATION",
+  "icon": "element",
+  "description": "Fast, simple Matrix client for web and desktop.",
+  "image": "vectorim/element-web:v1.12.12",
+  "tags": [
+    "matrix",
+    "chat",
+    "web"
+  ],
+  "defaultHostPort": 80,
+  "containerPorts": [
+    80
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

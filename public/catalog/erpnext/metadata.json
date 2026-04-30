@@ -1,0 +1,42 @@
+{
+  "id": "erpnext",
+  "name": "ERPNext",
+  "category": "CRM / ERP",
+  "icon": "erpnext",
+  "description": "Free and open-source ERP for business management.",
+  "image": "frappe/erpnext:v16.12.0",
+  "tags": [
+    "erp",
+    "crm",
+    "business"
+  ],
+  "defaultHostPort": 8080,
+  "containerPorts": [
+    8080
+  ],
+  "requires": ["mariadb"],
+  "requiredEnv": [
+    {
+      "name": "DB_PASSWORD",
+      "label": "Database Password",
+      "required": true,
+      "isSecret": true
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/home/frappe/frappe-bench/sites",
+      "description": "Sites data",
+      "required": true,
+      "defaultHostPath": "./data/erpnext"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "heavy",
+  "resourceLimits": {
+    "memory": "2G",
+    "cpus": "1"
+  },
+  "iconSVG": true
+}

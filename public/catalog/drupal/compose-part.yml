@@ -1,0 +1,16 @@
+image: drupal:latest
+restart: unless-stopped
+ports:
+  - ${DRUPAL_PORT:-8080}:80
+volumes:
+  - ${DRUPAL_DATA:-./data/drupal}:/var/www/html/sites/default/files
+environment:
+  - DRUPAL_DB_HOST=mysql
+  - DRUPAL_DB_NAME=drupal
+  - DRUPAL_DB_USER=drupal
+  - DRUPAL_DB_PASSWORD=${MYSQL_PASSWORD}
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost/"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

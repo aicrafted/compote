@@ -1,0 +1,48 @@
+{
+  "id": "bookstack",
+  "name": "BookStack",
+  "category": "KNOWLEDGE",
+  "icon": "bookstack",
+  "description": "Open-source knowledge base for teams.",
+  "image": "lscr.io/linuxserver/bookstack:latest",
+  "tags": [
+    "wiki",
+    "knowledge-base",
+    "book"
+  ],
+  "defaultHostPort": 6875,
+  "containerPorts": [
+    80
+  ],
+  "requires": [],
+  "optionalRequires": ["mysql"],
+  "requiredEnv": [
+    {
+      "name": "APP_URL",
+      "label": "App URL",
+      "required": true
+    },
+    {
+      "name": "APP_KEY",
+      "label": "App Key",
+      "required": true,
+      "isSecret": true
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/config",
+      "description": "BookStack config",
+      "required": true,
+      "defaultHostPath": "./config/bookstack"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

@@ -1,0 +1,13 @@
+image: ggerganov/llama.cpp:server
+restart: unless-stopped
+ports:
+  - ${LLAMA_CPP_PORT:-8080}:8080
+volumes:
+  - ${LLAMA_CPP_DATA:-./data/llama-cpp-models}:/models
+environment:
+  - MODEL=/models
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

@@ -1,0 +1,50 @@
+{
+  "id": "syncthing",
+  "name": "Syncthing",
+  "category": "STORAGE",
+  "icon": "syncthing",
+  "description": "Open-source continuous file synchronization.",
+  "image": "syncthing/syncthing:latest",
+  "tags": [
+    "file-sync",
+    "sync",
+    "backup"
+  ],
+  "defaultHostPort": 8384,
+  "containerPorts": [
+    8384,
+    22000
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "optionalEnv": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "defaultValue": "1000",
+      "required": false
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "defaultValue": "1000",
+      "required": false
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/var/syncthing",
+      "description": "Syncthing config and data",
+      "required": true,
+      "defaultHostPath": "./data/syncthing"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

@@ -1,0 +1,17 @@
+image: linuxserver/wireguard:latest
+restart: unless-stopped
+volumes:
+  - ${WIREGUARD_CONFIG:-./config/wireguard}:/config
+  - /lib/modules:/lib/modules:ro
+cap_add:
+  - NET_ADMIN
+  - SYS_MODULE
+ports:
+  - "51820:51820/udp"
+sysctls:
+  - net.ipv4.ip_forward=1
+healthcheck:
+  test: ["CMD", "wg"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

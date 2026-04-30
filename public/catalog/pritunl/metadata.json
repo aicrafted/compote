@@ -1,0 +1,27 @@
+{
+  "id": "pritunl",
+  "name": "Pritunl",
+  "category": "VPN",
+  "description": "Enterprise VPN server based on OpenVPN and WireGuard.",
+  "image": "pritunl/pritunl:latest",
+  "tags": [
+    "vpn",
+    "security",
+    "network"
+  ],
+  "defaultHostPort": 443,
+  "containerPorts": [
+    80,
+    443,
+    1194
+  ],
+  "requires": [
+    "mongodb"
+  ],
+  "publicExposure": "recommended",
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "512M"
+  },
+  "iconSVG": true
+}

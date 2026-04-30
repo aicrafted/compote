@@ -1,0 +1,12 @@
+image: gitlab/gitlab-ce:18.9.2-ce.0
+restart: unless-stopped
+volumes:
+  - ${GITLAB_CONFIG:-./data/gitlab/config}:/etc/gitlab
+  - ${GITLAB_LOGS:-./data/gitlab/logs}:/var/log/gitlab
+  - ${GITLAB_DATA:-./data/gitlab/data}:/var/opt/gitlab
+shm_size: 256m
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:80/"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

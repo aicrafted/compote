@@ -1,0 +1,11 @@
+image: ollama/ollama:latest
+restart: unless-stopped
+ports:
+  - ${OLLAMA_PORT:-11434}:11434
+volumes:
+  - ${OLLAMA_DATA:-./data/ollama}:/root/.ollama
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

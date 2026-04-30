@@ -1,0 +1,47 @@
+{
+  "id": "zabbix",
+  "name": "Zabbix",
+  "category": "MONITORING",
+  "icon": "zabbix",
+  "description": "Enterprise monitoring solution for networks and applications.",
+  "image": "zabbix/zabbix-server-mysql:alpine-latest",
+  "tags": [
+    "monitoring",
+    "snmp",
+    "network"
+  ],
+  "defaultHostPort": 10051,
+  "containerPorts": [
+    10051
+  ],
+  "requires": ["mysql"],
+  "requiredEnv": [
+    {
+      "name": "DB_SERVER_HOST",
+      "label": "Database Host",
+      "required": true
+    },
+    {
+      "name": "DB_SERVER_PASS",
+      "label": "Database Password",
+      "required": true,
+      "isSecret": true
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/usr/lib/zabbix",
+      "description": "Zabbix alerts and scripts",
+      "required": false,
+      "defaultHostPath": "./data/zabbix"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

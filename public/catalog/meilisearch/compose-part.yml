@@ -1,0 +1,13 @@
+image: getmeili/meilisearch:latest
+restart: unless-stopped
+ports:
+  - ${MEILISEARCH_PORT:-7700}:7700
+volumes:
+  - ${MEILISEARCH_DATA:-./data/meilisearch}:/meili_data
+environment:
+  - MEILI_MASTER_KEY=${MEILI_MASTER_KEY}
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:7700/health"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

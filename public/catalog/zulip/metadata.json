@@ -1,0 +1,51 @@
+{
+  "id": "zulip",
+  "name": "Zulip",
+  "category": "COLLABORATION",
+  "icon": "zulip",
+  "description": "Open-source team chat with threads and real-time messaging.",
+  "image": "ghcr.io/zulip/zulip-server:11.5",
+  "tags": [
+    "chat",
+    "messaging",
+    "threads",
+    "team"
+  ],
+  "defaultHostPort": 80,
+  "containerPorts": [
+    80,
+    443
+  ],
+  "requires": [],
+  "optionalRequires": ["postgres", "redis", "rabbitmq", "memcached"],
+  "requiredEnv": [
+    {
+      "name": "SETTING_EXTERNAL_HOST",
+      "label": "External Host",
+      "required": true,
+      "description": "Hostname users will connect to"
+    },
+    {
+      "name": "SETTING_ZULIP_ADMINISTRATOR",
+      "label": "Admin Email",
+      "required": true,
+      "description": "Email for admin and error notifications"
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/data",
+      "description": "Zulip data",
+      "required": true,
+      "defaultHostPath": "./data/zulip"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "heavy",
+  "resourceLimits": {
+    "memory": "2G",
+    "cpus": "1"
+  },
+  "iconSVG": true
+}

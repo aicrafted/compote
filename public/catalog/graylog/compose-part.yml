@@ -1,0 +1,14 @@
+image: graylog/graylog:6.1
+restart: unless-stopped
+volumes:
+  - ${GRAYLOG_DATA:-./data/graylog}:/usr/share/graylog/data
+environment:
+  - GRAYLOG_PASSWORD_SECRET=${GRAYLOG_PASSWORD_SECRET}
+ports:
+  - "9000:9000"
+  - "12201:12201/udp"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:9000/api/system/status"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

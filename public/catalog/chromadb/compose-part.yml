@@ -1,0 +1,12 @@
+image: chromadb/chroma:0.5.0
+restart: unless-stopped
+volumes:
+  - ${CHROMADB_DATA:-./data/chromadb}:/chroma/chroma
+environment:
+  - IS_PERSISTENT=${IS_PERSISTENT:-true}
+  - ANONYMIZED_TELEMETRY=${ANONYMIZED_TELEMETRY:-false}
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/heartbeat"]
+  interval: 10s
+  timeout: 5s
+  retries: 5

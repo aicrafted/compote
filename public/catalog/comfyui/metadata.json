@@ -1,0 +1,26 @@
+{
+  "id": "comfyui",
+  "name": "ComfyUI",
+  "category": "AI / MEDIA",
+  "icon": "comfyui",
+  "description": "Powerful image generation workows.",
+  "image": "comfyui/comfyui:latest",
+  "tags": ["ai", "image-generation", "workflow"],
+  "defaultHostPort": 8188,
+  "containerPorts": [8188],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/custom_nodes",
+      "description": "ComfyUI custom nodes",
+      "required": true,
+      "defaultHostPath": "./data/comfyui"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "heavy",
+  "resourceLimits": { "memory": "8G", "cpus": "4" }
+}

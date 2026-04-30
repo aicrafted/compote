@@ -1,0 +1,27 @@
+{
+  "id": "wordpress",
+  "name": "WordPress",
+  "category": "CMS",
+  "icon": "wordpress",
+  "description": "Famous CMS and blogging platform.",
+  "image": "wordpress:latest",
+  "tags": ["cms", "blog", "php"],
+  "defaultHostPort": 8080,
+  "containerPorts": [80],
+  "requires": ["mysql"],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/www/html",
+      "description": "WordPress files",
+      "required": true,
+      "defaultHostPath": "./data/wordpress"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "512M", "cpus": "0.5" },
+  "iconSVG": true
+}

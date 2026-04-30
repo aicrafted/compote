@@ -1,0 +1,15 @@
+image: ghcr.io/zitadel/zitadel:latest
+restart: unless-stopped
+environment:
+  - ZITADEL_MASTERKEY=${ZITADEL_MASTERKEY}
+command:
+  - start-from-init
+  - --tlsMode
+  - disabled
+ports:
+  - "8080:8080"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:8080/healthz"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

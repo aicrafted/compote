@@ -1,0 +1,41 @@
+{
+  "id": "openproject",
+  "name": "OpenProject",
+  "category": "CRM / ERP",
+  "icon": "openproject",
+  "description": "Open-source project management for teams.",
+  "image": "openproject/openproject:17",
+  "tags": [
+    "project-management",
+    "tasks",
+    "collaboration"
+  ],
+  "defaultHostPort": 8080,
+  "containerPorts": [
+    80
+  ],
+  "requires": [],
+  "requiredEnv": [
+    {
+      "name": "SECRET_KEY_BASE",
+      "label": "Secret Key",
+      "required": true,
+      "isSecret": true
+    },
+    {
+      "name": "OPENPROJECT_HOST__NAME",
+      "label": "Host Name",
+      "defaultValue": "localhost:8080",
+      "required": true
+    }
+  ],
+  "volumes": [],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "heavy",
+  "resourceLimits": {
+    "memory": "2G",
+    "cpus": "1"
+  },
+  "iconSVG": true
+}

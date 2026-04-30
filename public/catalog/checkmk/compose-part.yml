@@ -1,0 +1,17 @@
+image: checkmk/check-mk-raw:latest
+restart: unless-stopped
+volumes:
+  - ${CHECKMK_DATA:-./data/checkmk}:/omd/sites
+environment:
+  - CMK_PASSWORD=${CMK_PASSWORD}
+  - CMK_SITE_ID=${CMK_SITE_ID:-cmk}
+tmpfs:
+  - /opt/omd/sites/cmk/tmp:uid=1000,gid=1000
+ports:
+  - "8080:5000"
+  - "8000:8000"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:5000/cmk/check_mk/"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

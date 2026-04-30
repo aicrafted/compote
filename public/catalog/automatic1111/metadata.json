@@ -1,0 +1,26 @@
+{
+  "id": "automatic1111",
+  "name": "AUTOMATIC1111",
+  "category": "AI / MEDIA",
+  "icon": "automatic1111",
+  "description": "Stable Diffusion WebUI.",
+  "image": "automatic1111/stable-diffusion-webui:latest",
+  "tags": ["ai", "image-generation", "sd"],
+  "defaultHostPort": 7860,
+  "containerPorts": [7860],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/workspace",
+      "description": "Stable Diffusion models",
+      "required": true,
+      "defaultHostPath": "./data/automatic1111"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "heavy",
+  "resourceLimits": { "memory": "8G", "cpus": "4" }
+}

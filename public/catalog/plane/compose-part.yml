@@ -1,0 +1,11 @@
+image: makeplane/plane-backend:preview
+restart: unless-stopped
+volumes:
+  - ${PLANE_DATA:-./data/plane}:/plane
+environment:
+  - WEB_URL=${WEB_URL:-http://localhost}
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:8000"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

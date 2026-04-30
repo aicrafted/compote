@@ -1,0 +1,42 @@
+{
+  "id": "hedgedoc",
+  "name": "HedgeDoc",
+  "category": "KNOWLEDGE",
+  "icon": "hedgedoc",
+  "description": "Real-time collaborative markdown notes.",
+  "image": "quay.io/hedgedoc/hedgedoc:1.10.8",
+  "tags": [
+    "markdown",
+    "notes",
+    "collaboration"
+  ],
+  "defaultHostPort": 3000,
+  "containerPorts": [
+    3000
+  ],
+  "requires": [],
+  "optionalRequires": ["postgres"],
+  "requiredEnv": [
+    {
+      "name": "CMD_DOMAIN",
+      "label": "Domain",
+      "required": true
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/hedgedoc/public/uploads",
+      "description": "HedgeDoc uploads",
+      "required": true,
+      "defaultHostPath": "./data/hedgedoc"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "512M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

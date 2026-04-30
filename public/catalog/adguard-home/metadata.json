@@ -1,0 +1,42 @@
+{
+  "id": "adguard-home",
+  "name": "AdGuard Home",
+  "category": "DNS",
+  "icon": "adguard",
+  "description": "Network-wide ad and tracker blocking DNS server.",
+  "image": "adguard/adguardhome:latest",
+  "tags": [
+    "dns",
+    "adblock",
+    "privacy"
+  ],
+  "defaultHostPort": 53,
+  "containerPorts": [
+    53,
+    3000
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/opt/adguardhome/work",
+      "description": "AdGuard work directory",
+      "required": true,
+      "defaultHostPath": "./data/adguard-home/work"
+    },
+    {
+      "containerPath": "/opt/adguardhome/conf",
+      "description": "AdGuard config directory",
+      "required": true,
+      "defaultHostPath": "./data/adguard-home/conf"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

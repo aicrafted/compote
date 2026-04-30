@@ -1,0 +1,15 @@
+image: langgenius/dify:latest
+restart: unless-stopped
+ports:
+  - ${DIFY_PORT:-3000}:3000
+volumes:
+  - ${DIFY_DATA:-./data/dify}:/app/api/storage
+environment:
+  - CONSOLE_WEB_URL=http://localhost:3000
+  - CONSOLE_API_URL=http://localhost:3001
+  - SERVICE_API_URL=http://localhost:3002
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

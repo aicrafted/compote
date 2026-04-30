@@ -1,0 +1,34 @@
+{
+  "id": "coredns",
+  "name": "CoreDNS",
+  "category": "DNS",
+  "icon": "coredns",
+  "description": "Elastic DNS server that chains plugins.",
+  "image": "coredns/coredns:latest",
+  "tags": [
+    "dns",
+    "kubernetes",
+    "cloud-native"
+  ],
+  "defaultHostPort": 53,
+  "containerPorts": [
+    53
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/Corefile",
+      "description": "CoreDNS Corefile",
+      "required": true,
+      "defaultHostPath": "./config/coredns/Corefile"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "128M",
+    "cpus": "0.1"
+  }
+}

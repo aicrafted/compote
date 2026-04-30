@@ -1,0 +1,32 @@
+{
+  "id": "komodo",
+  "name": "Komodo",
+  "category": "CONTAINERS",
+  "icon": "komodo",
+  "description": "Modern Docker management interface.",
+  "image": "komodorio/komodo:latest",
+  "tags": ["containers", "docker", "management", "ui"],
+  "defaultHostPort": 1338,
+  "containerPorts": [1338],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/run/docker.sock",
+      "hostPath": "/var/run/docker.sock",
+      "required": true
+    },
+    {
+      "containerPath": "/root/.komodo",
+      "description": "Komodo data",
+      "required": true,
+      "defaultHostPath": "./data/komodo"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "small",
+  "resourceLimits": { "memory": "512M", "cpus": "0.25" },
+  "iconSVG": true
+}

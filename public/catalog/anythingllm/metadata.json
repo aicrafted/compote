@@ -1,0 +1,33 @@
+{
+  "id": "anythingllm",
+  "name": "AnythingLLM",
+  "category": "AI / LLM UI",
+  "icon": "anythingllm",
+  "description": "Desktop AI chatbot application.",
+  "image": "mintplexlinux/anythingllm:latest",
+  "tags": ["ai", "llm", "chatbot"],
+  "defaultHostPort": 3001,
+  "containerPorts": [3001],
+  "requires": [],
+  "optionalRequires": ["ollama"],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/app/server/data",
+      "description": "AnythingLLM data",
+      "required": true,
+      "defaultHostPath": "./data/anythingllm"
+    },
+    {
+      "containerPath": "/app/server/storage",
+      "description": "AnythingLLM storage",
+      "required": true,
+      "defaultHostPath": "./data/anythingllm-storage"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "1G", "cpus": "0.5" },
+  "iconSVG": true
+}

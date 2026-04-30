@@ -1,0 +1,25 @@
+{
+  "id": "mongodb",
+  "name": "MongoDB",
+  "category": "DATABASE",
+  "icon": "mongodb",
+  "description": "NoSQL document database.",
+  "image": "mongo:7",
+  "tags": [
+    "database",
+    "nosql",
+    "documents"
+  ],
+  "defaultHostPort": 27017,
+  "containerPorts": [
+    27017
+  ],
+  "publicExposure": "never",
+  "persistenceRequired": true,
+  "resourceClass": "heavy",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "1.0"
+  },
+  "iconSVG": true
+}

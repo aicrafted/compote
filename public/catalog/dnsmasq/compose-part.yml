@@ -1,0 +1,12 @@
+image: linuxserver/dnsmasq:latest
+restart: unless-stopped
+volumes:
+  - ${DNSMASQ_CONFIG:-./config/dnsmasq}:/config
+ports:
+  - "53:53/tcp"
+  - "53:53/udp"
+healthcheck:
+  test: ["CMD", "nslookup", "google.com", "localhost"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

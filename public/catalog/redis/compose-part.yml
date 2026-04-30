@@ -1,0 +1,5 @@
+image: redis:7-alpine
+restart: unless-stopped
+volumes:
+  - ${REDIS_DATA:-./data/redis}:/data
+# No critical env vars for basic setup

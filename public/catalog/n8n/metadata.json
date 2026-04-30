@@ -1,0 +1,36 @@
+{
+  "id": "n8n",
+  "name": "n8n",
+  "category": "AUTOMATION",
+  "icon": "n8n",
+  "description": "Powerful workflow automation tool.",
+  "image": "docker.n8n.io/n8nio/n8n:latest",
+  "tags": [
+    "automation",
+    "workflow",
+    "no-code"
+  ],
+  "defaultHostPort": 5678,
+  "containerPorts": [
+    5678
+  ],
+  "requires": [],
+  "optionalRequires": ["postgres"],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/home/node/.n8n",
+      "description": "n8n data",
+      "required": true,
+      "defaultHostPath": "./data/n8n"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

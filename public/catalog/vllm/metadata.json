@@ -1,0 +1,26 @@
+{
+  "id": "vllm",
+  "name": "vLLM",
+  "category": "AI / LLM MODELS",
+  "icon": "vllm",
+  "description": "High-throughput LLM inference engine.",
+  "image": "vllm/vllm-openai:latest",
+  "tags": ["ai", "llm", "inference", "high-performance"],
+  "defaultHostPort": 8000,
+  "containerPorts": [8000],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/models",
+      "description": "Model storage",
+      "required": true,
+      "defaultHostPath": "./data/vllm-models"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "heavy",
+  "resourceLimits": { "memory": "8G", "cpus": "4" }
+}

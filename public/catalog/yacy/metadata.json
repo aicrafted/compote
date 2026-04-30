@@ -1,0 +1,26 @@
+{
+  "id": "yacy",
+  "name": "YaCy",
+  "category": "SEARCH",
+  "icon": "yacy",
+  "description": "Decentralized peer-to-peer search engine.",
+  "image": "yacy/yacy:latest",
+  "tags": ["search", "p2p", "decentralized"],
+  "defaultHostPort": 8090,
+  "containerPorts": [8090],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/opt/yacy_data",
+      "description": "YaCy data",
+      "required": true,
+      "defaultHostPath": "./data/yacy"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "1G", "cpus": "0.5" }
+}

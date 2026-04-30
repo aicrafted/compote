@@ -1,0 +1,27 @@
+{
+  "id": "librechat",
+  "name": "LibreChat",
+  "category": "AI / LLM UI",
+  "icon": "librechat",
+  "description": "Enhanced ChatGPT client.",
+  "image": "librechat/librechat:latest",
+  "tags": ["ai", "llm", "chatbot"],
+  "defaultHostPort": 3080,
+  "containerPorts": [3080],
+  "requires": [],
+  "optionalRequires": ["postgres", "ollama"],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/app/data",
+      "description": "LibreChat data",
+      "required": true,
+      "defaultHostPath": "./data/librechat"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "1G", "cpus": "0.5" },
+  "iconSVG": true
+}

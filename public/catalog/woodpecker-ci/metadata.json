@@ -1,0 +1,36 @@
+{
+  "id": "woodpecker-ci",
+  "name": "Woodpecker CI",
+  "category": "CI / CD",
+  "icon": "woodpecker-ci",
+  "description": "Lightweight and customizable CI/CD engine.",
+  "image": "woodpeckerci/woodpecker-server:next",
+  "tags": [
+    "ci-cd",
+    "automation",
+    "devops"
+  ],
+  "defaultHostPort": 8000,
+  "containerPorts": [
+    8000
+  ],
+  "requires": [],
+  "optionalRequires": ["postgres"],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/lib/woodpecker",
+      "description": "Woodpecker data",
+      "required": true,
+      "defaultHostPath": "./data/woodpecker-ci"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

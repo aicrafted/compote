@@ -1,0 +1,51 @@
+{
+  "id": "forgejo",
+  "name": "Forgejo",
+  "category": "GIT REPOS",
+  "icon": "forgejo",
+  "description": "Self-hosted Git service. Beyond coding. We forge.",
+  "image": "codeberg.org/forgejo/forgejo:15",
+  "tags": [
+    "git",
+    "version-control",
+    "collaboration"
+  ],
+  "defaultHostPort": 3000,
+  "containerPorts": [
+    3000,
+    22
+  ],
+  "requires": [],
+  "optionalRequires": ["postgres", "mysql"],
+  "requiredEnv": [],
+  "optionalEnv": [
+    {
+      "name": "USER_UID",
+      "label": "User UID",
+      "defaultValue": "1000",
+      "required": false
+    },
+    {
+      "name": "USER_GID",
+      "label": "User GID",
+      "defaultValue": "1000",
+      "required": false
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/data",
+      "description": "Forgejo data and config",
+      "required": true,
+      "defaultHostPath": "./data/forgejo"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "512M",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

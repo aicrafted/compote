@@ -1,0 +1,33 @@
+{
+  "id": "filebrowser",
+  "name": "Filebrowser",
+  "category": "STORAGE",
+  "icon": "filebrowser",
+  "description": "Web file browser and manager.",
+  "image": "filebrowser/filebrowser:latest",
+  "tags": ["files", "webdav", "file-manager"],
+  "defaultHostPort": 8080,
+  "containerPorts": [8080],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/srv",
+      "description": "Root directory to serve",
+      "required": true,
+      "defaultHostPath": "./data/filebrowser"
+    },
+    {
+      "containerPath": "/database.db",
+      "description": "Database",
+      "required": true,
+      "defaultHostPath": "./data/filebrowser.db"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "small",
+  "resourceLimits": { "memory": "256M", "cpus": "0.25" },
+  "iconSVG": true
+}

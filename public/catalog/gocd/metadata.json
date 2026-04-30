@@ -1,0 +1,35 @@
+{
+  "id": "gocd",
+  "name": "GoCD",
+  "category": "CI / CD",
+  "icon": "gocd",
+  "description": "Open-source continuous delivery server.",
+  "image": "gocd/gocd-server:v25.4.0",
+  "tags": [
+    "ci-cd",
+    "continuous-delivery",
+    "devops"
+  ],
+  "defaultHostPort": 8153,
+  "containerPorts": [
+    8153
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/go",
+      "description": "GoCD data",
+      "required": true,
+      "defaultHostPath": "./data/gocd"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

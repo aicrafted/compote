@@ -1,0 +1,42 @@
+{
+  "id": "vault",
+  "name": "Vault",
+  "category": "SECRETS",
+  "icon": "vault",
+  "description": "HashiCorp Vault - secrets management and data protection.",
+  "image": "hashicorp/vault:latest",
+  "tags": [
+    "secrets",
+    "secrets-management",
+    "encryption"
+  ],
+  "defaultHostPort": 8200,
+  "containerPorts": [
+    8200
+  ],
+  "requires": [],
+  "requiredEnv": [
+    {
+      "name": "VAULT_DEV_ROOT_TOKEN_ID",
+      "label": "Root Token",
+      "required": true,
+      "isSecret": true
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/vault/data",
+      "description": "Vault data",
+      "required": true,
+      "defaultHostPath": "./data/vault"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "512M",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

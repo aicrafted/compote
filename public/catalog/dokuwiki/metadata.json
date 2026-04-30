@@ -1,0 +1,35 @@
+{
+  "id": "dokuwiki",
+  "name": "DokuWiki",
+  "category": "KNOWLEDGE",
+  "icon": "dokuwiki",
+  "description": "Simple to use wiki for documentation.",
+  "image": "dokuwiki/dokuwiki:stable",
+  "tags": [
+    "wiki",
+    "documentation",
+    "simple"
+  ],
+  "defaultHostPort": 8080,
+  "containerPorts": [
+    8080
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/storage",
+      "description": "DokuWiki storage",
+      "required": true,
+      "defaultHostPath": "./data/dokuwiki"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

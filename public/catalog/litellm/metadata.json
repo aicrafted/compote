@@ -1,0 +1,27 @@
+{
+  "id": "litellm",
+  "name": "LiteLLM",
+  "category": "AI / LLM MODELS",
+  "icon": "litellm",
+  "description": "Unified LLM gateway.",
+  "image": "ghcr.io/berriai/litellm:main-latest",
+  "tags": ["ai", "llm", "gateway"],
+  "defaultHostPort": 4000,
+  "containerPorts": [4000],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/app/data",
+      "description": "LiteLLM config",
+      "required": true,
+      "defaultHostPath": "./data/litellm"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "small",
+  "resourceLimits": { "memory": "512M", "cpus": "0.5" },
+  "iconSVG": true
+}

@@ -1,0 +1,35 @@
+{
+  "id": "loki",
+  "name": "Loki",
+  "category": "LOGS",
+  "icon": "loki",
+  "description": "Cloud-native log aggregation system by Grafana.",
+  "image": "grafana/loki:3.2.0",
+  "tags": [
+    "logs",
+    "aggregation",
+    "time-series"
+  ],
+  "defaultHostPort": 3100,
+  "containerPorts": [
+    3100
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/loki",
+      "description": "Loki data",
+      "required": true,
+      "defaultHostPath": "./data/loki"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "512M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

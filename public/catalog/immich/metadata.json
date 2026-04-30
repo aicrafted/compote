@@ -1,0 +1,36 @@
+{
+  "id": "immich",
+  "name": "Immich",
+  "category": "MEDIA",
+  "icon": "immich",
+  "description": "Self-hosted photo and video management.",
+  "image": "ghcr.io/immich-app/immich-server:latest",
+  "tags": [
+    "photos",
+    "video",
+    "backup"
+  ],
+  "defaultHostPort": 2283,
+  "containerPorts": [
+    2283
+  ],
+  "requires": [],
+  "optionalRequires": ["postgres"],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/usr/src/app/upload",
+      "description": "Upload directory",
+      "required": true,
+      "defaultHostPath": "./data/immich/upload"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

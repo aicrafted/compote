@@ -1,0 +1,16 @@
+image: emby/embyserver:latest
+restart: unless-stopped
+volumes:
+  - ${EMBY_CONFIG:-./data/emby/config}:/config
+  - ${EMBY_CACHE:-./data/emby/cache}:/cache
+  - ${EMBY_MEDIA:-./data/emby/media}:/media
+environment:
+  - TZ=UTC
+ports:
+  - "8096:8096"
+  - "8920:8920"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:8096/"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

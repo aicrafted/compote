@@ -1,0 +1,14 @@
+image: vllm/vllm-openai:latest
+restart: unless-stopped
+ports:
+  - ${VLLM_PORT:-8000}:8000
+volumes:
+  - ${VLLM_DATA:-./data/vllm-models}:/models
+environment:
+  - VLLM_API_KEY=vllm
+  - VLLM_MODEL=/models
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:8000/v1/models"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

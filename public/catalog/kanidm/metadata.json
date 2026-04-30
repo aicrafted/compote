@@ -1,0 +1,38 @@
+{
+  "id": "kanidm",
+  "name": "KanIDM",
+  "category": "AUTH",
+  "icon": "kanidm",
+  "description": "Simple, secure identity management with LDAP and OAuth2 support.",
+  "image": "kanidm/server:latest",
+  "tags": [
+    "authentication",
+    "identity",
+    "ldap",
+    "oauth",
+    "passkeys"
+  ],
+  "defaultHostPort": 8443,
+  "containerPorts": [
+    8443,
+    3636
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/data",
+      "description": "KanIDM data and config",
+      "required": true,
+      "defaultHostPath": "./data/kanidm"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

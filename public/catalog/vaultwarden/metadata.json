@@ -1,0 +1,32 @@
+{
+  "id": "vaultwarden",
+  "name": "Vaultwarden",
+  "category": "SECRETS",
+  "icon": "bitwarden",
+  "description": "Unofficial Bitwarden compatible server written in Rust, formerly known as bitwarden_rs.",
+  "image": "vaultwarden/server:latest",
+  "repository": "https://github.com/dani-garcia/vaultwarden",
+  "tags": [
+    "secrets",
+    "passwords",
+    "security",
+    "vault"
+  ],
+  "defaultHostPort": 8080,
+  "containerPorts": [
+    80
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "optionalEnv": [
+    {
+      "name": "SIGNUPS_ALLOWED",
+      "label": "Allow Signups",
+      "defaultValue": "true",
+      "required": false
+    }
+  ],
+  "publicExposure": "recommended",
+  "resourceClass": "light",
+  "iconSVG": true
+}

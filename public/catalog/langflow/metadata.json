@@ -1,0 +1,27 @@
+{
+  "id": "langflow",
+  "name": "Langflow",
+  "category": "AI / LLM UI",
+  "icon": "langflow",
+  "description": "Low-code AI flow builder.",
+  "image": "langflowai/langflow:latest",
+  "tags": ["ai", "flow", "low-code"],
+  "defaultHostPort": 3000,
+  "containerPorts": [3000],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/home/user",
+      "description": "Langflow data",
+      "required": true,
+      "defaultHostPath": "./data/langflow"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "1G", "cpus": "0.5" },
+  "iconSVG": true
+}

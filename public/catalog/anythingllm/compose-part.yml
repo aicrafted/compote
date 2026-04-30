@@ -1,0 +1,14 @@
+image: mintplexlinux/anythingllm:latest
+restart: unless-stopped
+ports:
+  - ${ANYTHINGLLM_PORT:-3001}:3001
+volumes:
+  - ${ANYTHINGLLM_DATA:-./data/anythingllm}:/app/server/data
+  - ${ANYTHINGLLM_STORAGE:-./data/anythingllm-storage}:/app/server/storage
+environment:
+  - STORAGE_DIR=/app/server/storage
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:3001"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

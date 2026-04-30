@@ -1,0 +1,47 @@
+{
+  "id": "verdaccio",
+  "name": "Verdaccio",
+  "category": "ARTIFACT REPOS",
+  "icon": "verdaccio",
+  "description": "Lightweight private npm proxy registry.",
+  "image": "verdaccio/verdaccio:5",
+  "tags": [
+    "npm",
+    "registry",
+    "proxy"
+  ],
+  "defaultHostPort": 4873,
+  "containerPorts": [
+    4873
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/verdaccio/storage",
+      "description": "Package storage",
+      "required": true,
+      "defaultHostPath": "./data/verdaccio"
+    },
+    {
+      "containerPath": "/verdaccio/conf",
+      "description": "Configuration",
+      "required": false,
+      "defaultHostPath": "./config/verdaccio"
+    },
+    {
+      "containerPath": "/verdaccio/plugins",
+      "description": "Plugins",
+      "required": false,
+      "defaultHostPath": "./plugins/verdaccio"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

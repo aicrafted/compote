@@ -1,0 +1,21 @@
+{
+  "name": "Home Assistant",
+  "category": "CLOUD",
+  "icon": "homeassistant",
+  "description": "Open source home automation that puts local control and privacy first.",
+  "image": "ghcr.io/home-assistant/home-assistant:stable",
+  "defaultHostPort": 8123,
+  "containerPorts": [
+    8123
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/config",
+      "description": "Configuration data"
+    }
+  ],
+  "publicExposure": "recommended",
+  "iconSVG": true
+}

@@ -1,0 +1,27 @@
+{
+  "id": "grav",
+  "name": "Grav",
+  "category": "CMS",
+  "icon": "grav",
+  "description": "Modern flat-file CMS.",
+  "image": "getgrav/grav:latest",
+  "tags": ["cms", "flat-file", "php"],
+  "defaultHostPort": 8080,
+  "containerPorts": [80],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/www/html",
+      "description": "Grav files",
+      "required": true,
+      "defaultHostPath": "./data/grav"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "small",
+  "resourceLimits": { "memory": "256M", "cpus": "0.25" },
+  "iconSVG": true
+}

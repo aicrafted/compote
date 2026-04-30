@@ -1,0 +1,27 @@
+{
+  "id": "searxng",
+  "name": "SearXNG",
+  "category": "SEARCH",
+  "icon": "searxng",
+  "description": "Privacy-respecting metasearch engine.",
+  "image": "searxng/searxng:latest",
+  "tags": ["search", "metasearch", "privacy"],
+  "defaultHostPort": 8080,
+  "containerPorts": [8080],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/etc/searxng",
+      "description": "SearXNG config",
+      "required": true,
+      "defaultHostPath": "./data/searxng"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "small",
+  "resourceLimits": { "memory": "256M", "cpus": "0.25" },
+  "iconSVG": true
+}

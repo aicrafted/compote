@@ -1,0 +1,14 @@
+image: adguard/adguardhome:latest
+restart: unless-stopped
+volumes:
+  - ${ADGUARD_WORK:-./data/adguard-home/work}:/opt/adguardhome/work
+  - ${ADGUARD_CONF:-./data/adguard-home/conf}:/opt/adguardhome/conf
+ports:
+  - "53:53/tcp"
+  - "53:53/udp"
+  - "3000:3000/tcp"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

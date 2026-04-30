@@ -1,0 +1,36 @@
+{
+  "id": "outline",
+  "name": "Outline",
+  "category": "KNOWLEDGE",
+  "icon": "outline",
+  "description": "Fastest wiki and knowledge base for teams.",
+  "image": "outlinewiki/outline:1.7",
+  "tags": [
+    "wiki",
+    "knowledge-base",
+    "team"
+  ],
+  "defaultHostPort": 3000,
+  "containerPorts": [
+    3000
+  ],
+  "requires": [],
+  "optionalRequires": ["postgres", "redis"],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/lib/outline/data",
+      "description": "Outline data",
+      "required": true,
+      "defaultHostPath": "./data/outline"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

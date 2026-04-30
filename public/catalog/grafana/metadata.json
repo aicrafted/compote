@@ -1,0 +1,21 @@
+{
+  "name": "Grafana",
+  "category": "MONITORING",
+  "icon": "grafana",
+  "description": "The open observability platform.",
+  "image": "grafana/grafana:latest",
+  "defaultHostPort": 3002,
+  "containerPorts": [
+    3000
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/lib/grafana",
+      "description": "Storage for dashboard and plugins"
+    }
+  ],
+  "publicExposure": "recommended",
+  "iconSVG": true
+}

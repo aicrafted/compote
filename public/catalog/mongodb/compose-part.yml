@@ -1,0 +1,9 @@
+image: mongo:7
+restart: unless-stopped
+volumes:
+  - ${MONGO_DATA:-./data/mongo}:/data/db
+deploy:
+  resources:
+    limits:
+      memory: ${MONGO_MEM_LIMIT:-1G}
+      cpus: ${MONGO_CPU_LIMIT:-1.0}

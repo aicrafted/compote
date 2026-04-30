@@ -1,0 +1,36 @@
+{
+  "id": "appsmith",
+  "name": "Appsmith",
+  "category": "CRM / ERP",
+  "icon": "appsmith",
+  "description": "Open-source low-code platform for building internal apps.",
+  "image": "index.docker.io/appsmith/appsmith-ce:latest",
+  "tags": [
+    "low-code",
+    "internal-apps",
+    "dashboard"
+  ],
+  "defaultHostPort": 80,
+  "containerPorts": [
+    80,
+    443
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/appsmith-stacks",
+      "description": "Appsmith data",
+      "required": true,
+      "defaultHostPath": "./data/appsmith"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

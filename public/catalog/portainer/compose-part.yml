@@ -1,0 +1,13 @@
+image: portainer/portainer-ce:latest
+restart: unless-stopped
+ports:
+  - ${PORTAINER_PORT:-9000}:9000
+  - ${PORTAINER_HTTPS:-9443}:9443
+volumes:
+  - ${PORTAINER_DATA:-./data/portainer}:/data
+  - /var/run/docker.sock:/var/run/docker.sock
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:9000"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

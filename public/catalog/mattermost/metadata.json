@@ -1,0 +1,28 @@
+{
+  "name": "Mattermost",
+  "category": "COLLABORATION",
+  "description": "Open source platform for secure collaboration.",
+  "image": "mattermost/mattermost-team-edition:latest",
+  "defaultHostPort": 8065,
+  "containerPorts": [
+    8065
+  ],
+  "requires": [
+    "postgres"
+  ],
+  "requiredEnv": [
+    {
+      "name": "MM_SQLSETTINGS_DATASOURCE",
+      "label": "DB Connection String",
+      "required": true
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/mattermost/data",
+      "description": "Team data"
+    }
+  ],
+  "publicExposure": "recommended",
+  "iconSVG": true
+}

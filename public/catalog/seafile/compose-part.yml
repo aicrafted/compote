@@ -1,0 +1,12 @@
+image: seafileltd/seafile-mc:13.0
+restart: unless-stopped
+volumes:
+  - ${SEAFILE_DATA:-./data/seafile}:/shared
+environment:
+  - SEAFILE_SERVER_HOSTNAME=${SEAFILE_SERVER_HOSTNAME}
+  - SEAFILE_SERVER_LETSENCRYPT=false
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost/"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

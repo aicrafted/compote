@@ -1,0 +1,14 @@
+image: dzikoysk/reposilite:3.5.28
+restart: unless-stopped
+volumes:
+  - ${REPOSILITE_DATA:-./data/reposilite}:/app/data
+environment:
+  - JAVA_OPTS=${JAVA_OPTS:--Xmx512M}
+  - REPOSILITE_OPTS=--port 8080
+stdin_open: true
+tty: true
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:8080/"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

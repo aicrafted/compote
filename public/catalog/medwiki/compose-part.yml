@@ -1,0 +1,11 @@
+image: mediawiki:latest
+restart: unless-stopped
+volumes:
+  - ${MEDWIKI_IMAGES:-./data/medwiki/images}:/var/www/html/images
+ports:
+  - "8080:80"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:80"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

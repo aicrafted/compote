@@ -1,0 +1,44 @@
+{
+  "id": "netdata",
+  "name": "Netdata",
+  "category": "MONITORING",
+  "icon": "netdata",
+  "description": "Real-time performance monitoring.",
+  "image": "netdata/netdata:latest",
+  "tags": [
+    "monitoring",
+    "performance",
+    "metrics"
+  ],
+  "defaultHostPort": 19999,
+  "containerPorts": [
+    19999
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/etc/netdata",
+      "description": "Netdata config",
+      "required": true,
+      "defaultHostPath": "./config/netdata"
+    },
+    {
+      "containerPath": "/var/cache/netdata",
+      "description": "Netdata cache",
+      "required": true,
+      "defaultHostPath": "./data/netdata"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  },
+  "capAdd": [
+    "SYS_PTRACE"
+  ],
+  "iconSVG": true
+}

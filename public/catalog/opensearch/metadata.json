@@ -1,0 +1,27 @@
+{
+  "id": "opensearch",
+  "name": "OpenSearch",
+  "category": "INDEXING",
+  "icon": "opensearch",
+  "description": "Distributed search and analytics engine.",
+  "image": "opensearchproject/opensearch:latest",
+  "tags": ["indexing", "search", "analytics"],
+  "defaultHostPort": 9200,
+  "containerPorts": [9200, 9600],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/usr/share/opensearch/data",
+      "description": "OpenSearch data",
+      "required": true,
+      "defaultHostPath": "./data/opensearch"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "1G", "cpus": "0.5" },
+  "iconSVG": true
+}

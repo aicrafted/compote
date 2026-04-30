@@ -1,0 +1,27 @@
+{
+  "id": "invokeai",
+  "name": "InvokeAI",
+  "category": "AI / MEDIA",
+  "icon": "invokeai",
+  "iconSVG": true,
+  "description": "Professional image generation.",
+  "image": "invokeai/InvokeAI:latest",
+  "tags": ["ai", "image-generation"],
+  "defaultHostPort": 9090,
+  "containerPorts": [9090],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/invokeai",
+      "description": "InvokeAI data",
+      "required": true,
+      "defaultHostPath": "./data/invokeai"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "heavy",
+  "resourceLimits": { "memory": "8G", "cpus": "4" }
+}

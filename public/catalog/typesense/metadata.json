@@ -1,0 +1,27 @@
+{
+  "id": "typesense",
+  "name": "Typesense",
+  "category": "INDEXING",
+  "icon": "typesense",
+  "description": "Tolerant typo-tolerant search engine.",
+  "image": "typesense/typesense:27.1",
+  "tags": ["indexing", "search", "typo-tolerant"],
+  "defaultHostPort": 8108,
+  "containerPorts": [8108],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/lib/typesense",
+      "description": "Typesense data",
+      "required": true,
+      "defaultHostPath": "./data/typesense"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "small",
+  "resourceLimits": { "memory": "512M", "cpus": "0.25" },
+  "iconSVG": true
+}

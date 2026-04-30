@@ -1,0 +1,13 @@
+image: langflowai/langflow:latest
+restart: unless-stopped
+ports:
+  - ${LANGFLOW_PORT:-3000}:3000
+volumes:
+  - ${LANGFLOW_DATA:-./data/langflow}:/home/user
+environment:
+  - LANGFLOW_BASE_URL=http://localhost:3000
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

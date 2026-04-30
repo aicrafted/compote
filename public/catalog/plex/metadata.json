@@ -1,0 +1,47 @@
+{
+  "id": "plex",
+  "name": "Plex",
+  "category": "MEDIA",
+  "icon": "plex",
+  "description": "Media server for streaming movies, TV, and music.",
+  "image": "plexinc/pms-docker:latest",
+  "tags": [
+    "media-server",
+    "streaming",
+    "entertainment"
+  ],
+  "defaultHostPort": 32400,
+  "containerPorts": [
+    32400
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/config",
+      "description": "Plex config",
+      "required": true,
+      "defaultHostPath": "./data/plex/config"
+    },
+    {
+      "containerPath": "/transcode",
+      "description": "Transcode temp",
+      "required": false,
+      "defaultHostPath": "./data/plex/transcode"
+    },
+    {
+      "containerPath": "/data",
+      "description": "Media files",
+      "required": true,
+      "defaultHostPath": "./data/plex/media"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

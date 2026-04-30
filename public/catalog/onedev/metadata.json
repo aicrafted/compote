@@ -1,0 +1,46 @@
+{
+  "id": "onedev",
+  "name": "OneDev",
+  "category": "GIT REPOS",
+  "icon": "onedev",
+  "description": "Self-hosted Git server with CI/CD, Kanban, and Packages.",
+  "image": "1dev/server:14.1",
+  "tags": [
+    "git",
+    "ci-cd",
+    "kanban",
+    "packages"
+  ],
+  "defaultHostPort": 6610,
+  "containerPorts": [
+    6610,
+    6611
+  ],
+  "requires": [],
+  "optionalRequires": ["postgres"],
+  "requiredEnv": [
+    {
+      "name": "HIBERNATE_CONNECTION_PASSWORD",
+      "label": "Admin Password",
+      "required": true,
+      "isSecret": true,
+      "description": "Password for Postgres connection and admin access"
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/opt/onedev",
+      "description": "OneDev data and config",
+      "required": true,
+      "defaultHostPath": "./data/onedev"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

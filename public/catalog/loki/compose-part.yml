@@ -1,0 +1,11 @@
+image: grafana/loki:3.2.0
+restart: unless-stopped
+volumes:
+  - ${LOKI_DATA:-./data/loki}:/loki
+ports:
+  - "3100:3100"
+healthcheck:
+  test: ["CMD", "/usr/bin/loki", "-health"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

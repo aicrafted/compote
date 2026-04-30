@@ -1,0 +1,11 @@
+image: logstash:8.17.0
+restart: unless-stopped
+volumes:
+  - ${LOGSTASH_DATA:-./data/logstash}:/usr/share/logstash/data
+environment:
+  - ES_JAVA_OPTS=-Xms512m -Xmx512m
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:9600/"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

@@ -1,0 +1,13 @@
+image: deluan/navidrome:latest
+restart: unless-stopped
+volumes:
+  - ${NAVIDROME_DATA:-./data/navidrome}:/data
+  - ${MUSIC:-./music}:/music:ro
+user: "1000:1000"
+ports:
+  - "4533:4533"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:4533/"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

@@ -1,0 +1,12 @@
+image: pritunl/pritunl:latest
+restart: unless-stopped
+privileged: true
+network_mode: bridge
+volumes:
+  - ${PRITUNL_DATA:-./data/pritunl}:/var/lib/pritunl
+environment:
+  - MONGODB_URI=mongodb://mongodb:27017/pritunl
+deploy:
+  resources:
+    limits:
+      memory: ${PRITUNL_MEM_LIMIT:-512M}

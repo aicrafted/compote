@@ -1,0 +1,32 @@
+{
+  "id": "caprover",
+  "name": "CapRover",
+  "category": "CONTAINERS",
+  "icon": "caprover",
+  "description": "Self-hosted full-featured PaaS.",
+  "image": "caprover/caprover:latest",
+  "tags": ["containers", "paas", "docker", "deployment"],
+  "defaultHostPort": 3000,
+  "containerPorts": [3000, 80, 443, 9443],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/run/docker.sock",
+      "hostPath": "/var/run/docker.sock",
+      "required": true
+    },
+    {
+      "containerPath": "/captain/data",
+      "description": "CapRover data",
+      "required": true,
+      "defaultHostPath": "./data/caprover"
+    }
+  ],
+  "publicExposure": "recommended",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "1G", "cpus": "0.5" },
+  "iconSVG": true
+}

@@ -1,0 +1,13 @@
+image: huggingface/text-generation-webui:latest
+restart: unless-stopped
+ports:
+  - ${TEXT_GENERATION_WEBUI_PORT:-7860}:7860
+volumes:
+  - ${TEXT_GENERATION_WEBUI_DATA:-./data/text-generation-webui-models}:/models
+environment:
+  - GRADIO_SERVER_PORT=7860
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:7860"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

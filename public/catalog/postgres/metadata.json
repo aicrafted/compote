@@ -1,0 +1,47 @@
+{
+  "id": "postgres",
+  "name": "PostgreSQL",
+  "category": "DATABASE",
+  "icon": "postgresql",
+  "description": "The world's most advanced open source relational database.",
+  "image": "postgres:16-alpine",
+  "tags": [
+    "database",
+    "sql"
+  ],
+  "defaultHostPort": 5432,
+  "containerPorts": [
+    5432
+  ],
+  "requires": [],
+  "requiredEnv": [
+    {
+      "name": "POSTGRES_PASSWORD",
+      "label": "Database Password",
+      "required": true,
+      "isSecret": true
+    }
+  ],
+  "optionalEnv": [
+    {
+      "name": "POSTGRES_USER",
+      "label": "Database User",
+      "defaultValue": "postgres",
+      "required": false
+    },
+    {
+      "name": "POSTGRES_DB",
+      "label": "Default Database",
+      "defaultValue": "postgres",
+      "required": false
+    }
+  ],
+  "publicExposure": "never",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "512M",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

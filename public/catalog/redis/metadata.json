@@ -1,0 +1,23 @@
+{
+  "id": "redis",
+  "name": "Redis",
+  "category": "DATABASE",
+  "icon": "redis",
+  "description": "The open source, in-memory data store used as a database, cache, and message broker.",
+  "image": "redis:7-alpine",
+  "tags": [
+    "database",
+    "cache",
+    "nosql"
+  ],
+  "defaultHostPort": 6379,
+  "containerPorts": [
+    6379
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "publicExposure": "never",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "iconSVG": true
+}

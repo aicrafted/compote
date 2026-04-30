@@ -1,0 +1,14 @@
+image: openbao/openbao:latest
+restart: unless-stopped
+volumes:
+  - ${OPENBAO_DATA:-./data/openbao}:/openbao/config
+environment:
+  - BAO_DEV_ROOT_TOKEN_ID=${BAO_DEV_ROOT_TOKEN_ID}
+  - BAO_DEV_LISTEN_ADDRESS=0.0.0.0:8200
+cap_add:
+  - IPC_LOCK
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:8200/v1/sys/health"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

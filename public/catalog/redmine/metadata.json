@@ -1,0 +1,43 @@
+{
+  "id": "redmine",
+  "name": "Redmine",
+  "category": "CRM / ERP",
+  "icon": "redmine",
+  "description": "Open-source project management and issue tracking.",
+  "image": "redmine:latest",
+  "tags": [
+    "project-management",
+    "issue-tracking",
+    "rails"
+  ],
+  "defaultHostPort": 8080,
+  "containerPorts": [
+    3000
+  ],
+  "requires": [],
+  "optionalRequires": ["mysql", "postgres"],
+  "requiredEnv": [
+    {
+      "name": "REDMINE_SECRET_KEY_BASE",
+      "label": "Secret Key",
+      "required": true,
+      "isSecret": true
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/usr/src/redmine/files",
+      "description": "File uploads",
+      "required": false,
+      "defaultHostPath": "./data/redmine/files"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "512M",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

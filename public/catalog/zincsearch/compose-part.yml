@@ -1,0 +1,14 @@
+image: zincsearch/zincsearch:latest
+restart: unless-stopped
+ports:
+  - ${ZINCSEARCH_PORT:-4080}:4080
+volumes:
+  - ${ZINCSEARCH_DATA:-./data/zincsearch}:/data
+environment:
+  - ZINC_FIRST_ADMIN_USER=admin
+  - ZINC_FIRST_ADMIN_PASSWORD=${ZINC_PASSWORD}
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:4080/health"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

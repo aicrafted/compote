@@ -1,0 +1,12 @@
+image: caddy:latest
+restart: unless-stopped
+ports:
+  - "${HOST_PORT_CADDY:-80}:80"
+  - "443:443"
+volumes:
+  - ${CADDY_DATA:-./data/caddy/data}:/data
+  - ${CADDY_CONFIG:-./data/caddy/config}:/config
+  - ${CADDYFILE:-./data/caddy/Caddyfile}:/etc/caddy/Caddyfile
+environment:
+  - ACME_EMAIL=${ACME_EMAIL}
+  - DOMAIN=${DOMAIN}

@@ -1,0 +1,15 @@
+image: headscale/headscale:latest
+restart: unless-stopped
+volumes:
+  - ${HEADSCALE_CONFIG:-./config/headscale}:/etc/headscale:ro
+  - ${HEADSCALE_DATA:-./data/headscale}:/var/lib/headscale
+ports:
+  - "8080:8080"
+  - "9090:9090"
+command:
+  - serve
+healthcheck:
+  test: ["CMD", "headscale", "health"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

@@ -1,0 +1,27 @@
+{
+  "id": "owncloud",
+  "name": "ownCloud",
+  "category": "STORAGE",
+  "icon": "owncloud",
+  "description": "File hosting and sync platform.",
+  "image": "owncloud/server:latest",
+  "tags": ["cloud", "file-sync", "file-share"],
+  "defaultHostPort": 8080,
+  "containerPorts": [8080],
+  "requires": [],
+  "optionalRequires": ["postgres", "redis"],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/www/html/data",
+      "description": "ownCloud data",
+      "required": true,
+      "defaultHostPath": "./data/owncloud"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "1G", "cpus": "0.5" },
+  "iconSVG": true
+}

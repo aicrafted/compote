@@ -1,0 +1,39 @@
+{
+  "id": "tailscale",
+  "name": "Tailscale",
+  "category": "VPN",
+  "icon": "tailscale",
+  "description": "Mesh VPN using WireGuard for secure connectivity.",
+  "image": "tailscale/tailscale:latest",
+  "tags": [
+    "vpn",
+    "mesh",
+    "wireguard"
+  ],
+  "defaultHostPort": 41641,
+  "containerPorts": [
+    41641
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/lib",
+      "description": "Tailscale state",
+      "required": true,
+      "defaultHostPath": "./data/tailscale"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "128M",
+    "cpus": "0.1"
+  },
+  "capAdd": [
+    "NET_ADMIN",
+    "NET_RAW"
+  ],
+  "iconSVG": true
+}

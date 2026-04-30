@@ -1,0 +1,27 @@
+{
+  "name": "Pi-hole",
+  "category": "DNS",
+  "icon": "pihole",
+  "description": "A black hole for Internet advertisements.",
+  "image": "pihole/pihole:latest",
+  "defaultHostPort": 53,
+  "containerPorts": [
+    53,
+    80
+  ],
+  "requires": [],
+  "requiredEnv": [
+    {
+      "name": "WEBPASSWORD",
+      "label": "Web Admin Password",
+      "isSecret": true
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/etc/pihole",
+      "description": "Pi-hole configuration"
+    }
+  ],
+  "iconSVG": true
+}

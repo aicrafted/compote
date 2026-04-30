@@ -1,0 +1,31 @@
+{
+  "name": "qBittorrent",
+  "category": "MEDIA",
+  "icon": "qbittorrent",
+  "description": "The open-source BitTorrent client.",
+  "image": "linuxserver/qbittorrent:latest",
+  "defaultHostPort": 8081,
+  "containerPorts": [
+    8080
+  ],
+  "requires": [],
+  "requiredEnv": [
+    {
+      "name": "WEBUI_PORT",
+      "label": "WebUI Port",
+      "defaultValue": "8080"
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/config",
+      "description": "Configuration data"
+    },
+    {
+      "containerPath": "/downloads",
+      "description": "Download destination"
+    }
+  ],
+  "publicExposure": "recommended",
+  "iconSVG": true
+}

@@ -1,0 +1,27 @@
+{
+  "id": "budibase",
+  "name": "Budibase",
+  "category": "AUTOMATION",
+  "icon": "budibase",
+  "description": "Open source low-code platform for building internal apps.",
+  "image": "budibase/budibase:latest",
+  "tags": ["automation", "low-code", "internal-apps"],
+  "defaultHostPort": 3000,
+  "containerPorts": [3000, 4000],
+  "requires": ["postgres"],
+  "optionalRequires": ["redis", "minio"],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/data",
+      "description": "Budibase data",
+      "required": true,
+      "defaultHostPath": "./data/budibase"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "1G", "cpus": "0.5" },
+  "iconSVG": true
+}

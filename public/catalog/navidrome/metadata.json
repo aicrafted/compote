@@ -1,0 +1,41 @@
+{
+  "id": "navidrome",
+  "name": "Navidrome",
+  "category": "MEDIA",
+  "icon": "navidrome",
+  "description": "Open-source music server and streamer.",
+  "image": "deluan/navidrome:latest",
+  "tags": [
+    "music",
+    "streaming",
+    "audio"
+  ],
+  "defaultHostPort": 4533,
+  "containerPorts": [
+    4533
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/data",
+      "description": "Navidrome data",
+      "required": true,
+      "defaultHostPath": "./data/navidrome"
+    },
+    {
+      "containerPath": "/music",
+      "description": "Music files",
+      "required": true,
+      "defaultHostPath": "./music"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

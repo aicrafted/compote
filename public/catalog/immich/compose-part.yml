@@ -1,0 +1,13 @@
+image: ghcr.io/immich-app/immich-server:latest
+restart: unless-stopped
+volumes:
+  - ${IMMICH_UPLOAD:-./data/immich/upload}:/usr/src/app/upload
+environment:
+  - DB_HOSTNAME=db
+ports:
+  - "2283:2283"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:2283/api/server-info/ping"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

@@ -1,0 +1,25 @@
+{
+  "name": "Jellyfin",
+  "category": "MEDIA",
+  "icon": "jellyfin",
+  "description": "The Free Software Media System.",
+  "image": "jellyfin/jellyfin:latest",
+  "defaultHostPort": 8096,
+  "containerPorts": [
+    8096
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/config",
+      "description": "Configuration data"
+    },
+    {
+      "containerPath": "/media",
+      "description": "Library path"
+    }
+  ],
+  "publicExposure": "recommended",
+  "iconSVG": true
+}

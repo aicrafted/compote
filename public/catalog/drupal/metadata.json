@@ -1,0 +1,27 @@
+{
+  "id": "drupal",
+  "name": "Drupal",
+  "category": "CMS",
+  "icon": "drupal",
+  "description": "Enterprise web content management.",
+  "image": "drupal:latest",
+  "tags": ["cms", "enterprise", "php"],
+  "defaultHostPort": 8080,
+  "containerPorts": [80],
+  "requires": ["mysql"],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/www/html/sites/default/files",
+      "description": "Drupal files",
+      "required": true,
+      "defaultHostPath": "./data/drupal"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "512M", "cpus": "0.5" },
+  "iconSVG": true
+}

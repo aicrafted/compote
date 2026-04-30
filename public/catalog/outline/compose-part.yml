@@ -1,0 +1,11 @@
+image: outlinewiki/outline:1.7
+restart: unless-stopped
+volumes:
+  - ${OUTLINE_DATA:-./data/outline}:/var/lib/outline/data
+ports:
+  - "3000:3000"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:3000"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

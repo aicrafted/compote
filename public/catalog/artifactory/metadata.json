@@ -1,0 +1,38 @@
+{
+  "id": "artifactory",
+  "name": "Artifactory",
+  "category": "ARTIFACT REPOS",
+  "icon": "jfrog",
+  "description": "Universal artifact repository with universal support for all major package formats.",
+  "image": "releases-docker.jfrog.io/jfrog/artifactory-oss:latest",
+  "tags": [
+    "artifact",
+    "repository",
+    "maven",
+    "npm",
+    "docker-registry"
+  ],
+  "defaultHostPort": 8081,
+  "containerPorts": [
+    8081,
+    8082
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/opt/jfrog/artifactory",
+      "description": "Artifactory data storage",
+      "required": true,
+      "defaultHostPath": "./data/artifactory"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

@@ -1,0 +1,13 @@
+image: smallstep/step-ca:latest
+restart: unless-stopped
+volumes:
+  - ${STEPCA_DATA:-./data/step-ca}:/home/step
+environment:
+  - DOCKER_STEPCA_INIT_NAME=${DOCKER_STEPCA_INIT_NAME}
+  - DOCKER_STEPCA_INIT_DNS_NAMES=${DOCKER_STEPCA_INIT_DNS_NAMES:-localhost}
+  - DOCKER_STEPCA_INIT_REMOTE_MANAGEMENT=true
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:9000/health"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

@@ -1,0 +1,27 @@
+{
+  "id": "windmill",
+  "name": "Windmill",
+  "category": "AUTOMATION",
+  "icon": "windmill",
+  "description": "Open source developer platform for building internal apps and scripts.",
+  "image": "windmilldask/windmill:latest",
+  "tags": ["automation", "internal-apps", "scripts"],
+  "defaultHostPort": 3000,
+  "containerPorts": [3000],
+  "requires": ["postgres"],
+  "optionalRequires": ["redis"],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/app/backend",
+      "description": "Windmill data",
+      "required": true,
+      "defaultHostPath": "./data/windmill"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "1G", "cpus": "0.5" },
+  "iconSVG": true
+}

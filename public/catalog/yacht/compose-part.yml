@@ -1,0 +1,14 @@
+image: selfhosted:yacht
+restart: unless-stopped
+ports:
+  - ${YACHT_PORT:-8000}:8000
+volumes:
+  - /var/run/docker.sock:/var/run/docker.sock
+environment:
+  - YACHT_USER=admin
+  - YACHT_PASSWORD=password
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:8000"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

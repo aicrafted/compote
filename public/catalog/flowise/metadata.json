@@ -1,0 +1,27 @@
+{
+  "id": "flowise",
+  "name": "Flowise",
+  "category": "AI / LLM UI",
+  "icon": "flowise",
+  "description": "Low-code AI flow builder.",
+  "image": "flowiseai/flowise:latest",
+  "tags": ["ai", "flow", "low-code"],
+  "defaultHostPort": 3000,
+  "containerPorts": [3000],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/root/.flowise",
+      "description": "Flowise data",
+      "required": true,
+      "defaultHostPath": "./data/flowise"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "1G", "cpus": "0.5" },
+  "iconSVG": true
+}

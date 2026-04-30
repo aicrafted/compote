@@ -1,0 +1,14 @@
+image: pulp/pulp:stable
+restart: unless-stopped
+volumes:
+  - ${PULP_SETTINGS:-./data/pulp/settings}:/etc/pulp
+  - ${PULP_STORAGE:-./data/pulp/storage}:/var/lib/pulp
+  - ${PULP_DB:-./data/pulp/db}:/var/lib/pgsql
+  - ${PULP_CONTAINERS:-./data/pulp/containers}:/var/lib/containers
+ports:
+  - "8080:80"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:8080/pulp/api/v3/status/"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

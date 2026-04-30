@@ -1,0 +1,27 @@
+{
+  "id": "payload",
+  "name": "Payload CMS",
+  "category": "CMS",
+  "icon": "payload",
+  "description": "Developer-first headless CMS.",
+  "image": "payloadcms/payload:latest",
+  "tags": ["cms", "headless", "typescript"],
+  "defaultHostPort": 3000,
+  "containerPorts": [3000],
+  "requires": ["postgres"],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/app/payload",
+      "description": "Payload data",
+      "required": true,
+      "defaultHostPath": "./data/payload"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "512M", "cpus": "0.5" },
+  "iconSVG": true
+}

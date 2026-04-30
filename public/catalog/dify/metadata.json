@@ -1,0 +1,27 @@
+{
+  "id": "dify",
+  "name": "Dify",
+  "category": "AI / LLM UI",
+  "icon": "dify",
+  "description": "Platform for building AI applications.",
+  "image": "langgenius/dify:latest",
+  "tags": ["ai", "llm", "platform"],
+  "defaultHostPort": 3000,
+  "containerPorts": [3000],
+  "requires": ["postgres"],
+  "optionalRequires": ["redis"],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/app/api/storage",
+      "description": "Dify storage",
+      "required": true,
+      "defaultHostPath": "./data/dify"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": { "memory": "1G", "cpus": "0.5" },
+  "iconSVG": true
+}

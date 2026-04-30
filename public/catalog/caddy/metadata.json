@@ -1,0 +1,45 @@
+{
+  "id": "caddy",
+  "name": "Caddy Server",
+  "category": "REVERSE PROXY",
+  "icon": "caddy",
+  "description": "Enterprise-ready open source web server with automatic HTTPS.",
+  "image": "caddy:latest",
+  "version": "1.0.0",
+  "repository": "https://github.com/caddyserver/caddy",
+  "tags": [
+    "proxy",
+    "web",
+    "https"
+  ],
+  "defaultHostPort": 80,
+  "containerPorts": [
+    80,
+    443
+  ],
+  "requires": [],
+  "requiredEnv": [
+    {
+      "name": "ACME_EMAIL",
+      "label": "ACME Email",
+      "required": true,
+      "isSecret": false
+    },
+    {
+      "name": "DOMAIN",
+      "label": "Domain Name",
+      "required": true,
+      "placeholder": "example.com"
+    }
+  ],
+  "publicExposure": "recommended",
+  "resourceClass": "light",
+  "configFiles": [
+    {
+      "path": "Caddyfile",
+      "template": "config/Caddyfile",
+      "description": "Main Caddy configuration"
+    }
+  ],
+  "iconSVG": true
+}

@@ -1,0 +1,53 @@
+{
+  "id": "authentik",
+  "name": "Authentik",
+  "category": "AUTH",
+  "icon": "authentik",
+  "description": "Open-source Identity Provider for modern SSO with SAML, OAuth2, LDAP, and RADIUS support.",
+  "image": "ghcr.io/goauthentik/server:2025.4.4",
+  "tags": [
+    "authentication",
+    "sso",
+    "identity",
+    "saml",
+    "oauth"
+  ],
+  "defaultHostPort": 9000,
+  "containerPorts": [
+    9000,
+    9443
+  ],
+  "requires": [],
+  "optionalRequires": ["postgres", "redis"],
+  "requiredEnv": [
+    {
+      "name": "AUTHENTIK_SECRET_KEY",
+      "label": "Secret Key",
+      "required": true,
+      "isSecret": true,
+      "description": "Auto-generated secret key for encryption"
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/media",
+      "description": "Uploaded media files",
+      "required": false,
+      "defaultHostPath": "./data/authentik/media"
+    },
+    {
+      "containerPath": "/templates",
+      "description": "Custom templates",
+      "required": false,
+      "defaultHostPath": "./data/authentik/templates"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

@@ -1,0 +1,16 @@
+image: 1dev/server:14.1
+restart: unless-stopped
+volumes:
+  - ${ONEDEV_DATA:-./data/onedev}:/opt/onedev
+environment:
+  - HibernateConnectionPassword=${HIBERNATE_CONNECTION_PASSWORD}
+  - hibernate_dialect=io.onedev.server.persistence.PostgreSQLDialect
+  - hibernate_connection_driver_class=org.postgresql.Driver
+  - hibernate_connection_url=jdbc:postgresql://postgres:5432/onedev
+  - hibernate_connection_username=postgres
+tty: true
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:6610/"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

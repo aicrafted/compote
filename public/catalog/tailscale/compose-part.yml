@@ -1,0 +1,16 @@
+image: tailscale/tailscale:latest
+restart: unless-stopped
+volumes:
+  - ${TAILSCALE_DATA:-./data/tailscale}:/var/lib
+  - /dev/net/tun:/dev/net/tun
+network_mode: host
+cap_add:
+  - NET_ADMIN
+  - NET_RAW
+environment:
+  - TS_USERSPACE=false
+healthcheck:
+  test: ["CMD", "tailscale", "status"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

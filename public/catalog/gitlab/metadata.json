@@ -1,0 +1,53 @@
+{
+  "id": "gitlab",
+  "name": "GitLab",
+  "category": "GIT REPOS",
+  "icon": "gitlab",
+  "description": "DevOps platform with Git version control, CI/CD, and more.",
+  "image": "gitlab/gitlab-ce:18.9.2-ce.0",
+  "tags": [
+    "git",
+    "devops",
+    "ci-cd",
+    "collaboration"
+  ],
+  "defaultHostPort": 80,
+  "containerPorts": [
+    80,
+    443,
+    22
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/etc/gitlab",
+      "label": "Config",
+      "description": "GitLab configuration",
+      "required": true,
+      "defaultHostPath": "./data/gitlab/config"
+    },
+    {
+      "containerPath": "/var/log/gitlab",
+      "label": "Logs",
+      "description": "GitLab logs",
+      "required": true,
+      "defaultHostPath": "./data/gitlab/logs"
+    },
+    {
+      "containerPath": "/var/opt/gitlab",
+      "label": "Data",
+      "description": "GitLab application data",
+      "required": true,
+      "defaultHostPath": "./data/gitlab/data"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "heavy",
+  "resourceLimits": {
+    "memory": "2G",
+    "cpus": "1"
+  },
+  "iconSVG": true
+}

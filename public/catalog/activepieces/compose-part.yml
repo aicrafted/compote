@@ -1,0 +1,14 @@
+image: activepieces/activepieces:latest
+restart: unless-stopped
+ports:
+  - ${ACTIVEPIECES_PORT:-3000}:3000
+volumes:
+  - ${ACTIVEPIECES_DATA:-./data/activepieces}:/usr/local/lib/activepieces/files
+environment:
+  - AP_PIECES_SUFFIX=
+  - AP_EXECUTION_MODE=${AP_EXECUTION_MODE:-SANDBOX}
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:3000"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

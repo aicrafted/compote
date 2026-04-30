@@ -1,0 +1,47 @@
+{
+  "id": "audiobookshelf",
+  "name": "Audiobookshelf",
+  "category": "MEDIA",
+  "icon": "audiobookshelf",
+  "description": "Self-hosted audiobook and podcast server.",
+  "image": "ghcr.io/advplyr/audiobookshelf:latest",
+  "tags": [
+    "audiobooks",
+    "podcasts",
+    "media-server"
+  ],
+  "defaultHostPort": 80,
+  "containerPorts": [
+    80
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/audiobooks",
+      "description": "Audiobook files",
+      "required": true,
+      "defaultHostPath": "./audiobooks"
+    },
+    {
+      "containerPath": "/config",
+      "description": "Audiobookshelf config",
+      "required": true,
+      "defaultHostPath": "./data/audiobookshelf"
+    },
+    {
+      "containerPath": "/metadata",
+      "description": "Metadata",
+      "required": true,
+      "defaultHostPath": "./data/audiobookshelf/metadata"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "512M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

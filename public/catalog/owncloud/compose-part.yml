@@ -1,0 +1,13 @@
+image: owncloud/server:latest
+restart: unless-stopped
+ports:
+  - ${OWNCLOUD_PORT:-8080}:8080
+volumes:
+  - ${OWNCLOUD_DATA:-./data/owncloud}:/var/www/html/data
+environment:
+  - OWNCLOUD_URL=http://localhost:8080
+healthcheck:
+  test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/status.php"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

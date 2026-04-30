@@ -1,0 +1,14 @@
+image: rocketchat/rocket.chat:7.5.2
+restart: unless-stopped
+volumes:
+  - ${ROCKET_UPLOADS:-./data/rocket-chat/uploads}:/app/uploads
+environment:
+  - ROOT_URL=${ROOT_URL:-http://localhost:3000}
+  - DEPLOY_METHOD=docker
+  - NODE_ENV=production
+  - MONGO_URL=mongodb://mongo:27017/rocketchat
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:3000/api/info"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

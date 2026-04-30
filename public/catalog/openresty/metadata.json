@@ -1,0 +1,35 @@
+{
+  "id": "openresty",
+  "name": "OpenResty",
+  "category": "REVERSE PROXY",
+  "icon": "openresty",
+  "description": "Full-featured web app server based on Nginx.",
+  "image": "openresty/openresty:latest",
+  "tags": [
+    "reverse-proxy",
+    "web-server",
+    "lua"
+  ],
+  "defaultHostPort": 80,
+  "containerPorts": [
+    80,
+    443
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/usr/local/openresty",
+      "description": "OpenResty config",
+      "required": true,
+      "defaultHostPath": "./config/openresty"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  }
+}

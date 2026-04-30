@@ -1,0 +1,21 @@
+{
+  "name": "NATS",
+  "category": "MESSAGE BROKERS",
+  "icon": "nats",
+  "description": "Connective technology for adaptive edge and distributed systems.",
+  "image": "nats:latest",
+  "defaultHostPort": 4222,
+  "containerPorts": [
+    4222,
+    8222
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/data",
+      "description": "NATS storage"
+    }
+  ],
+  "iconSVG": true
+}

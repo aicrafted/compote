@@ -1,0 +1,21 @@
+{
+  "name": "RabbitMQ",
+  "category": "MESSAGE BROKERS",
+  "icon": "rabbitmq",
+  "description": "The most widely deployed open source message broker.",
+  "image": "rabbitmq:3-management",
+  "defaultHostPort": 5672,
+  "containerPorts": [
+    5672,
+    15672
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/lib/rabbitmq",
+      "description": "Bus data"
+    }
+  ],
+  "iconSVG": true
+}

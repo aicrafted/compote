@@ -1,0 +1,69 @@
+{
+  "id": "lldap",
+  "name": "LLDAP",
+  "category": "AUTH",
+  "icon": "lldap",
+  "description": "Lightweight LDAP server for simple user and group management.",
+  "image": "lldap/lldap:stable",
+  "tags": [
+    "ldap",
+    "authentication",
+    "users"
+  ],
+  "defaultHostPort": 3890,
+  "containerPorts": [
+    3890,
+    17170
+  ],
+  "requires": [],
+  "requiredEnv": [
+    {
+      "name": "LLDAP_JWT_SECRET",
+      "label": "JWT Secret",
+      "required": true,
+      "isSecret": true
+    },
+    {
+      "name": "LLDAP_LDAP_USER_PASS",
+      "label": "Admin Password",
+      "required": true,
+      "isSecret": true
+    },
+    {
+      "name": "LLDAP_LDAP_BASE_DN",
+      "label": "LDAP Base DN",
+      "defaultValue": "dc=example,dc=com",
+      "required": true
+    }
+  ],
+  "optionalEnv": [
+    {
+      "name": "UID",
+      "label": "UID",
+      "defaultValue": "1000",
+      "required": false
+    },
+    {
+      "name": "GID",
+      "label": "GID",
+      "defaultValue": "1000",
+      "required": false
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/data",
+      "description": "LLDAP data",
+      "required": true,
+      "defaultHostPath": "./data/lldap"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

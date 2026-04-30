@@ -1,0 +1,15 @@
+image: coredns/coredns:latest
+restart: unless-stopped
+volumes:
+  - ${COREDNS_CONFIG:-./config/coredns/Corefile}:/Corefile:ro
+command:
+  - -conf
+  - /Corefile
+ports:
+  - "53:53/tcp"
+  - "53:53/udp"
+healthcheck:
+  test: ["CMD", "nslookup", "google.com", "localhost"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

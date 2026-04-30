@@ -1,0 +1,11 @@
+image: envoyproxy/envoy:v1.32.0
+restart: unless-stopped
+volumes:
+  - ${ENVOY_CONFIG:-./config/envoy}:/etc/envoy/envoy.yaml:ro
+ports:
+  - "10000:10000"
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:10000/"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

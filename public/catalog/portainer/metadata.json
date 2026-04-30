@@ -1,0 +1,32 @@
+{
+  "id": "portainer",
+  "name": "Portainer",
+  "category": "CONTAINERS",
+  "icon": "portainer",
+  "description": "Web-based container management GUI.",
+  "image": "portainer/portainer-ce:latest",
+  "tags": ["containers", "docker", "management", "ui"],
+  "defaultHostPort": 9000,
+  "containerPorts": [9000, 9443],
+  "requires": [],
+  "optionalRequires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/data",
+      "description": "Portainer data",
+      "required": true,
+      "defaultHostPath": "./data/portainer"
+    },
+    {
+      "containerPath": "/var/run/docker.sock",
+      "hostPath": "/var/run/docker.sock",
+      "required": true
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "small",
+  "resourceLimits": { "memory": "512M", "cpus": "0.25" },
+  "iconSVG": true
+}

@@ -1,0 +1,35 @@
+{
+  "id": "vector",
+  "name": "Vector",
+  "category": "LOGS",
+  "icon": "vector",
+  "description": "High-performance observability data pipeline.",
+  "image": "timberio/vector:0.44.1-alpine",
+  "tags": [
+    "logs",
+    "metrics",
+    "pipeline"
+  ],
+  "defaultHostPort": 9000,
+  "containerPorts": [
+    9000
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/etc/vector",
+      "description": "Vector config",
+      "required": true,
+      "defaultHostPath": "./config/vector"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": false,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

@@ -1,0 +1,50 @@
+{
+  "id": "matrix-synapse",
+  "name": "Matrix Synapse",
+  "category": "COLLABORATION",
+  "icon": "matrix",
+  "description": "Reference implementation of a Matrix homeserver for decentralized messaging.",
+  "image": "matrixdotorg/synapse:latest",
+  "tags": [
+    "matrix",
+    "messaging",
+    "decentralized",
+    "chat"
+  ],
+  "defaultHostPort": 8008,
+  "containerPorts": [
+    8008
+  ],
+  "requires": [],
+  "optionalRequires": ["postgres"],
+  "requiredEnv": [
+    {
+      "name": "SYNAPSE_SERVER_NAME",
+      "label": "Server Name",
+      "required": true,
+      "description": "Public hostname of your server"
+    },
+    {
+      "name": "SYNAPSE_REPORT_STATS",
+      "label": "Report Stats",
+      "defaultValue": "no",
+      "required": true
+    }
+  ],
+  "volumes": [
+    {
+      "containerPath": "/data",
+      "description": "Synapse data and config",
+      "required": true,
+      "defaultHostPath": "./data/synapse"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  },
+  "iconSVG": true
+}

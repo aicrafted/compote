@@ -1,0 +1,13 @@
+image: openvpn/openvpn-server:latest
+restart: unless-stopped
+volumes:
+  - ${OPENVPN_CONFIG:-./config/openvpn}:/etc/openvpn
+cap_add:
+  - NET_ADMIN
+ports:
+  - "1194:1194/udp"
+healthcheck:
+  test: ["CMD", "nslookup", "google.com", "localhost"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

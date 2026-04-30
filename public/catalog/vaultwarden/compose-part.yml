@@ -1,0 +1,6 @@
+image: vaultwarden/server:latest
+restart: unless-stopped
+volumes:
+  - ${VAULTWARDEN_DATA:-./data/vaultwarden}:/data
+environment:
+  - SIGNUPS_ALLOWED=${SIGNUPS_ALLOWED:-true}

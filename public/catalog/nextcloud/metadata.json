@@ -1,0 +1,32 @@
+{
+  "id": "nextcloud",
+  "name": "Nextcloud",
+  "category": "STORAGE",
+  "icon": "nextcloud",
+  "description": "The self-hosted productivity platform that keeps you in control.",
+  "image": "nextcloud:stable",
+  "tags": [
+    "cloud",
+    "files",
+    "collaboration"
+  ],
+  "defaultHostPort": 8081,
+  "containerPorts": [
+    80
+  ],
+  "requires": [
+    "postgres",
+    "redis"
+  ],
+  "requiredEnv": [
+    {
+      "name": "POSTGRES_PASSWORD",
+      "label": "DB Password",
+      "required": true,
+      "isSecret": true
+    }
+  ],
+  "publicExposure": "recommended",
+  "resourceClass": "medium",
+  "iconSVG": true
+}

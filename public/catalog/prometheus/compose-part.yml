@@ -1,0 +1,15 @@
+image: prom/prometheus:latest
+restart: unless-stopped
+volumes:
+  - ${PROMETHEUS_CONFIG:-./config/prometheus}:/etc/prometheus:ro
+  - ${PROMETHEUS_DATA:-./data/prometheus}:/prometheus
+command:
+  - --config.file=/etc/prometheus/prometheus.yml
+  - --storage.tsdb.path=/prometheus
+  - --web.console.libraries=/etc/prometheus/console_libraries
+  - --web.console.templates=/etc/prometheus/consoles
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:9090/-/healthy"]
+  interval: 30s
+  timeout: 10s
+  retries: 3

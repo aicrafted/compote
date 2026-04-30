@@ -1,0 +1,42 @@
+{
+  "id": "headscale",
+  "name": "Headscale",
+  "category": "VPN",
+  "icon": "headscale",
+  "description": "Open-source implementation of Tailscale control server.",
+  "image": "headscale/headscale:latest",
+  "tags": [
+    "vpn",
+    "tailscale",
+    "control-server"
+  ],
+  "defaultHostPort": 8080,
+  "containerPorts": [
+    8080,
+    9090
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/etc/headscale",
+      "description": "Headscale config",
+      "required": true,
+      "defaultHostPath": "./config/headscale"
+    },
+    {
+      "containerPath": "/var/lib/headscale",
+      "description": "Headscale data",
+      "required": true,
+      "defaultHostPath": "./data/headscale"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "light",
+  "resourceLimits": {
+    "memory": "256M",
+    "cpus": "0.25"
+  },
+  "iconSVG": true
+}

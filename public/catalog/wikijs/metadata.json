@@ -1,0 +1,35 @@
+{
+  "id": "wikijs",
+  "name": "Wiki.js",
+  "category": "KNOWLEDGE",
+  "icon": "wikijs",
+  "description": "Modern, lightweight and powerful wiki app.",
+  "image": "ghcr.io/requarks/wiki:2",
+  "tags": [
+    "wiki",
+    "knowledge-base",
+    "documentation"
+  ],
+  "defaultHostPort": 8080,
+  "containerPorts": [
+    3000
+  ],
+  "requires": [],
+  "optionalRequires": ["postgres"],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/wiki/data",
+      "description": "Wiki.js data",
+      "required": true,
+      "defaultHostPath": "./data/wikijs"
+    }
+  ],
+  "publicExposure": "optional",
+  "persistenceRequired": true,
+  "resourceClass": "medium",
+  "resourceLimits": {
+    "memory": "1G",
+    "cpus": "0.5"
+  }
+}

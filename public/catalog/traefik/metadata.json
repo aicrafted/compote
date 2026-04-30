@@ -1,0 +1,24 @@
+{
+  "name": "Traefik",
+  "category": "REVERSE PROXY",
+  "icon": "traefik",
+  "description": "The Cloud Native Application Proxy.",
+  "image": "traefik:v3.0",
+  "defaultHostPort": 8082,
+  "containerPorts": [
+    80,
+    8080,
+    443
+  ],
+  "requires": [],
+  "requiredEnv": [],
+  "volumes": [
+    {
+      "containerPath": "/var/run/docker.sock",
+      "description": "Docker socket for service discovery",
+      "hostPath": "/var/run/docker.sock"
+    }
+  ],
+  "publicExposure": "recommended",
+  "iconSVG": true
+}
