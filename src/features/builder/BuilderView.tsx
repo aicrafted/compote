@@ -254,7 +254,7 @@ export function BuilderView() {
             <ScrollArea className="flex-1">
                <div className="p-8">
                   {activeInstanceId && config.services[activeInstanceId] ? (
-                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-5xl mx-auto">
+                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-5xl">
                         <ServiceSettings
                            key={activeInstanceId}
                            instanceId={activeInstanceId}

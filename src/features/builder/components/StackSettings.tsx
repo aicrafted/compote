@@ -66,7 +66,7 @@ export function StackSettings({ onAddService, onAddBundle, onImport }: StackSett
   }, [config.volumes, config.services, settings.externalVolumes]);
 
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 animate-in fade-in slide-in-from-top-4 duration-300">
+    <div className="flex w-full max-w-6xl flex-col gap-6 animate-in fade-in slide-in-from-top-4 duration-300">
       <div className="max-w-xl space-y-2">
         <Label className="text-xs text-muted-foreground">Compose project name</Label>
         <Input
