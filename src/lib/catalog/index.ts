@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { CatalogEntry, ServiceSpec } from '@/types';
+import { BundleSpec, CatalogEntry, ServiceSpec } from '@/types';
 import { catalogRepository } from '@/lib/storage/CatalogRepository';
 import { CatalogRegistry } from './registry';
 
@@ -35,14 +35,16 @@ export function getCatalogIconUrl(entry: CatalogEntry): string | null {
 
 export function useCatalog() {
   const [entries, setEntries] = useState<CatalogEntry[]>([]);
+  const [bundles, setBundles] = useState<BundleSpec[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let mounted = true;
     async function load() {
-      const [builtinEntries, userServices] = await Promise.all([
+      const [builtinEntries, userServices, loadedBundles] = await Promise.all([
         catalogRepository.loadIndex(),
         catalogRepository.getUserServices(),
+        catalogRepository.loadBundles(),
       ]);
 
       builtinEntries.forEach((entry) => {
@@ -51,9 +53,11 @@ export function useCatalog() {
       userServices.forEach((service) => {
         CatalogRegistry.cacheService(service);
       });
+      CatalogRegistry.cacheBundles(loadedBundles);
 
       if (!mounted) return;
       setEntries([...builtinEntries, ...userServices.map(toUserEntry)]);
+      setBundles(loadedBundles);
       setLoading(false);
     }
 
@@ -104,7 +108,7 @@ export function useCatalog() {
     entries,
     allServices: entries,
     servicesByCategory,
-    allBundles: CatalogRegistry.getAllBundles(),
+    allBundles: bundles,
     getSpec,
     addUserService,
     removeUserService,

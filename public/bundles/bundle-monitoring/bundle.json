@@ -1,0 +1,8 @@
+{
+  "id": "bundle-monitoring",
+  "name": "Monitoring & Logs",
+  "description": "Complete observability for your homelab with Grafana, Prometheus, and Loki.",
+  "mainServices": ["grafana", "prometheus", "loki"],
+  "difficulty": "moderate",
+  "resourceClass": "medium"
+}

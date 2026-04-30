@@ -1,5 +1,5 @@
 import { del, get, set } from 'idb-keyval';
-import { CatalogEntry, ServiceSpec } from '@/types';
+import { BundleSpec, CatalogEntry, ServiceSpec } from '@/types';
 import { CatalogRegistry } from '@/lib/catalog/registry';
 
 type CatalogSource = 'builtin' | 'user';
@@ -38,6 +38,7 @@ interface CatalogMetadata {
 class CatalogRepository {
   private cache: Map<string, ServiceSpec> = new Map();
   private indexPromise: Promise<CatalogEntry[]> | null = null;
+  private bundlesPromise: Promise<BundleSpec[]> | null = null;
 
   private userServiceKey(id: string) {
     return `user-service-${id}`;
@@ -45,6 +46,15 @@ class CatalogRepository {
 
   private cacheKey(id: string, source: CatalogSource) {
     return `${source}:${id}`;
+  }
+
+  async loadBundles(): Promise<BundleSpec[]> {
+    if (!this.bundlesPromise) {
+      this.bundlesPromise = fetch('/bundles/bundles.json')
+        .then((r) => (r.ok ? r.json() : []))
+        .catch(() => []);
+    }
+    return this.bundlesPromise;
   }
 
   async loadIndex(): Promise<CatalogEntry[]> {

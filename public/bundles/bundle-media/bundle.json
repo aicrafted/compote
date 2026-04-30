@@ -1,0 +1,9 @@
+{
+  "id": "bundle-media",
+  "name": "Media Stack",
+  "description": "The ultimate entertainment stack: Streaming, acquisition, and automation.",
+  "mainServices": ["jellyfin", "qbittorrent", "prowlarr", "sonarr", "radarr"],
+  "difficulty": "moderate",
+  "resourceClass": "heavy",
+  "notes": ["Requires significant storage for media library."]
+}

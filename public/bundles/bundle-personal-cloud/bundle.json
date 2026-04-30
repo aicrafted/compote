@@ -1,0 +1,9 @@
+{
+  "id": "bundle-personal-cloud",
+  "name": "Personal Cloud",
+  "description": "Full productivity suite with Nextcloud, Postgres, and Redis.",
+  "mainServices": ["nextcloud", "postgres", "redis"],
+  "difficulty": "moderate",
+  "resourceClass": "medium",
+  "notes": ["Includes high-performance caching with Redis."]
+}

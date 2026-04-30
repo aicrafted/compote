@@ -1,0 +1,8 @@
+{
+  "id": "bundle-collab",
+  "name": "Team Collaboration",
+  "description": "Self-hosted internal communication with Mattermost.",
+  "mainServices": ["mattermost", "postgres"],
+  "difficulty": "moderate",
+  "resourceClass": "medium"
+}

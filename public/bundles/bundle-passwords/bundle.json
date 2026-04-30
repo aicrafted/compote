@@ -1,0 +1,8 @@
+{
+  "id": "bundle-passwords",
+  "name": "Passwords Vault",
+  "description": "Secure password management with Vaultwarden.",
+  "mainServices": ["vaultwarden"],
+  "difficulty": "easy",
+  "resourceClass": "light"
+}

@@ -2,10 +2,11 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { catalogPlugin } from './scripts/vite-plugin-catalog';
+import { bundlesPlugin } from './scripts/vite-plugin-bundles';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), catalogPlugin()],
+  plugins: [react(), catalogPlugin(), bundlesPlugin()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
