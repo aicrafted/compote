@@ -1,7 +1,9 @@
 .cache/
 .docs/
+.claude/
 .wrangler
 node_modules/  
 tasks/
 AGENTS.md
+CLAUDE.md
 dist/
