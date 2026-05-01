@@ -1,14 +1,14 @@
-import { get, set as idbSet, del } from 'idb-keyval';
-import { StateStorage } from 'zustand/middleware';
+import { driver } from '@/lib/storage/driver';
+import type { StateStorage } from 'zustand/middleware';
 
 export const idbStorage: StateStorage = {
   getItem: async (name: string): Promise<string | null> => {
-    return (await get(name)) || null;
+    return (await driver.get<string>(name)) ?? null;
   },
   setItem: async (name: string, value: string): Promise<void> => {
-    await idbSet(name, value);
+    await driver.set(name, value);
   },
   removeItem: async (name: string): Promise<void> => {
-    await del(name);
+    await driver.del(name);
   },
 };

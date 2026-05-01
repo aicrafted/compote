@@ -1,6 +1,6 @@
-import { del, get, set } from 'idb-keyval';
 import { BundleSpec, CatalogEntry, ServiceSpec } from '@/types';
 import { CatalogRegistry } from '@/lib/catalog/registry';
+import { driver } from './driver';
 
 type CatalogSource = 'builtin' | 'user';
 
@@ -50,7 +50,8 @@ class CatalogRepository {
 
   async loadBundles(): Promise<BundleSpec[]> {
     if (!this.bundlesPromise) {
-      this.bundlesPromise = fetch('/bundles/bundles.json')
+      const url = import.meta.env.VITE_STORAGE_MODE === 'server' ? '/api/bundles/index' : '/bundles/bundles.json';
+      this.bundlesPromise = fetch(url)
         .then((r) => (r.ok ? r.json() : []))
         .catch(() => []);
     }
@@ -59,9 +60,13 @@ class CatalogRepository {
 
   async loadIndex(): Promise<CatalogEntry[]> {
     if (!this.indexPromise) {
-      this.indexPromise = fetch('/catalog/catalog.json')
+      const serverMode = import.meta.env.VITE_STORAGE_MODE === 'server';
+      const url = serverMode ? '/api/catalog/index' : '/catalog/catalog.json';
+      this.indexPromise = fetch(url)
         .then((r) => (r.ok ? r.json() : []))
-        .then((index: CatalogEntry[]) => index.map((item) => ({ ...item, source: 'builtin' as const })))
+        .then((index: CatalogEntry[]) =>
+          serverMode ? index : index.map((item) => ({ ...item, source: 'builtin' as const }))
+        )
         .catch(() => []);
     }
     return this.indexPromise;
@@ -76,7 +81,7 @@ class CatalogRepository {
     if (source === 'builtin') {
       spec = await this.loadBuiltinSpec(id);
     } else {
-      spec = await get<ServiceSpec>(this.userServiceKey(id));
+      spec = await driver.get<ServiceSpec>(this.userServiceKey(id));
     }
 
     if (!spec) return undefined;
@@ -85,24 +90,24 @@ class CatalogRepository {
   }
 
   async getUserServices(): Promise<ServiceSpec[]> {
-    const ids = (await get<string[]>('user-services-index')) || [];
-    const values = await Promise.all(ids.map((id) => get<ServiceSpec>(this.userServiceKey(id))));
+    const ids = (await driver.get<string[]>('user-services-index')) || [];
+    const values = await Promise.all(ids.map((id) => driver.get<ServiceSpec>(this.userServiceKey(id))));
     return values.filter((value): value is ServiceSpec => Boolean(value));
   }
 
   async saveUserService(spec: ServiceSpec): Promise<void> {
-    await set(this.userServiceKey(spec.id), spec);
-    const ids = (await get<string[]>('user-services-index')) || [];
+    await driver.set(this.userServiceKey(spec.id), spec);
+    const ids = (await driver.get<string[]>('user-services-index')) || [];
     if (!ids.includes(spec.id)) {
-      await set('user-services-index', [...ids, spec.id]);
+      await driver.set('user-services-index', [...ids, spec.id]);
     }
     this.cache.set(this.cacheKey(spec.id, 'user'), spec);
   }
 
   async deleteUserService(id: string): Promise<void> {
-    await del(this.userServiceKey(id));
-    const ids = (await get<string[]>('user-services-index')) || [];
-    await set('user-services-index', ids.filter((existingId) => existingId !== id));
+    await driver.del(this.userServiceKey(id));
+    const ids = (await driver.get<string[]>('user-services-index')) || [];
+    await driver.set('user-services-index', ids.filter((existingId) => existingId !== id));
     this.cache.delete(this.cacheKey(id, 'user'));
   }
 

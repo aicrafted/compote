@@ -1,5 +1,5 @@
-import { del, get, set } from 'idb-keyval';
 import { ComposeData } from '@/types';
+import { driver } from './driver';
 
 class ComposeRepository {
   private key(hostId: string, composeId: string) {
@@ -7,15 +7,15 @@ class ComposeRepository {
   }
 
   async get(hostId: string, composeId: string): Promise<ComposeData | undefined> {
-    return await get<ComposeData>(this.key(hostId, composeId));
+    return await driver.get<ComposeData>(this.key(hostId, composeId));
   }
 
   async save(hostId: string, composeId: string, data: ComposeData): Promise<void> {
-    await set(this.key(hostId, composeId), data);
+    await driver.set(this.key(hostId, composeId), data);
   }
 
   async delete(hostId: string, composeId: string): Promise<void> {
-    await del(this.key(hostId, composeId));
+    await driver.del(this.key(hostId, composeId));
   }
 
   async getAllForHost(hostId: string, composeIds: string[]): Promise<Record<string, ComposeData>> {

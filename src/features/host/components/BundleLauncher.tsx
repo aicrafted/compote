@@ -56,7 +56,7 @@ export function BundleLauncher({ open, onOpenChange, mode, hostId }: BundleLaunc
   const [selectedBundle, setSelectedBundle] = useState<BundleSpec | null>(null);
 
   // Stack state
-  const [selectedStackRef, setSelectedStackRef] = useState<{ hostId: string; composeId: string; name: string } | null>(null);
+  const [, setSelectedStackRef] = useState<{ hostId: string; composeId: string; name: string } | null>(null);
   const [stackData, setStackData] = useState<ComposeData | null>(null);
   const [allStacksData, setAllStacksData] = useState<Record<string, Record<string, ComposeData>>>({});
   const [stacksLoading, setStacksLoading] = useState(false);
@@ -64,8 +64,6 @@ export function BundleLauncher({ open, onOpenChange, mode, hostId }: BundleLaunc
   // Conflict state (shared)
   const [conflicts, setConflicts] = useState<BundleImportConflict[]>([]);
   const [resolutions, setResolutions] = useState<BundleResolutionMap>({ services: {}, ports: {}, volumes: {}, networks: {} });
-
-  const [newComposeName, setNewComposeName] = useState('');
 
   // Load all stacks data when switching to stacks tab
   useEffect(() => {
@@ -211,7 +209,6 @@ export function BundleLauncher({ open, onOpenChange, mode, hostId }: BundleLaunc
     setStep('picker');
     setConflicts([]);
     setResolutions({ services: {}, ports: {}, volumes: {}, networks: {} });
-    setNewComposeName('');
   };
 
   // ── Dialog title ─────────────────────────────────────────────────────────
