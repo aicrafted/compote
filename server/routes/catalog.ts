@@ -78,11 +78,12 @@ export function handleCatalogDelete(id: string): Response {
   const validation = validateId(id);
   if (validation) return jsonError(validation);
 
-  const builtinDir = path.join(DIST_DIR, 'catalog', id);
-  if (existsSync(builtinDir)) return jsonError('builtin services cannot be deleted', 403);
-
   const serviceDir = path.join(DATA_DIR, 'catalog', id);
-  if (!existsSync(serviceDir)) return jsonError('service not found', 404);
+  if (!existsSync(serviceDir)) {
+    const builtinDir = path.join(DIST_DIR, 'catalog', id);
+    if (existsSync(builtinDir)) return jsonError('builtin services cannot be deleted', 403);
+    return jsonError('service not found', 404);
+  }
 
   rmSync(serviceDir, { recursive: true, force: true });
   return new Response(null, { status: 204 });

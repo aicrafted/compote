@@ -49,11 +49,12 @@ export function handleBundleDelete(id: string): Response {
   const validation = validateId(id);
   if (validation) return jsonError(validation);
 
-  const builtinDir = path.join(DIST_DIR, 'bundles', id);
-  if (existsSync(builtinDir)) return jsonError('builtin bundles cannot be deleted', 403);
-
   const bundleDir = path.join(DATA_DIR, 'bundles', id);
-  if (!existsSync(bundleDir)) return jsonError('bundle not found', 404);
+  if (!existsSync(bundleDir)) {
+    const builtinDir = path.join(DIST_DIR, 'bundles', id);
+    if (existsSync(builtinDir)) return jsonError('builtin bundles cannot be deleted', 403);
+    return jsonError('bundle not found', 404);
+  }
 
   rmSync(bundleDir, { recursive: true, force: true });
   return new Response(null, { status: 204 });

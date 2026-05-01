@@ -45,7 +45,7 @@ export function handleStatic(request: Request): Response {
 function resolveMountedFile(pathname: string, segment: 'catalog' | 'bundles'): string | null {
   if (!pathname.startsWith(`/${segment}/`)) return null;
   const relativePath = pathname.slice(segment.length + 2);
-  return resolveFile(path.join(DIST_DIR, segment), relativePath) ?? resolveFile(path.join(DATA_DIR, segment), relativePath);
+  return resolveFile(path.join(DATA_DIR, segment), relativePath) ?? resolveFile(path.join(DIST_DIR, segment), relativePath);
 }
 
 function resolveFile(root: string, requestPath: string): string | null {
