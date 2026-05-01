@@ -31,21 +31,18 @@ services:
   compote:
     image: ghcr.io/aicrafted/compote:latest
     ports:
-      - "3000:3000"
+      - "3474:3000"
     volumes:
-      - compote-data:/data
+      - ./data:/data
     restart: unless-stopped
-
-volumes:
-  compote-data:
 ```
 
 ```bash
 docker compose up -d
-# → http://localhost:3000
+# → http://localhost:3474
 ```
 
-In self-hosted mode the app uses a **local SQLite database** (stored in the `/data` volume) instead of the browser's IndexedDB. This means your data persists across browsers and devices on the same server, and the catalog can be extended with custom services at runtime.
+In self-hosted mode the app uses a **local SQLite database** stored in `./data` instead of the browser's IndexedDB. Data persists across browsers and devices on the same server. The `./data` directory also serves as the catalog volume — drop custom service definitions there to extend the built-in catalog at runtime.
 
 ---
 
