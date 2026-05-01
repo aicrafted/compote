@@ -4,12 +4,17 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="/logo.png" />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SH8XZPQDK7"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-SH8XZPQDK7');
+    if ('%VITE_STORAGE_MODE%' !== 'server') {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-SH8XZPQDK7';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SH8XZPQDK7');
+    }
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Compote - Docker Compose Templater</title>
