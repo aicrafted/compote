@@ -1,6 +1,6 @@
 # Compote — Compose Templater
 
-A browser-based visual editor for Docker Compose configurations. No backend, no sign-up — everything runs locally in your browser.
+A browser-based visual editor for Docker Compose configurations. No backend, no sign-up — open the app and start building.
 
 ## What it does
 
@@ -17,6 +17,38 @@ Compote lets you build and manage Docker Compose setups through a point-and-clic
 - **ZIP export** — download a bundle with `docker-compose.yml`, `.env`, and generated docs
 - **Serverless** — runs entirely in the browser; no backend, no account, all data stays in local IndexedDB
 
+## Deployment
+
+### Hosted (no setup)
+
+The app is available at **[compote.app](https://compote.app)** — runs entirely in the browser, data stays in local IndexedDB, no account required.
+
+### Self-host with Docker
+
+```yaml
+# docker-compose.yml
+services:
+  compote:
+    image: ghcr.io/aicrafted/compote:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - compote-data:/data
+    restart: unless-stopped
+
+volumes:
+  compote-data:
+```
+
+```bash
+docker compose up -d
+# → http://localhost:3000
+```
+
+In self-hosted mode the app uses a **local SQLite database** (stored in the `/data` volume) instead of the browser's IndexedDB. This means your data persists across browsers and devices on the same server, and the catalog can be extended with custom services at runtime.
+
+---
+
 ## Tech stack
 
 | Layer | Technology |
@@ -25,10 +57,10 @@ Compote lets you build and manage Docker Compose setups through a point-and-clic
 | Build | Vite 5 + Bun |
 | Styling | Tailwind CSS 3 + shadcn/ui |
 | State | Zustand |
-| Storage | IndexedDB (idb-keyval) |
+| Storage | IndexedDB (browser) · SQLite via Bun (self-hosted) |
 | Routing | React Router v6 |
 
-## Getting started
+## Development
 
 **Prerequisites:** [Bun](https://bun.sh) ≥ 1.0
 
