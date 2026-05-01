@@ -4,6 +4,8 @@ export interface StorageDriver {
   del(key: string): Promise<void>;
 }
 
+export const isServerMode = import.meta.env.VITE_STORAGE_MODE === 'server';
+
 class IdbDriver implements StorageDriver {
   async get<T>(key: string): Promise<T | undefined> {
     const { get } = await import('idb-keyval');
@@ -49,6 +51,6 @@ class ApiDriver implements StorageDriver {
 }
 
 export const driver: StorageDriver =
-  import.meta.env.VITE_STORAGE_MODE === 'server'
+  isServerMode
     ? new ApiDriver()
     : new IdbDriver();

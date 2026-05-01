@@ -81,6 +81,7 @@ export interface BundleSpec {
   id: string;
   name: string;
   description: string;
+  source?: 'builtin' | 'user';
   mainServices: string[];    // IDs of services included by default
   optionalServices?: string[];
   recommendedProxyMode?: 'none' | 'generic' | 'caddy';

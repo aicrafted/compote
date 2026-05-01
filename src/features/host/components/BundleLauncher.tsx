@@ -11,6 +11,8 @@ import {
   ArrowRight,
   AlertCircle,
   Server,
+  Plus,
+  Trash2,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useCatalog } from '@/lib/catalog';
@@ -31,6 +33,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { isServerMode } from '@/lib/storage/driver';
 
 interface BundleLauncherProps {
   open: boolean;
@@ -45,7 +49,7 @@ type Step = 'picker' | 'conflicts';
 export function BundleLauncher({ open, onOpenChange, mode, hostId }: BundleLauncherProps) {
   const navigate = useNavigate();
   const { hostId: routeHostId } = useParams<{ hostId: string }>();
-  const { allBundles } = useCatalog();
+  const { allBundles, uploadServerBundle, removeServerBundle } = useCatalog();
   const { config, applyBundle, resetStack, saveCompose, updateStackConfig } = useComposeStore();
   const { settings, createCompose, hosts } = useHostStore();
 
@@ -64,6 +68,7 @@ export function BundleLauncher({ open, onOpenChange, mode, hostId }: BundleLaunc
   // Conflict state (shared)
   const [conflicts, setConflicts] = useState<BundleImportConflict[]>([]);
   const [resolutions, setResolutions] = useState<BundleResolutionMap>({ services: {}, ports: {}, volumes: {}, networks: {} });
+  const [bundleUploadOpen, setBundleUploadOpen] = useState(false);
 
   // Load all stacks data when switching to stacks tab
   useEffect(() => {
@@ -209,6 +214,7 @@ export function BundleLauncher({ open, onOpenChange, mode, hostId }: BundleLaunc
     setStep('picker');
     setConflicts([]);
     setResolutions({ services: {}, ports: {}, volumes: {}, networks: {} });
+    setBundleUploadOpen(false);
   };
 
   // ── Dialog title ─────────────────────────────────────────────────────────
@@ -231,24 +237,33 @@ export function BundleLauncher({ open, onOpenChange, mode, hostId }: BundleLaunc
           </DialogDescription>
           {step === 'picker' && (
             <div className="flex items-center gap-3 mt-2">
-              <button
+              <Button
+                variant="ghost"
+                size="sm"
                 onClick={() => setSourceMode('bundles')}
                 className={cn(
-                  "flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all",
-                  sourceMode === 'bundles' ? "bg-primary/15 text-primary" : "text-muted-foreground/50 hover:text-muted-foreground"
+                  "h-8 gap-1.5 px-3 text-[10px] font-bold uppercase tracking-widest",
+                  sourceMode === 'bundles' ? "bg-primary/15 text-primary hover:bg-primary/20 hover:text-primary" : "text-muted-foreground/50 hover:text-muted-foreground"
                 )}
               >
                 <Sparkles size={11} /> Bundles
-              </button>
-              <button
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
                 onClick={() => setSourceMode('stacks')}
                 className={cn(
-                  "flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all",
-                  sourceMode === 'stacks' ? "bg-primary/15 text-primary" : "text-muted-foreground/50 hover:text-muted-foreground"
+                  "h-8 gap-1.5 px-3 text-[10px] font-bold uppercase tracking-widest",
+                  sourceMode === 'stacks' ? "bg-primary/15 text-primary hover:bg-primary/20 hover:text-primary" : "text-muted-foreground/50 hover:text-muted-foreground"
                 )}
               >
                 <Server size={11} /> Stacks
-              </button>
+              </Button>
+              {isServerMode && sourceMode === 'bundles' && (
+                <Button size="sm" className="h-8 gap-1.5 text-[10px] font-bold uppercase tracking-widest" onClick={() => setBundleUploadOpen(true)}>
+                  <Plus size={11} /> Add custom bundle
+                </Button>
+              )}
             </div>
           )}
         </DialogHeader>
@@ -258,7 +273,12 @@ export function BundleLauncher({ open, onOpenChange, mode, hostId }: BundleLaunc
             <ScrollArea className="h-full">
               <div className="px-6 pb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {allBundles.map((bundle) => (
-                  <BundlePickerCard key={bundle.id} bundle={bundle} onSelect={() => handleSelectBundle(bundle)} />
+                  <BundlePickerCard
+                    key={bundle.id}
+                    bundle={bundle}
+                    onSelect={() => handleSelectBundle(bundle)}
+                    onDelete={isServerMode && bundle.source === 'user' ? () => removeServerBundle(bundle.id) : undefined}
+                  />
                 ))}
               </div>
             </ScrollArea>
@@ -372,18 +392,37 @@ export function BundleLauncher({ open, onOpenChange, mode, hostId }: BundleLaunc
             </Button>
           </DialogFooter>
         )}
+        {isServerMode && (
+          <BundleUploadDialog
+            open={bundleUploadOpen}
+            onOpenChange={setBundleUploadOpen}
+            onUpload={uploadServerBundle}
+          />
+        )}
       </DialogContent>
     </Dialog>
   );
 }
 
-function BundlePickerCard({ bundle, onSelect }: { bundle: BundleSpec; onSelect: () => void }) {
+function BundlePickerCard({ bundle, onSelect, onDelete }: { bundle: BundleSpec; onSelect: () => void; onDelete?: () => Promise<void> | void }) {
+  const [deleting, setDeleting] = useState(false);
   const getIcon = (id: string) => {
     if (id.includes('password')) return <Shield size={18} />;
     if (id.includes('cloud')) return <Cloud size={18} />;
     if (id.includes('media')) return <Monitor size={18} />;
     if (id.includes('chat')) return <Mail size={18} />;
     return <Sparkles size={18} />;
+  };
+
+  const handleDelete = async (event: React.MouseEvent) => {
+    event.stopPropagation();
+    if (!onDelete || deleting) return;
+    setDeleting(true);
+    try {
+      await onDelete();
+    } finally {
+      setDeleting(false);
+    }
   };
 
   return (
@@ -398,14 +437,28 @@ function BundlePickerCard({ bundle, onSelect }: { bundle: BundleSpec; onSelect: 
         <div className="min-w-0 flex-1">
           <div className="flex items-center justify-between gap-2 mb-0.5">
             <h3 className="font-extrabold tracking-tight group-hover:text-primary transition-colors leading-tight">{bundle.name}</h3>
-            <span className={cn(
-              "text-[8px] uppercase tracking-widest px-1.5 rounded shrink-0",
-              bundle.difficulty === 'easy' ? "text-green-500/80 bg-green-500/10" :
-                bundle.difficulty === 'moderate' ? "text-amber-500/80 bg-amber-500/10" :
-                  "text-destructive/80 bg-destructive/10"
-            )}>
-              {bundle.difficulty}
-            </span>
+            <div className="flex shrink-0 items-center gap-1">
+              <span className={cn(
+                "text-[8px] uppercase tracking-widest px-1.5 rounded",
+                bundle.difficulty === 'easy' ? "text-green-500/80 bg-green-500/10" :
+                  bundle.difficulty === 'moderate' ? "text-amber-500/80 bg-amber-500/10" :
+                    "text-destructive/80 bg-destructive/10"
+              )}>
+                {bundle.difficulty}
+              </span>
+              {onDelete && (
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon"
+                  className="size-6 text-muted-foreground/40 hover:text-destructive"
+                  disabled={deleting}
+                  onClick={handleDelete}
+                >
+                  <Trash2 size={12} />
+                </Button>
+              )}
+            </div>
           </div>
           <p className="text-[11px] text-muted-foreground leading-relaxed">{bundle.description}</p>
         </div>
@@ -419,6 +472,77 @@ function BundlePickerCard({ bundle, onSelect }: { bundle: BundleSpec; onSelect: 
         <ChevronRight className="text-primary" size={20} />
       </div>
     </div>
+  );
+}
+
+function BundleUploadDialog({
+  open,
+  onOpenChange,
+  onUpload,
+}: {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  onUpload: (id: string, bundle: File) => Promise<void>;
+}) {
+  const [bundleId, setBundleId] = useState('');
+  const [bundleFile, setBundleFile] = useState<File | null>(null);
+  const [error, setError] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+
+  const reset = () => {
+    setBundleId('');
+    setBundleFile(null);
+    setError('');
+    setSubmitting(false);
+  };
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    setError('');
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(bundleId)) {
+      setError('Use kebab-case for the bundle ID.');
+      return;
+    }
+    if (!bundleFile) {
+      setError('bundle.json is required.');
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      await onUpload(bundleId, bundleFile);
+      reset();
+      onOpenChange(false);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Upload failed.');
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={(nextOpen) => { onOpenChange(nextOpen); if (!nextOpen) reset(); }}>
+      <DialogContent className="max-w-md">
+        <DialogHeader>
+          <DialogTitle>Add Custom Bundle</DialogTitle>
+          <DialogDescription>Upload a bundle file into the self-host catalog.</DialogDescription>
+        </DialogHeader>
+        <form className="space-y-4" onSubmit={handleSubmit}>
+          <div className="space-y-2">
+            <Label htmlFor="custom-bundle-id">Bundle ID</Label>
+            <Input id="custom-bundle-id" value={bundleId} onChange={(event) => setBundleId(event.target.value)} placeholder="my-bundle" />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="custom-bundle-file">bundle.json</Label>
+            <Input id="custom-bundle-file" type="file" accept="application/json,.json" onChange={(event) => setBundleFile(event.target.files?.[0] ?? null)} />
+          </div>
+          {error && <p className="text-xs text-destructive">{error}</p>}
+          <div className="flex justify-end gap-2">
+            <Button type="button" variant="outline" onClick={() => onOpenChange(false)}>Cancel</Button>
+            <Button type="submit" disabled={submitting}>{submitting ? 'Uploading...' : 'Upload'}</Button>
+          </div>
+        </form>
+      </DialogContent>
+    </Dialog>
   );
 }
 

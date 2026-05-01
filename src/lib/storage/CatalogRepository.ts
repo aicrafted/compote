@@ -1,6 +1,6 @@
 import { BundleSpec, CatalogEntry, ServiceSpec } from '@/types';
 import { CatalogRegistry } from '@/lib/catalog/registry';
-import { driver } from './driver';
+import { driver, isServerMode } from './driver';
 
 type CatalogSource = 'builtin' | 'user';
 
@@ -50,7 +50,7 @@ class CatalogRepository {
 
   async loadBundles(): Promise<BundleSpec[]> {
     if (!this.bundlesPromise) {
-      const url = import.meta.env.VITE_STORAGE_MODE === 'server' ? '/api/bundles/index' : '/bundles/bundles.json';
+      const url = isServerMode ? '/api/bundles/index' : '/bundles/bundles.json';
       this.bundlesPromise = fetch(url)
         .then((r) => (r.ok ? r.json() : []))
         .catch(() => []);
@@ -60,16 +60,23 @@ class CatalogRepository {
 
   async loadIndex(): Promise<CatalogEntry[]> {
     if (!this.indexPromise) {
-      const serverMode = import.meta.env.VITE_STORAGE_MODE === 'server';
-      const url = serverMode ? '/api/catalog/index' : '/catalog/catalog.json';
+      const url = isServerMode ? '/api/catalog/index' : '/catalog/catalog.json';
       this.indexPromise = fetch(url)
         .then((r) => (r.ok ? r.json() : []))
         .then((index: CatalogEntry[]) =>
-          serverMode ? index : index.map((item) => ({ ...item, source: 'builtin' as const }))
+          isServerMode ? index : index.map((item) => ({ ...item, source: 'builtin' as const }))
         )
         .catch(() => []);
     }
     return this.indexPromise;
+  }
+
+  invalidateIndex(): void {
+    this.indexPromise = null;
+  }
+
+  invalidateBundles(): void {
+    this.bundlesPromise = null;
   }
 
   async getSpec(id: string, source: CatalogSource): Promise<ServiceSpec | undefined> {
@@ -78,7 +85,7 @@ class CatalogRepository {
     if (cached) return cached;
 
     let spec: ServiceSpec | undefined;
-    if (source === 'builtin') {
+    if (source === 'builtin' || isServerMode) {
       spec = await this.loadBuiltinSpec(id);
     } else {
       spec = await driver.get<ServiceSpec>(this.userServiceKey(id));
@@ -109,6 +116,53 @@ class CatalogRepository {
     const ids = (await driver.get<string[]>('user-services-index')) || [];
     await driver.set('user-services-index', ids.filter((existingId) => existingId !== id));
     this.cache.delete(this.cacheKey(id, 'user'));
+  }
+
+  async uploadServerService(id: string, files: { metadata: File; compose: File; icon?: File }): Promise<CatalogEntry> {
+    const form = new FormData();
+    form.append('metadata', await files.metadata.text());
+    form.append('compose', await files.compose.text());
+    if (files.icon) {
+      form.append('icon', files.icon);
+    }
+
+    const response = await fetch(`/api/catalog/${encodeURIComponent(id)}`, {
+      method: 'POST',
+      body: form,
+    });
+    if (!response.ok) throw new Error(await readApiError(response));
+    this.invalidateIndex();
+    this.cache.delete(this.cacheKey(id, 'user'));
+    return response.json() as Promise<CatalogEntry>;
+  }
+
+  async deleteServerService(id: string): Promise<void> {
+    const response = await fetch(`/api/catalog/${encodeURIComponent(id)}`, {
+      method: 'DELETE',
+    });
+    if (!response.ok) throw new Error(await readApiError(response));
+    this.invalidateIndex();
+    this.cache.delete(this.cacheKey(id, 'user'));
+  }
+
+  async uploadServerBundle(id: string, bundle: File): Promise<BundleSpec> {
+    const form = new FormData();
+    form.append('bundle', await bundle.text());
+    const response = await fetch(`/api/bundles/${encodeURIComponent(id)}`, {
+      method: 'POST',
+      body: form,
+    });
+    if (!response.ok) throw new Error(await readApiError(response));
+    this.invalidateBundles();
+    return response.json() as Promise<BundleSpec>;
+  }
+
+  async deleteServerBundle(id: string): Promise<void> {
+    const response = await fetch(`/api/bundles/${encodeURIComponent(id)}`, {
+      method: 'DELETE',
+    });
+    if (!response.ok) throw new Error(await readApiError(response));
+    this.invalidateBundles();
   }
 
   private async loadBuiltinSpec(id: string): Promise<ServiceSpec | undefined> {
@@ -195,6 +249,15 @@ class CatalogRepository {
 }
 
 export const catalogRepository = new CatalogRepository();
+
+async function readApiError(response: Response): Promise<string> {
+  try {
+    const body = (await response.json()) as { error?: string };
+    return body.error || `Request failed: ${response.status}`;
+  } catch {
+    return `Request failed: ${response.status}`;
+  }
+}
 
 function normalizeCategories(category?: string, categories?: string[]): string[] {
   const values = categories?.length ? categories : [category || 'OTHER'];

@@ -129,13 +129,15 @@ export function PreviewPanel({ yaml, docs, validation, config, settings }: Previ
             <div className="flex-1 flex flex-col min-h-0">
                <div className="py-2.5 px-4 flex items-center justify-between border-b border-border/20 bg-card/5">
                   <span className="text-[8px] font-bold uppercase tracking-widest text-muted-foreground/30">COMPOSE YAML</span>
-                  <button 
+                  <Button
+                    variant="ghost"
+                    size="sm"
                     onClick={() => copyToClipboard(yaml)}
-                    className="text-primary/70 hover:text-primary transition-all flex items-center gap-1"
+                    className="h-7 gap-1 px-2 text-primary/70 hover:text-primary"
                   >
                      {copied ? <Check size={11} /> : <Copy size={11} />}
                      <span className="text-[8px] font-bold uppercase">{copied ? 'Copied' : 'Copy'}</span>
-                  </button>
+                  </Button>
                </div>
                <div className="flex-1 overflow-auto p-4 font-mono text-[9px] bg-black/[0.02] scrollbar-thin">
                   <pre className="text-secondary/60 leading-relaxed font-medium">
@@ -185,32 +187,38 @@ export function PreviewPanel({ yaml, docs, validation, config, settings }: Previ
             <div className="flex-1 flex flex-col min-h-0">
                <div className="py-2.5 px-4 flex items-center justify-between border-b border-border/20 bg-card/5">
                   <div className="flex items-center gap-1">
-                    <button
+                    <Button
+                      variant="ghost"
+                      size="sm"
                       onClick={() => setReadmeMode('preview')}
                       className={cn(
-                        "flex items-center gap-1 px-2 py-0.5 rounded text-[8px] font-bold uppercase transition-all",
+                        "h-6 gap-1 px-2 text-[8px] font-bold uppercase",
                         readmeMode === 'preview' ? "bg-primary/15 text-primary" : "text-muted-foreground/40 hover:text-muted-foreground"
                       )}
                     >
                       <Eye size={9} /> Preview
-                    </button>
-                    <button
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="sm"
                       onClick={() => setReadmeMode('source')}
                       className={cn(
-                        "flex items-center gap-1 px-2 py-0.5 rounded text-[8px] font-bold uppercase transition-all",
+                        "h-6 gap-1 px-2 text-[8px] font-bold uppercase",
                         readmeMode === 'source' ? "bg-primary/15 text-primary" : "text-muted-foreground/40 hover:text-muted-foreground"
                       )}
                     >
                       <Code size={9} /> Source
-                    </button>
+                    </Button>
                   </div>
-                  <button
+                  <Button
+                    variant="ghost"
+                    size="sm"
                     onClick={() => copyToClipboard(docs)}
-                    className="text-primary/70 hover:text-primary transition-all flex items-center gap-1"
+                    className="h-7 gap-1 px-2 text-primary/70 hover:text-primary"
                   >
                      {copied ? <Check size={11} /> : <Copy size={11} />}
                      <span className="text-[8px] font-bold uppercase">{copied ? 'Copied' : 'Copy'}</span>
-                  </button>
+                  </Button>
                </div>
                {readmeMode === 'preview' ? (
                  <div
@@ -228,14 +236,13 @@ export function PreviewPanel({ yaml, docs, validation, config, settings }: Previ
 
        {/* Footer Action */}
        <div className="p-4 border-t border-border bg-card/5">
-          <button 
+          <Button
             onClick={() => downloadComposeZip(config, settings)}
-
-            className="w-full py-2.5 rounded-xl bg-primary text-primary-foreground font-bold flex items-center justify-center gap-2 shadow-sm hover:opacity-90 active:scale-95 transition-all text-[9px] tracking-[0.1em] disabled:opacity-30 disabled:grayscale"
+            className="h-9 w-full gap-2 rounded-xl text-[9px] font-bold tracking-[0.1em]"
           >
             <Download size={13} />
             DOWNLOAD CONFIG
-          </button>
+          </Button>
        </div>
     </div>
   );

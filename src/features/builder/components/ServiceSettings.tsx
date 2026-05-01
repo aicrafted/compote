@@ -18,6 +18,7 @@ import { AdvancedYamlSection } from './sections/AdvancedYamlSection';
 import { ServiceResourceSection } from './ResourceSections';
 import { getExposedPorts } from '@/lib/core/ports';
 import { validateStack } from '@/lib/core/rules';
+import { Input } from '@/components/ui/input';
 
 interface ServiceSettingsProps {
    instanceId: string;
@@ -112,16 +113,14 @@ export function ServiceSettings({ instanceId, service }: ServiceSettingsProps) {
          <div className="space-y-6">
             <div className="space-y-1">
                <span className="text-[10px] text-muted-foreground/60 font-medium">Instance ID</span>
-               <div className="rounded-xl border border-border/60 bg-card/40 px-3 py-1.5">
-                  <input
-                     value={instanceIdDraft}
-                     onChange={(e) => setInstanceIdDraft(e.target.value.toLowerCase().replace(/[^a-z0-9_-]/g, ''))}
-                     onBlur={commitRename}
-                     onKeyDown={(e) => { if (e.key === 'Enter') e.currentTarget.blur(); if (e.key === 'Escape') setInstanceIdDraft(instanceId); }}
-                     className="w-full bg-transparent text-sm font-mono outline-none text-foreground/80"
-                     spellCheck={false}
-                  />
-               </div>
+               <Input
+                  value={instanceIdDraft}
+                  onChange={(e) => setInstanceIdDraft(e.target.value.toLowerCase().replace(/[^a-z0-9_-]/g, ''))}
+                  onBlur={commitRename}
+                  onKeyDown={(e) => { if (e.key === 'Enter') e.currentTarget.blur(); if (e.key === 'Escape') setInstanceIdDraft(instanceId); }}
+                  className="h-9 rounded-xl border-border/60 bg-card/40 font-mono text-sm text-foreground/80"
+                  spellCheck={false}
+               />
             </div>
             <ImageBuildSection
                image={service.image || effectiveSpec.image}

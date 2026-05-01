@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { BundleSpec, CatalogEntry, ServiceSpec } from '@/types';
 import { catalogRepository } from '@/lib/storage/CatalogRepository';
 import { CatalogRegistry } from './registry';
+import { isServerMode } from '@/lib/storage/driver';
 
 export * from './registry';
 
@@ -25,7 +26,7 @@ export function getCatalogCategories(item: Pick<CatalogEntry | ServiceSpec, 'cat
 }
 
 export function getCatalogIconUrl(entry: CatalogEntry): string | null {
-  if (entry.source === 'builtin') {
+  if (entry.source === 'builtin' || isServerMode) {
     const ext = entry.iconSVG ? 'svg' : 'png';
     return `/catalog/${entry.id}/icon.${ext}`;
   }
@@ -38,12 +39,33 @@ export function useCatalog() {
   const [bundles, setBundles] = useState<BundleSpec[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const reloadCatalog = useCallback(async () => {
+    const [builtinEntries, userServices] = await Promise.all([
+      catalogRepository.loadIndex(),
+      isServerMode ? Promise.resolve([]) : catalogRepository.getUserServices(),
+    ]);
+
+    builtinEntries.forEach((entry) => {
+      CatalogRegistry.cacheEntry(entry);
+    });
+    userServices.forEach((service) => {
+      CatalogRegistry.cacheService(service);
+    });
+    setEntries([...builtinEntries, ...userServices.map(toUserEntry)]);
+  }, []);
+
+  const reloadBundles = useCallback(async () => {
+    const loadedBundles = await catalogRepository.loadBundles();
+    CatalogRegistry.cacheBundles(loadedBundles);
+    setBundles(loadedBundles);
+  }, []);
+
   useEffect(() => {
     let mounted = true;
     async function load() {
       const [builtinEntries, userServices, loadedBundles] = await Promise.all([
         catalogRepository.loadIndex(),
-        catalogRepository.getUserServices(),
+        isServerMode ? Promise.resolve([]) : catalogRepository.getUserServices(),
         catalogRepository.loadBundles(),
       ]);
 
@@ -99,10 +121,31 @@ export function useCatalog() {
   }, []);
 
   const removeUserService = useCallback(async (id: string) => {
+    if (isServerMode) {
+      await catalogRepository.deleteServerService(id);
+      catalogRepository.invalidateIndex();
+      await reloadCatalog();
+      return;
+    }
     await catalogRepository.deleteUserService(id);
     CatalogRegistry.removeCachedService(id);
     setEntries((prev) => prev.filter((entry) => entry.id !== id));
-  }, []);
+  }, [reloadCatalog]);
+
+  const uploadServerService = useCallback(async (id: string, files: { metadata: File; compose: File; icon?: File }) => {
+    await catalogRepository.uploadServerService(id, files);
+    await reloadCatalog();
+  }, [reloadCatalog]);
+
+  const uploadServerBundle = useCallback(async (id: string, bundle: File) => {
+    await catalogRepository.uploadServerBundle(id, bundle);
+    await reloadBundles();
+  }, [reloadBundles]);
+
+  const removeServerBundle = useCallback(async (id: string) => {
+    await catalogRepository.deleteServerBundle(id);
+    await reloadBundles();
+  }, [reloadBundles]);
 
   return {
     entries,
@@ -112,6 +155,11 @@ export function useCatalog() {
     getSpec,
     addUserService,
     removeUserService,
+    uploadServerService,
+    uploadServerBundle,
+    removeServerBundle,
+    reloadCatalog,
+    reloadBundles,
     loading,
   };
 }
