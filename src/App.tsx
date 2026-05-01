@@ -5,6 +5,7 @@ import { HostListView } from '@/features/host/HostListView';
 import { BuilderView } from '@/features/builder/BuilderView';
 import { HostDetailView } from '@/features/host/HostDetailView';
 import { useHostStore } from '@/lib/store/useHostStore';
+import { AppErrorToaster } from '@/components/layout/AppErrorToaster';
 
 function App() {
   const { hosts, createHost, detectAndSetEnvironment, _hasHydrated } = useHostStore();
@@ -32,6 +33,7 @@ function App() {
           <Route path="/hosts/:hostId/:composeId" element={<BuilderView />} />
         </Routes>
       </AppLayout>
+      <AppErrorToaster />
     </div>
   );
 }

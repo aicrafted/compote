@@ -20,6 +20,7 @@ import { ServiceCatalogDialog } from './components/ServiceCatalogDialog';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { BundleLauncher } from '../host/components/BundleLauncher';
+import { useAppErrorStore } from '@/lib/errors/errorStore';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -34,6 +35,7 @@ import {
 export function BuilderView() {
    const { hostId, composeId } = useParams<{ hostId: string; composeId: string }>();
    const { config, activeInstanceId, isDirty, saveCompose, loadCompose } = useComposeStore();
+   const reportError = useAppErrorStore((state) => state.reportError);
    const { settings, hosts } = useHostStore();
    const { getSpec } = useCatalog();
    const [isBundleLauncherOpen, setIsBundleLauncherOpen] = useState(false);
@@ -238,9 +240,17 @@ export function BuilderView() {
                reader.onload = () => {
                  const content = reader.result as string;
                  if (content) {
-                   useComposeStore.getState().importYaml(content);
+                   try {
+                     useComposeStore.getState().importYaml(content);
+                   } catch (error) {
+                     reportError(error, { title: 'Could not import compose file' });
+                   }
                    e.target.value = '';
                  }
+               };
+               reader.onerror = () => {
+                 reportError(reader.error, { title: 'Could not read compose file' });
+                 e.target.value = '';
                };
                reader.readAsText(file);
              }
