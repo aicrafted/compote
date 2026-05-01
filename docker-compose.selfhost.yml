@@ -1,6 +1,6 @@
 services:
   compote:
-    image: ghcr.io/nik-sharky/compote:latest
+    image: ghcr.io/aicrafted/compote:latest
     ports:
       - "3000:3000"
     volumes:
