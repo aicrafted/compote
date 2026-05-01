@@ -1,0 +1,11 @@
+services:
+  compote:
+    image: ghcr.io/nik-sharky/compote:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - compote-data:/data
+    restart: unless-stopped
+
+volumes:
+  compote-data:

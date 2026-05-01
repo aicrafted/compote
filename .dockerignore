@@ -1,0 +1,7 @@
+.git
+dist
+node_modules
+tasks
+.docs
+.env*
+!.env.server
