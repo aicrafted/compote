@@ -29,7 +29,7 @@ Compote lets you build and manage Docker Compose setups through a point-and-clic
 
 ### Hosted (no setup)
 
-The app is available at **[compote.app](https://compote.app)** — runs entirely in the browser, data stays in local IndexedDB, no account required.
+The app is available at **[compote.aicrafted.org](https://compote.aicrafted.org)** — runs entirely in the browser, data stays in local IndexedDB, no account required.
 
 ### Self-host with Docker
 
