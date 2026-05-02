@@ -17,6 +17,14 @@ Compote lets you build and manage Docker Compose setups through a point-and-clic
 - **ZIP export** — download a bundle with `docker-compose.yml`, `.env`, and generated docs
 - **Serverless** — runs entirely in the browser; no backend, no account, all data stays in local IndexedDB
 
+## Screenshots
+
+### Host Management 
+![Host Management](docs/assets/screenshots/host.png)
+
+### Service Builder
+![Visual Service Builder](docs/assets/screenshots/service.png)
+
 ## Deployment
 
 ### Hosted (no setup)
