@@ -1,13 +1,13 @@
 # Compote — Compose Templater
 
-A browser-based visual editor for Docker Compose configurations. No backend, no sign-up — open the app and start building.
+Visual Docker Compose editor for building, validating, and exporting self-hosted infrastructure stacks.
+Compote is for homelab users, self-hosters, and DevOps engineers who want to build Docker Compose stacks visually, detect port/dependency conflicts, and export ready-to-deploy bundles.
 
 ## What it does
 
 Compote lets you build and manage Docker Compose setups through a point-and-click UI instead of hand-writing YAML. You organize services into Compose projects, and projects onto hosts (physical or virtual machines). When you're done, export a ready-to-deploy ZIP bundle with your `docker-compose.yml` and a generated README.
 
 **Key capabilities:**
-
 - **Validation** — real-time rule-based checks catch misconfigured services before you deploy
 - **Connectivity tracking** — detects port conflicts, missing network links, unresolved service dependencies, and cross-project collisions
 - **Visual service editor** — configure images, ports, volumes, environment variables, and `depends_on` through forms; see the rendered YAML in real time
@@ -16,6 +16,16 @@ Compote lets you build and manage Docker Compose setups through a point-and-clic
 - **README generation** — produces a Markdown README from your Compose file automatically
 - **ZIP export** — download a bundle with `docker-compose.yml`, `.env`, and generated docs
 - **Serverless** — runs entirely in the browser; no backend, no account, all data stays in local IndexedDB
+
+## Why Compote?
+- Avoid hand-writing repetitive Compose YAML
+- Catch port conflicts and missing dependencies before deployment
+- Build reusable service catalogs and stack presets
+- Export clean, ready-to-deploy Compose bundles
+- Works locally in the browser or self-hosted with SQLite
+
+## How is this different from Portainer / Komodo?
+Compote is not a runtime orchestrator. It focuses on planning, validating, templating, and exporting Docker Compose stacks before deployment.
 
 ## Screenshots
 
